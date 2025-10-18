@@ -1,0 +1,252 @@
+
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the InterviewPrep Pro platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "username": {
+          "type": "string",
+          "description": "The username chosen by the user."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the user account was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "username",
+        "createdAt"
+      ]
+    },
+    "Category": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Category",
+      "type": "object",
+      "description": "Represents a category of interview questions (e.g., Frontend, Backend, Java).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the category."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the category (e.g., Frontend)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the category."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description"
+      ]
+    },
+    "Question": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Question",
+      "type": "object",
+      "description": "Represents an interview question.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the question."
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Reference to Category. (Relationship: Category 1:N Question)"
+        },
+        "testId": {
+          "type": "number",
+          "description": "The test number this question belongs to (1-10)."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of question (e.g., MCQ, Subjective)."
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Difficulty of the question (e.g., easy, medium, hard, expert).",
+          "enum": ["easy", "medium", "hard", "expert"]
+        },
+        "text": {
+          "type": "string",
+          "description": "The actual question text."
+        },
+        "options": {
+          "type": "array",
+          "description": "Array of possible options for MCQ questions.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "correctAnswer": {
+          "type": "string",
+          "description": "The correct answer for the question (can be text or index of option)."
+        }
+      },
+      "required": [
+        "id",
+        "categoryId",
+        "testId",
+        "difficulty",
+        "type",
+        "text",
+        "correctAnswer"
+      ]
+    },
+    "UserProgress": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProgress",
+      "type": "object",
+      "description": "Represents a user's progress on a specific test session.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user progress entry."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N UserProgress)"
+        },
+        "categorySlug": {
+          "type": "string",
+          "description": "The slug of the category attempted."
+        },
+        "testId": {
+          "type": "string",
+          "description": "The ID of the test attempted."
+        },
+        "userAnswers": {
+          "type": "array",
+          "description": "Array of user's answers for the session.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "questionId": { "type": "number" },
+              "answer": { "type": "string" }
+            },
+            "required": ["questionId", "answer"]
+          }
+        },
+        "questions": {
+          "type": "array",
+          "description": "The set of questions in the attempted test.",
+          "items": {
+            "$ref": "#/entities/Question"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the test was completed.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "categorySlug",
+        "testId",
+        "userAnswers",
+        "questions",
+        "createdAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles. Uses path-based ownership for private user data.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/categories/{categoryId}",
+        "definition": {
+          "entityName": "Category",
+          "schema": {
+            "$ref": "#/backend/entities/Category"
+          },
+          "description": "Stores categories of interview questions. Accessible to all users.",
+          "params": [
+            {
+              "name": "categoryId",
+              "description": "The unique identifier for the category."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/questions/{questionId}",
+        "definition": {
+          "entityName": "Question",
+          "schema": {
+            "$ref": "#/backend/entities/Question"
+          },
+          "description": "Stores interview questions. Accessible to all users.",
+          "params": [
+            {
+              "name": "questionId",
+              "description": "The unique identifier for the question."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/progress/{progressId}",
+        "definition": {
+          "entityName": "UserProgress",
+          "schema": {
+            "$ref": "#/backend/entities/UserProgress"
+          },
+          "description": "Stores user progress for specific questions. Uses path-based ownership to ensure only the user can access their progress data.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "progressId",
+              "description": "The unique identifier for the user progress entry."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to ensure authorization independence, clarity, and scalability. User data is stored under `/users/{userId}`. Categories and Questions are stored in root-level collections `/categories` and `/questions` respectively, to allow easy listing and querying. User progress is stored under `/users/{userId}/progress/{progressId}`. This approach uses path-based ownership for user-specific data (progress), while leveraging root-level collections for global data (categories, questions). This design eliminates the need for `get()` calls in security rules, facilitating atomic operations and simplifying debugging. By segregating data with different access needs into distinct collections, the structure supports secure `list` operations (QAPs) and maintains a homogeneous security posture."
+  }
+}
+    

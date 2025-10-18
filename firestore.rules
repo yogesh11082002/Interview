@@ -1,0 +1,109 @@
+/**
+ * @fileoverview Firestore Security Rules for InterviewPrep Pro.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model for user profiles and progress data,
+ * while allowing public read access to categories and questions.
+ *
+ * Data Structure:
+ * - /users/{userId}: Stores user profiles, accessible only to the authenticated user with matching UID.
+ * - /categories/{categoryId}: Stores interview categories, publicly readable.
+ * - /questions/{questionId}: Stores interview questions, publicly readable.
+ * - /users/{userId}/progress/{progressId}: Stores user-specific progress data, accessible only to the owning user.
+ *
+ * Key Security Decisions:
+ * - Users can only access their own data.
+ * - Categories and questions are publicly readable but not writable via the client.
+ * - Listing of users is disallowed.
+ * - Strict validation is enforced to ensure data integrity.
+ *
+ * Denormalization for Authorization:
+ *  - UserProgress documents are stored under /users/{userId}/progress/{progressId} to easily enforce ownership using path-based rules, avoiding the need for get() calls to a separate user document.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Enforces access control for user profiles.
+     * @path /users/{userId}
+     * @allow (create) - User with UID 'user_abc' can create their profile at /users/user_abc if the document id matches the uid.
+     * @allow (get, update, delete) - User with UID 'user_abc' can get, update, or delete their profile at /users/user_abc.
+     * @deny (create) - User with UID 'user_xyz' cannot create a profile at /users/user_abc.
+     * @deny (get, update, delete) - User with UID 'user_xyz' cannot get, update, or delete the profile at /users/user_abc.
+     * @principle Enforces document ownership for all operations, ensuring only the user can manage their profile.
+     */
+    match /users/{userId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if false;
+
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Allows public read access to categories. Write access is not permitted through client-side rules.
+     * @path /categories/{categoryId}
+     * @allow (get, list) - Any user, authenticated or not, can read categories.
+     * @deny (create, update, delete) - No user can create, update, or delete categories through client-side rules.
+     * @principle Provides public read access while preventing unauthorized modifications.
+     */
+    match /categories/{categoryId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Allows public read access to questions. Write access is not permitted through client-side rules.
+     * @path /questions/{questionId}
+     * @allow (get, list) - Any user, authenticated or not, can read questions.
+     * @deny (create, update, delete) - No user can create, update, or delete questions through client-side rules.
+     * @principle Provides public read access while preventing unauthorized modifications.
+     */
+    match /questions/{questionId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Enforces access control for user progress data, restricting access to the owning user.
+     * @path /users/{userId}/progress/{progressId}
+     * @allow (create) - User with UID 'user_abc' can create progress data under /users/user_abc/progress/{progressId}.
+     * @allow (get, list, update, delete) - User with UID 'user_abc' can get, list, update, or delete progress data under /users/user_abc/progress/{progressId}.
+     * @deny (create) - User with UID 'user_xyz' cannot create progress data under /users/user_abc/progress/{progressId}.
+     * @deny (get, list, update, delete) - User with UID 'user_xyz' cannot get, list, update, or delete progress data under /users/user_abc/progress/{progressId}.
+     * @principle Enforces document ownership, ensuring only the user can manage their progress data.
+     */
+    match /users/{userId}/progress/{progressId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get, list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.userId == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(userId);
+    }
+  }
+}

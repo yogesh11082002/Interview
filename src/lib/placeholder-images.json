@@ -1,0 +1,94 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "Abstract technology background",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzYwNzMwOTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract technology"
+    },
+    {
+      "id": "frontend",
+      "description": "A developer working on a web application's user interface.",
+      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDE5ODJ8MHwxfGFsbHx8fHx8fHx8fDE2ODU4MDcyNzc&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "web development"
+    },
+    {
+      "id": "backend",
+      "description": "A server room with glowing lights, representing backend infrastructure.",
+      "imageUrl": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHw1fHxiYWNrZW5kJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzMwNTQwMDIyfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "backend infrastructure"
+    },
+    {
+      "id": "java",
+      "description": "Java code on a screen with a coffee cup.",
+      "imageUrl": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxqYXZhJTIwY29kZXxlbnwwfHx8fDE3NjA3NjgyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "java code"
+    },
+    {
+      "id": "python",
+      "description": "Python code on a dark screen, illustrating the language's syntax.",
+      "imageUrl": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDE5ODJ8MHwxfGFsbHx8fHx8fHx8fDE2ODU4MDcyNzk&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "python language"
+    },
+    {
+      "id": "mern",
+      "description": "Logos of MongoDB, Express, React, and Node.js on a circuit board background.",
+      "imageUrl": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDE5ODJ8MHwxfGFsbHx8fHx8fHx8fDE2ODU4MDcyODA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "web dev"
+    },
+    {
+      "id": "c-plus-plus",
+      "description": "C++ code on a computer screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDE5ODJ8MHwxfGFsbHx8fHx8fHx8fDE2ODU4MDc0MjM&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "c++ language"
+    },
+    {
+      "id": "full-stack",
+      "description": "A developer working with both front-end and back-end code.",
+      "imageUrl": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDE5ODJ8MHwxfGFsbHx8fHx8fHx8fDE2ODU4MDc0MjQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "full stack"
+    },
+    {
+      "id": "next-js",
+      "description": "The Next.js logo on a dark, abstract background representing server-side rendering and modern web architecture.",
+      "imageUrl": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxuZXh0anN8ZW58MHx8fHwxNzMwNTQwMDYxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "nextjs logo"
+    },
+    {
+      "id": "devops",
+      "description": "An abstract representation of DevOps pipelines and infrastructure.",
+      "imageUrl": "https://images.unsplash.com/photo-1573495627361-d9b87960b12d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZXZvcHN8ZW58MHx8fHwxNzIyNTQzMDI4fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "devops pipeline"
+    },
+    {
+      "id": "data-science",
+      "description": "Complex network graphs and data visualizations.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2NpZW5jZXxlbnwwfHx8fDE3MjI1NDMwNDZ8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "ai-ml",
+      "description": "A futuristic depiction of an artificial intelligence brain.",
+      "imageUrl": "https://images.unsplash.com/photo-1535223289827-42f1e9919769?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTcyMjU0MzA4MHww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "cloud-computing",
+      "description": "An abstract image of cloud servers and data centers.",
+      "imageUrl": "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbG91ZCUyMGNvbXB1dGluZ3xlbnwwfHx8fDE3MjI4OTI0NTV8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "cloud server"
+    },
+    {
+      "id": "mobile-development",
+      "description": "A person holding a smartphone showing code on the screen, representing mobile app development.",
+      "imageUrl": "https://images.unsplash.com/photo-1558655146-d09347e92766?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3MzA1NDAwOTR8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "cybersecurity",
+      "description": "A digital padlock symbolizing cybersecurity.",
+      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5fGVufDB8fHx8MTcyMjg5MjUzMnww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "cyber security"
+    }
+  ]
+}
