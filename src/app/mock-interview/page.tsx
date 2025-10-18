@@ -6,11 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { categories } from '@/lib/categories';
-import { startMockInterview, type MockInterviewInput } from '@/ai/flows/mock-interview-mode';
+import { startMockInterview, type MockInterviewInput, type MockInterviewOutput } from '@/ai/flows/mock-interview-mode';
 import { useToast } from '@/hooks/use-toast';
 import { useUser } from '@/firebase';
-import { Bot, Loader2, Mic, Play, Square } from 'lucide-react';
+import { Bot, Loader2, Mic, Play, Square, ChevronsUpDown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -35,8 +36,9 @@ const itemVariants = {
 export default function MockInterviewPage() {
   const [category, setCategory] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [interviewData, setInterviewData] = useState<MockInterviewOutput | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const { toast } = useToast();
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -67,8 +69,9 @@ export default function MockInterviewPage() {
     }
 
     setIsLoading(true);
-    setAudioUrl(null);
+    setInterviewData(null);
     setIsPlaying(false);
+    setIsAnswerOpen(false);
     if(audioRef.current) {
       audioRef.current.pause();
     }
@@ -77,10 +80,9 @@ export default function MockInterviewPage() {
       const input: MockInterviewInput = { category: category as MockInterviewInput['category'] };
       const result = await startMockInterview(input);
       
-      const newAudioUrl = result.audioDataUri;
-      setAudioUrl(newAudioUrl);
+      setInterviewData(result);
       
-      const audio = new Audio(newAudioUrl);
+      const audio = new Audio(result.audioDataUri);
       audioRef.current = audio;
       audio.play();
       audio.onplay = () => setIsPlaying(true);
@@ -175,18 +177,38 @@ export default function MockInterviewPage() {
               </Button>
             </motion.div>
             
-            {audioUrl && (
+            {interviewData && (
               <motion.div 
-                className="flex items-center justify-center p-4 border rounded-lg bg-muted/50"
+                className="space-y-4"
                 initial={{opacity: 0, y:10}}
                 animate={{opacity: 1, y: 0}}
               >
-                <Button onClick={togglePlayback} size="icon" variant="ghost" disabled={isLoading}>
-                    {isPlaying ? <Square className="h-6 w-6 text-accent" /> : <Play className="h-6 w-6" />}
-                </Button>
-                <div className="ml-4 text-sm text-muted-foreground">
-                    {isPlaying ? "AI is speaking..." : audioRef.current?.ended ? "Question finished." : "Ready to play question."}
+                <div className="flex items-center justify-center p-4 border rounded-lg bg-muted/50">
+                  <Button onClick={togglePlayback} size="icon" variant="ghost" disabled={isLoading}>
+                      {isPlaying ? <Square className="h-6 w-6 text-accent" /> : <Play className="h-6 w-6" />}
+                  </Button>
+                  <div className="ml-4 text-sm text-muted-foreground">
+                      {isPlaying ? "AI is speaking..." : audioRef.current?.ended ? "Question finished." : "Ready to play question."}
+                  </div>
                 </div>
+                
+                <Collapsible open={isAnswerOpen} onOpenChange={setIsAnswerOpen}>
+                  <CollapsibleTrigger asChild>
+                    <Button variant="outline" className="w-full">
+                      <ChevronsUpDown className="mr-2 h-4 w-4" />
+                      {isAnswerOpen ? 'Hide Answer' : 'Show Answer'}
+                    </Button>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <div className="p-4 mt-2 border rounded-lg bg-background">
+                      <h4 className="font-semibold mb-2">Question:</h4>
+                      <p className="text-muted-foreground mb-4">{interviewData.question}</p>
+                      <h4 className="font-semibold mb-2">Answer:</h4>
+                      <p className="text-muted-foreground whitespace-pre-wrap">{interviewData.answer}</p>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+
               </motion.div>
             )}
           </CardContent>

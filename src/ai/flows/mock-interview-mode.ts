@@ -20,6 +20,8 @@ const MockInterviewInputSchema = z.object({
 export type MockInterviewInput = z.infer<typeof MockInterviewInputSchema>;
 
 const MockInterviewOutputSchema = z.object({
+  question: z.string().describe('The interview question that was generated and spoken.'),
+  answer: z.string().describe('The correct answer to the generated question.'),
   audioDataUri: z.string().describe('The audio data URI containing the interview question.'),
 });
 
@@ -47,26 +49,33 @@ const toWav = async (pcmData: Buffer, channels = 1, rate = 24000, sampleWidth = 
   });
 };
 
-const generateQuestionTool = ai.defineTool({
-  name: 'generateQuestion',
-  description: 'Generates a single interview question for a given category.',
-  inputSchema: z.object({
-    category: InterviewCategorySchema.describe('The category of interview questions to generate.'),
-  }),
-  outputSchema: z.string().describe('The generated interview question.'),
-}, async (input) => {
-  const {category} = input;
-  const {text} = await ai.generate({
-    prompt: `Generate a single interview question for the category: ${category}.`,
-  });
-  return text!;
+const GeneratedQuestionSchema = z.object({
+    question: z.string().describe('The generated interview question.'),
+    answer: z.string().describe('A detailed, correct answer to the generated question.'),
 });
+
+const generateQuestionAndAnswerTool = ai.defineTool({
+    name: 'generateQuestionAndAnswer',
+    description: 'Generates a single interview question and its corresponding answer for a given category.',
+    inputSchema: z.object({
+      category: InterviewCategorySchema.describe('The category of interview questions to generate.'),
+    }),
+    outputSchema: GeneratedQuestionSchema,
+  }, async (input) => {
+    const { category } = input;
+    const { output } = await ai.generate({
+      prompt: `Generate a single, relevant interview question and a detailed, correct answer for the technical category: ${category}.`,
+      output: { schema: GeneratedQuestionSchema },
+    });
+    return output!;
+  });
+  
 
 const mockInterviewPrompt = ai.definePrompt({
   name: 'mockInterviewPrompt',
-  tools: [generateQuestionTool],
+  tools: [generateQuestionAndAnswerTool],
   input: {schema: MockInterviewInputSchema},
-  prompt: `You are an AI interviewer. Use the generateQuestion tool to generate a question based on the specified category.
+  prompt: `You are an AI interviewer. Use the generateQuestionAndAnswerTool to generate a question and answer based on the specified category.
 
 Category: {{{category}}}
 
@@ -83,8 +92,8 @@ const mockInterviewFlow = ai.defineFlow(
   async input => {
     const {category} = input;
 
-    // Call the generateQuestion tool to get a question.
-    const question = await generateQuestionTool({
+    // Call the tool to get a question and answer.
+    const { question, answer } = await generateQuestionAndAnswerTool({
       category: category,
     });
 
@@ -112,7 +121,7 @@ const mockInterviewFlow = ai.defineFlow(
 
     const audioDataUri = 'data:audio/wav;base64,' + (await toWav(audioBuffer));
 
-    return {audioDataUri};
+    return { question, answer, audioDataUri };
   }
 );
 
