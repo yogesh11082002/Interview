@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -10,8 +11,11 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import wav from 'wav';
+import { categories } from '@/lib/categories';
 
-const InterviewCategorySchema = z.enum(['Frontend', 'Backend', 'MERN', 'Java', 'Python']);
+// Dynamically create the enum from the categories library
+const categoryNames = categories.map(c => c.name) as [string, ...string[]];
+const InterviewCategorySchema = z.enum(categoryNames);
 
 const MockInterviewInputSchema = z.object({
   category: InterviewCategorySchema.describe('The category of interview questions.'),
