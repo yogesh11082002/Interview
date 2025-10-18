@@ -63,7 +63,7 @@ export default function Home() {
             alt={heroImage.description}
             fill
             priority
-            className="object-cover -z-10 opacity-10"
+            className="object-cover -z-10 opacity-20 blur-sm"
             data-ai-hint={heroImage.imageHint}
           />
         )}
