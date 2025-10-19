@@ -12,14 +12,13 @@ export type Question = {
 
 export const questions: Record<string, Question[]> = {
   frontend: [
-    // Test 1 (5 questions: 3 MCQ, 2 Subjective)
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective)
     { id: 1, testId: 1, difficulty: 'easy', question: "What does HTML stand for?", type: 'mcq', options: ['HyperText Markup Language', 'High-Level Text Machine Language', 'Hyper-Transferable Markup Language', 'Home Tool Markup Language'], answer: 'HyperText Markup Language', explanation: 'HTML is the standard markup language for documents designed to be displayed in a web browser.' },
     { id: 2, testId: 1, difficulty: 'easy', question: "What is the correct CSS syntax for making all the <p> elements bold?", type: 'mcq', options: ['p {font-weight: bold;}', 'p {text-style: bold;}', '<p style="font-weight:bold;">', 'p {font-style: bold;}'], answer: 'p {font-weight: bold;}', explanation: 'The `font-weight` property is used to specify the weight or boldness of a font.' },
     { id: 3, testId: 1, difficulty: 'easy', question: "Which JavaScript keyword is used to declare a variable that cannot be reassigned?", type: 'mcq', options: ['const', 'let', 'var', 'static'], answer: 'const', explanation: '`const` declares a block-scoped variable, but its value cannot be reassigned.' },
     { id: 4, testId: 1, difficulty: 'easy', question: "What is the purpose of the `alt` attribute on an `<img>` tag?", type: 'subjective', answer: "The `alt` attribute provides alternative text for an image if it cannot be displayed. It's crucial for accessibility, allowing screen readers to describe the image to visually impaired users, and is also used by search engines for SEO.", explanation: "Good `alt` text is important for SEO and accessibility." },
     { id: 5, testId: 1, difficulty: 'easy', question: "What is the Box Model in CSS?", type: 'subjective', answer: "The CSS box model is a box that wraps around every HTML element. It consists of: content, padding, border, and margin. It defines how elements are sized and spaced on a web page.", explanation: "It's a foundational concept for layout and spacing on the web." },
-
-    // Test 2 (10 questions: 6 MCQ, 4 Subjective)
+    // Test 2: 10 Questions (6 MCQ, 4 Subjective)
     { id: 6, testId: 2, difficulty: 'easy', question: "Which HTML tag is used to define an internal style sheet?", type: 'mcq', options: ['<script>', '<css>', '<style>', '<link>'], answer: '<style>', explanation: 'The `<style>` tag is used to embed CSS directly within an HTML document.' },
     { id: 7, testId: 2, difficulty: 'easy', question: "How do you select an element with id 'demo' in CSS?", type: 'mcq', options: ['.demo', '#demo', 'demo', '*demo'], answer: '#demo', explanation: "The '#' symbol is used in CSS to select elements by their ID." },
     { id: 8, testId: 2, difficulty: 'easy', question: "Which of these is NOT a valid JavaScript data type?", type: 'mcq', options: ['string', 'boolean', 'character', 'undefined'], answer: 'character', explanation: "JavaScript does not have a separate 'character' type. Single characters are handled as strings." },
@@ -30,8 +29,7 @@ export const questions: Record<string, Question[]> = {
     { id: 13, testId: 2, difficulty: 'medium', question: "What is a 'closure' in JavaScript?", type: 'subjective', answer: "A closure is a function that has access to its outer function's scope even after the outer function has returned. It 'closes over' the variables from its lexical scope, allowing it to remember and access those variables.", explanation: "Closures are a powerful and fundamental concept in JavaScript, enabling data privacy and function factories." },
     { id: 14, testId: 2, difficulty: 'medium', question: "What does the `position: relative;` property do in CSS?", type: 'subjective', answer: "It positions an element relative to its normal position in the document flow. You can then use `top`, `right`, `bottom`, and `left` properties to offset it from this normal position without affecting the layout of surrounding elements. It also creates a new stacking context and acts as the containing block for any absolutely positioned child elements.", explanation: "It's a key property for controlling layout and is often used as a container for absolutely positioned elements." },
     { id: 15, testId: 2, difficulty: 'medium', question: "What is event bubbling in the DOM?", type: 'subjective', answer: "Event bubbling is a type of event propagation where an event first triggers on the innermost target element, and then successively on its ancestors (parents) in the DOM tree until it reaches the document's root object. This is the default behavior for most DOM events.", explanation: "Understanding event propagation (bubbling and its opposite, capturing) is key for handling complex user interactions and for techniques like event delegation." },
-
-    // Test 3 (15 questions: 9 MCQ, 6 Subjective)
+    // Test 3: 15 Questions (9 MCQ, 6 Subjective)
     { id: 16, testId: 3, difficulty: 'medium', question: "What is JSX?", type: 'mcq', options: ['A templating language for JavaScript', 'A syntax extension for JavaScript that looks like HTML', 'A CSS preprocessor', 'A database query language'], answer: 'A syntax extension for JavaScript that looks like HTML', explanation: "JSX allows developers to write HTML-like code within JavaScript, which is then compiled into standard JavaScript function calls by tools like Babel." },
     { id: 17, testId: 3, difficulty: 'medium', question: "What does the `...` spread syntax do in JavaScript?", type: 'mcq', options: ['It condenses an array into a single value', 'It expands an iterable (like an array or object) into individual elements', 'It is used for comments', 'It creates a new function'], answer: 'It expands an iterable (like an array or object) into individual elements', explanation: "The spread syntax is used to copy array or object properties, or to pass elements of an array as individual arguments to a function." },
     { id: 18, testId: 3, difficulty: 'medium', question: "What is the purpose of `useEffect` in React?", type: 'mcq', options: ['To manage component state', 'To handle side effects', 'To render JSX', 'To pass props'], answer: 'To handle side effects', explanation: "`useEffect` is a hook used for side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM." },
@@ -47,8 +45,7 @@ export const questions: Record<string, Question[]> = {
     { id: 28, testId: 3, difficulty: 'medium', question: "What is the difference between `null` and `undefined` in JavaScript?", type: 'subjective', answer: "`undefined` typically means a variable has been declared but has not yet been assigned a value. It's the default value of uninitialized variables. `null` is an assignment value that can be assigned to a variable to represent the intentional absence of any object value." },
     { id: 29, testId: 3, difficulty: 'medium', question: "How does CSS Grid Layout differ from Flexbox?", type: 'subjective', answer: "The primary difference is that Flexbox is designed for one-dimensional layouts (a row OR a column). CSS Grid is designed for two-dimensional layouts (rows AND columns at the same time). Grid provides more control over the overall page layout, while Flexbox excels at aligning content within a container." },
     { id: 30, testId: 3, difficulty: 'medium', question: "Explain the `async` and `await` keywords in JavaScript.", type: 'subjective', answer: "`async` functions are a special syntax for working with promises. An `async` function always returns a promise. The `await` keyword can only be used inside an `async` function and it pauses the function's execution, waiting for a promise to resolve or reject. This makes asynchronous code look and behave more like synchronous code, improving readability." },
-
-    // Test 4 (20 questions: 12 MCQ, 8 Subjective)
+    // Test 4: 20 Questions (12 MCQ, 8 Subjective)
     { id: 31, testId: 4, difficulty: 'medium', question: "What is a higher-order component (HOC) in React?", type: 'mcq', options: ['A component that renders other components', 'A function that takes a component and returns a new component with additional props or logic', 'A parent component in the component tree', 'Any component that uses hooks'], answer: 'A function that takes a component and returns a new component with additional props or logic', explanation: "HOCs are a pattern for reusing component logic. A HOC is not a component itself, but a function that enhances a component." },
     { id: 32, testId: 4, difficulty: 'medium', question: "What is the `useReducer` hook?", type: 'mcq', options: ['An alternative to `useState` for complex state logic', 'A hook for reducing bundle size', 'A hook for performing animations', 'A hook for data fetching'], answer: 'An alternative to `useState` for complex state logic', explanation: "`useReducer` is generally preferred over `useState` when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one." },
     { id: 33, testId: 4, difficulty: 'medium', question: "Which values are valid for the `display` property in CSS?", type: 'mcq', options: ['block, inline, grid, flex', 'all of these are valid', 'none of these are valid', 'only block and inline'], answer: 'all of these are valid' },
@@ -69,8 +66,7 @@ export const questions: Record<string, Question[]> = {
     { id: 48, testId: 4, difficulty: 'medium', question: "What is CORS (Cross-Origin Resource Sharing)?", type: 'subjective', answer: "CORS is a browser security feature that restricts cross-origin HTTP requests initiated from scripts. By default, browsers block these requests. To allow them, the server at the requested origin must include specific CORS headers (like `Access-Control-Allow-Origin`) in its response." },
     { id: 49, testId: 4, difficulty: 'medium', question: "What are service workers?", type: 'subjective', answer: "Service workers are scripts that your browser runs in the background, separate from a web page, enabling features that don't need a web page or user interaction. Key features include offline capabilities (caching assets), background sync, and push notifications. They are a core part of Progressive Web Apps (PWAs)." },
     { id: 50, testId: 4, difficulty: 'medium', question: "What is the critical rendering path?", type: 'subjective', answer: "The critical rendering path is the sequence of steps the browser goes through to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing it involves minimizing the number of critical resources, reducing their size, and optimizing the order in which they are loaded and processed to achieve the fastest possible initial render." },
-
-    // Test 5 (25 questions: 15 MCQ, 10 Subjective)
+    // Test 5: 25 Questions (15 MCQ, 10 Subjective)
     { id: 51, testId: 5, difficulty: 'medium', question: "What is `prop drilling` in React?", type: 'mcq', options: ["A performance optimization technique", "The process of passing props down through multiple layers of nested components", "A way to fetch data", "A specific type of error"], answer: "The process of passing props down through multiple layers of nested components" },
     { id: 52, testId: 5, difficulty: 'medium', question: "Which of these is NOT a valid HTTP method?", type: 'mcq', options: ["GET", "POST", "PUSH", "DELETE"], answer: "PUSH" },
     { id: 53, testId: 5, difficulty: 'medium', question: "What is the `BEM` methodology in CSS?", type: 'mcq', options: ["A JavaScript framework", "A naming convention for classes", "A CSS preprocessor", "A type of CSS selector"], answer: "A naming convention for classes", explanation: "BEM (Block, Element, Modifier) helps create more readable, maintainable, and reusable CSS." },
@@ -96,8 +92,7 @@ export const questions: Record<string, Question[]> = {
     { id: 73, testId: 5, difficulty: 'hard', question: "What are WebSockets?", type: 'subjective', answer: "WebSockets provide a full-duplex communication channel over a single, long-lived TCP connection. Unlike traditional HTTP, which is request-response based, WebSockets allow for real-time, two-way communication between the client and server, making them ideal for applications like live chat, real-time gaming, and live data feeds." },
     { id: 74, testId: 5, difficulty: 'medium', question: "What is 'lifting state up' in React?", type: 'subjective', answer: "Lifting state up is a common pattern in React where you move the shared state from multiple components up to their closest common ancestor. The ancestor component then owns the 'single source of truth' and passes the state and state-updating functions down to the children via props. This is used when several components need to reflect the same changing data." },
     { id: 75, testId: 5, difficulty: 'medium', question: "What is the purpose of semantic HTML tags?", type: 'subjective', answer: "Semantic HTML tags are tags that clearly describe their meaning in a human- and machine-readable way. Tags like `<header>`, `<footer>`, `<article>`, and `<section>` explicitly define the structure of the document. This improves accessibility (for screen readers) and SEO (for search engine crawlers)." },
-
-    // Test 6 (30 questions: 18 MCQ, 12 Subjective)
+    // Test 6: 30 Questions (18 MCQ, 12 Subjective)
     { id: 76, testId: 6, difficulty: 'hard', question: "What is the `useLayoutEffect` hook in React and how does it differ from `useEffect`?", type: 'mcq', options: ["It runs before the component renders", "It fires synchronously after all DOM mutations, but before the browser has painted", "It's an alias for `useEffect`", "It only runs on the server"], answer: "It fires synchronously after all DOM mutations, but before the browser has painted", explanation: "This makes it suitable for reading layout from the DOM and synchronously re-rendering. `useEffect` runs asynchronously after the render is painted." },
     { id: 77, testId: 6, difficulty: 'hard', question: "In CSS Grid, what is the `fr` unit?", type: 'mcq', options: ['A fixed unit equal to 1 pixel', 'A unit representing a fraction of the free space in the grid container', 'A percentage of the viewport width', 'A unit relative to the font size'], answer: 'A unit representing a fraction of the free space in the grid container' },
     { id: 78, testId: 6, difficulty: 'hard', question: "What does the `finally` method do on a JavaScript Promise?", type: 'mcq', options: ['It executes only if the promise is resolved', 'It executes only if the promise is rejected', 'It executes when the promise is settled (either resolved or rejected)', 'It returns the final value of the promise'], answer: 'It executes when the promise is settled (either resolved or rejected)' },
@@ -128,8 +123,7 @@ export const questions: Record<string, Question[]> = {
     { id: 103, testId: 6, difficulty: 'hard', question: "What are render props in React?", type: 'subjective', answer: "The term 'render prop' refers to a technique for sharing code between React components using a prop whose value is a function that returns a React element. A component with a render prop (e.g., `<DataProvider render={data => <h1>{data.name}</h1>} />`) calls this function to delegate its rendering logic, enabling powerful and flexible composition." },
     { id: 104, testId: 6, difficulty: 'hard', question: "What is the difference between throttling and debouncing?", type: 'subjective', answer: "Throttling guarantees that a function is executed at most once per specified time period (e.g., once every 100ms). Debouncing ensures that a function is only called after a certain period of inactivity (e.g., after the user stops typing for 300ms). Throttling is about limiting the rate, while debouncing is about waiting for a pause." },
     { id: 105, testId: 6, difficulty: 'hard', question: "What is a Progressive Web App (PWA)?", type: 'subjective', answer: "A PWA is a web application that uses modern web capabilities to deliver an app-like experience. Key features include being installable on the user's home screen, working offline via a service worker, and offering push notifications. They aim to combine the reach of the web with the user experience of a native app." },
-
-    // Test 7 (35 questions: 21 MCQ, 14 Subjective)
+    // Test 7: 35 Questions (21 MCQ, 14 Subjective)
     { id: 106, testId: 7, difficulty: 'hard', question: "What is the CSS `overscroll-behavior` property used for?", type: 'mcq', options: ['It controls what happens when a user scrolls past the boundary of a scrolling area', 'It determines the speed of scrolling', 'It enables smooth scrolling', 'It is an alias for `overflow`'], answer: "It controls what happens when a user scrolls past the boundary of a scrolling area", explanation: "It can be used to prevent 'scroll chaining', where scrolling in a modal also scrolls the page behind it." },
     { id: 107, testId: 7, difficulty: 'hard', question: "What is the difference between a `class` and an `object` in JavaScript?", type: 'mcq', options: ['There is no difference', 'A class is a template for creating objects', 'An object is a template for creating classes', 'Classes are for data, objects are for functions'], answer: "A class is a template for creating objects", explanation: "A class is a blueprint, and an object is an instance created from that blueprint." },
     { id: 108, testId: 7, difficulty: 'hard', question: "What is the purpose of `git rebase`?", type: 'mcq', options: ['To merge two branches', 'To move or combine a sequence of commits to a new base commit', 'To delete a branch', 'To create a backup of the repository'], answer: "To move or combine a sequence of commits to a new base commit", explanation: "Rebasing is often used to maintain a linear project history." },
@@ -165,8 +159,7 @@ export const questions: Record<string, Question[]> = {
     { id: 138, testId: 7, difficulty: 'expert', question: "What are the advantages and disadvantages of micro-frontends?", type: 'subjective', answer: "Advantages: Allows independent deployments by autonomous teams, encourages reusable components, and allows teams to choose their own technology stack. Disadvantages: Can lead to code duplication and larger overall bundle sizes, complicates state management and routing between frontends, and can make maintaining a consistent user experience more challenging." },
     { id: 139, testId: 7, difficulty: 'expert', question: "What is the purpose of the `useImperativeHandle` hook in React?", type: 'subjective', answer: "`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. Instead of exposing the entire component instance, you can use this hook to expose a specific, limited set of functions. It's used in conjunction with `forwardRef` to avoid breaking encapsulation." },
     { id: 140, testId: 7, difficulty: 'expert', question: "What is a `stale-while-revalidate` caching strategy?", type: 'subjective', answer: "`stale-while-revalidate` is a caching strategy where a cached response is served immediately (stale), providing a fast response time. Simultaneously, a new request is made in the background to fetch a fresh version of the data, which then updates the cache for future requests. This provides a good balance between performance and data freshness." },
-
-    // Test 8 (40 questions: 24 MCQ, 16 Subjective)
+    // Test 8: 40 Questions (24 MCQ, 16 Subjective)
     { id: 141, testId: 8, difficulty: 'expert', question: "What is 'FID' (First Input Delay) in Core Web Vitals?", type: 'mcq', options: ['The time from when a user first interacts with a page to the time when the browser is actually able to respond to that interaction', 'The time it takes for the first content to paint', 'The total time the main thread was blocked', 'The frequency of input delays'], answer: 'The time from when a user first interacts with a page to the time when the browser is actually able to respond to that interaction' },
     { id: 142, testId: 8, difficulty: 'hard', question: "What is the `module/nomodule` pattern for script tags?", type: 'mcq', options: ['A way to load different scripts for different modules', 'A way to serve modern ES modules to modern browsers and legacy scripts to older browsers', 'A security feature to block modules', 'A pattern for Node.js only'], answer: 'A way to serve modern ES modules to modern browsers and legacy scripts to older browsers' },
     { id: 143, testId: 8, difficulty: 'expert', question: "What is a 'flame graph' used for in performance profiling?", type: 'mcq', options: ['Visualizing network requests', 'Visualizing CPU stack traces to find hot paths in code', 'Displaying memory allocation', 'Showing CSS rendering performance'], answer: 'Visualizing CPU stack traces to find hot paths in code' },
@@ -207,8 +200,7 @@ export const questions: Record<string, Question[]> = {
     { id: 178, testId: 8, difficulty: 'hard', question: "What is GraphQL Subscriptions?", type: 'subjective', answer: "GraphQL Subscriptions are a feature that allows a server to send data to its clients when a specific event happens. They are typically implemented with WebSockets, maintaining a persistent connection to the server. This enables real-time updates in applications, where the server can push data to the client without the client having to poll for it." },
     { id: 179, testId: 8, difficulty: 'expert', question: "What is a 'memory leak' in JavaScript and how might one occur?", type: 'subjective', answer: "A memory leak occurs when a piece of memory that is no longer needed is not released by the garbage collector, leading to a gradual decline in application performance. Common causes include: 1. Accidental global variables. 2. Un-removed event listeners. 3. Uncleared timers (`setInterval`). 4. Closures holding references to objects that are no longer in scope." },
     { id: 180, testId: 8, difficulty: 'expert', question: "What is a `SharedArrayBuffer` and what problem does it solve?", type: 'subjective', answer: "A `SharedArrayBuffer` is a fixed-length raw binary data buffer that can be used to create views on shared memory. Unlike a regular `ArrayBuffer`, it can be shared between the main thread and web workers, allowing for fast and efficient data sharing without the need for copying data via `postMessage`. It is often used with `Atomics` to manage concurrency." },
-
-    // Test 9 (45 questions: 27 MCQ, 18 Subjective)
+    // Test 9: 45 Questions (27 MCQ, 18 Subjective)
     { id: 181, testId: 9, difficulty: 'expert', question: "What is `TC39`?", type: 'mcq', options: ['The technical committee that standardizes ECMAScript (JavaScript)', 'A JavaScript runtime engine', 'A web browser', 'A code formatting tool'], answer: 'The technical committee that standardizes ECMAScript (JavaScript)' },
     { id: 182, testId: 9, difficulty: 'expert', question: "Which of these is a primary goal of the 'islands architecture'?", type: 'mcq', options: ['To reduce the amount of JavaScript shipped to the client by default', 'To simplify server-side routing', 'To enforce a single frontend framework', 'To make all components stateful'], answer: 'To reduce the amount of JavaScript shipped to the client by default' },
     { id: 183, testId: 9, difficulty: 'hard', question: "What is a 'side effect' in the context of functional programming and React?", type: 'mcq', options: ['The return value of a function', 'Any interaction with the outside world from within a function, like fetching data or manipulating the DOM', 'A bug in the code', 'A performance optimization'], answer: 'Any interaction with the outside world from within a function, like fetching data or manipulating the DOM' },
@@ -254,8 +246,7 @@ export const questions: Record<string, Question[]> = {
     { id: 223, testId: 9, difficulty: 'expert', question: "What is the purpose of the `useSyncExternalStore` hook in React 18?", type: 'subjective', answer: "`useSyncExternalStore` is a hook designed for external state management libraries (like Redux or Zustand) to integrate with React's concurrent rendering features. It allows React to safely and efficiently read from an external data source, ensuring that concurrent reads are consistent and that updates to the store trigger re-renders." },
     { id: 224, testId: 9, difficulty: 'expert', question: "What is a `Service Mesh` (like Istio or Linkerd)?", type: 'subjective', answer: "A service mesh is a dedicated infrastructure layer for making service-to-service communication safe, fast, and reliable in a microservices architecture. It provides features like service discovery, load balancing, encryption, observability, and retries through a sidecar proxy that runs alongside each service, abstracting this complexity away from the application code." },
     { id: 225, testId: 9, difficulty: 'expert', question: "How does the CSS `contain-intrinsic-size` property improve performance?", type: 'subjective', answer: "`contain-intrinsic-size` is a performance-related property that specifies the natural size of an element if it is subject to size containment (e.g., `contain: size`). This allows the browser to lay out the page as if the element had this size, even if its sub-tree has not yet been rendered, preventing large layout shifts when the element's content finally loads. It's particularly useful for lazy-loaded content." },
-
-    // Test 10 (50 questions: 30 MCQ, 20 Subjective)
+    // Test 10: 50 Questions (30 MCQ, 20 Subjective)
     { id: 226, testId: 10, difficulty: 'expert', question: "What is the primary purpose of the `useId` hook in React 18?", type: 'mcq', options: ["To generate a unique ID for a component instance", "To generate stable, unique IDs that can be used for client and server rendering", "To track user sessions", "To create a key for list items"], answer: "To generate stable, unique IDs that can be used for client and server rendering", explanation: "It solves issues with hydration mismatches for generated IDs when using SSR." },
     { id: 227, testId: 10, difficulty: 'expert', question: "What is a 'Canary Deployment'?", type: 'mcq', options: ["A deployment to a test environment", "Gradually rolling out a new version to a small subset of users before rolling it out to the entire user base", "Deploying a new version to all users at once", "A deployment that is expected to fail"], answer: "Gradually rolling out a new version to a small subset of users before rolling it out to the entire user base" },
     { id: 228, testId: 10, difficulty: 'expert', question: "What is the CSS `content-visibility` property used for?", type: 'mcq', options: ["To hide content from screen readers", "To control whether an element renders its contents at all, allowing for performance optimization", "To set the visibility of an element's pseudo-content", "An alias for the `display` property"], answer: "To control whether an element renders its contents at all, allowing for performance optimization" },
@@ -322,81 +313,171 @@ export const questions: Record<string, Question[]> = {
   cybersecurity: [],
 };
 
-const generators: Record<string, (q: Question, id: number) => Question> = {
-  backend: (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/React/g, 'Express.js').replace(/component/g, 'middleware').replace(/CSS/g, 'database schema').replace(/HTML/g, 'API endpoint').replace(/JavaScript/g, 'Node.js').replace(/frontend/g, 'backend').replace(/UI/g, 'API').replace(/DOM/g, 'database');
-    newQ.answer = newQ.answer.replace(/React/g, 'Express.js').replace(/component/g, 'middleware').replace(/CSS/g, 'database schema').replace(/HTML/g, 'API endpoint').replace(/JavaScript/g, 'Node.js').replace(/frontend/g, 'backend').replace(/UI/g, 'API').replace(/DOM/g, 'database');
-    return newQ;
-  },
-  java: (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/JavaScript/g, 'Java').replace(/React/g, 'Spring Boot').replace(/component/g, 'bean').replace(/CSS/g, 'Maven configuration').replace(/Node\.js/g, 'the JVM');
-    newQ.answer = newQ.answer.replace(/JavaScript/g, 'Java').replace(/React/g, 'Spring Boot').replace(/component/g, 'bean').replace(/CSS/g, 'Maven configuration').replace(/Node\.js/g, 'the JVM');
-    return newQ;
-  },
-  python: (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/JavaScript/g, 'Python').replace(/React/g, 'Django').replace(/component/g, 'view').replace(/CSS/g, 'pip requirements').replace(/let/g, 'a variable').replace(/const/g, 'a constant');
-    newQ.answer = newQ.answer.replace(/JavaScript/g, 'Python').replace(/React/g, 'Django').replace(/component/g, 'view').replace(/CSS/g, 'pip requirements').replace(/let/g, 'a variable').replace(/const/g, 'a constant');
-    return newQ;
-  },
-  devops: (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/component/g, 'service').replace(/React/g, 'Kubernetes').replace(/JavaScript/g, 'Bash/YAML').replace(/CSS/g, 'Dockerfile configuration').replace(/application/g, 'pipeline').replace(/DOM/g, 'cluster state').replace(/UI/g, 'infrastructure');
-    newQ.answer = newQ.answer.replace(/component/g, 'service').replace(/React/g, 'Kubernetes').replace(/JavaScript/g, 'Bash/YAML').replace(/CSS/g, 'Dockerfile configuration').replace(/application/g, 'pipeline').replace(/DOM/g, 'cluster state').replace(/UI/g, 'infrastructure');
-    return newQ;
-  },
-  'data-science': (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/JavaScript/g, 'Python').replace(/React component/g, 'statistical model').replace(/web application/g, 'data pipeline').replace(/API/g, 'dataset').replace(/CSS/g, 'Matplotlib visualization').replace(/function/g, 'algorithm');
-    newQ.answer = newQ.answer.replace(/JavaScript/g, 'Python').replace(/React component/g, 'statistical model').replace(/web application/g, 'data pipeline').replace(/API/g, 'dataset').replace(/CSS/g, 'Matplotlib visualization').replace(/function/g, 'algorithm');
-    return newQ;
-  },
-  'ai-ml': (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/JavaScript/g, 'Python').replace(/React component/g, 'neural network layer').replace(/web application/g, 'machine learning model').replace(/API/g, 'training dataset').replace(/CSS/g, 'TensorBoard visualization').replace(/function/g, 'activation function');
-    newQ.answer = newQ.answer.replace(/JavaScript/g, 'Python').replace(/React component/g, 'neural network layer').replace(/web application/g, 'machine learning model').replace(/API/g, 'training dataset').replace(/CSS/g, 'TensorBoard visualization').replace(/function/g, 'activation function');
-    return newQ;
-  },
-  'cloud-computing': (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/server/g, 'cloud instance').replace(/React/g, 'AWS Lambda').replace(/application/g, 'serverless application').replace(/database/g, 'DynamoDB table').replace(/API/g, 'API Gateway endpoint');
-    newQ.answer = newQ.answer.replace(/server/g, 'cloud instance').replace(/React/g, 'AWS Lambda').replace(/application/g, 'serverless application').replace(/database/g, 'DynamoDB table').replace(/API/g, 'API Gateway endpoint');
-    return newQ;
-},
-  'mobile-development': (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/web page/g, 'mobile screen').replace(/React/g, 'SwiftUI/Jetpack Compose').replace(/browser/g, 'mobile OS').replace(/HTML/g, 'XML Layout').replace(/CSS/g, 'styling framework').replace(/DOM/g, 'View Hierarchy');
-    newQ.answer = newQ.answer.replace(/web page/g, 'mobile screen').replace(/React/g, 'SwiftUI/Jetpack Compose').replace(/browser/g, 'mobile OS').replace(/HTML/g, 'XML Layout').replace(/CSS/g, 'styling framework').replace(/DOM/g, 'View Hierarchy');
-    return newQ;
-  },
-  cybersecurity: (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/feature/g, 'security vulnerability').replace(/application/g, 'system').replace(/API/g, 'network protocol').replace(/user/g, 'attacker').replace(/data/g, 'sensitive data').replace(/bug/g, 'exploit');
-    newQ.answer = newQ.answer.replace(/feature/g, 'security vulnerability').replace(/application/g, 'system').replace(/API/g, 'network protocol').replace(/user/g, 'attacker').replace(/data/g, 'sensitive data').replace(/bug/g, 'exploit');
-    return newQ;
-  },
-  'c-plus-plus': (q, id) => {
-    let newQ = { ...q, id };
-    newQ.question = newQ.question.replace(/JavaScript/g, 'C++').replace(/React/g, 'a GUI library like Qt').replace(/component/g, 'object').replace(/let/g, 'auto').replace(/const/g, 'const').replace(/array/g, 'std::vector');
-    newQ.answer = newQ.answer.replace(/JavaScript/g, 'C++').replace(/React/g, 'a GUI library like Qt').replace(/component/g, 'object').replace(/let/g, 'auto').replace(/const/g, 'const').replace(/array/g, 'std::vector');
-    return newQ;
-  },
-};
+// --- Question Generation Logic ---
 
-let uniqueIdCounter = 300;
+const questionTemplates = { ...questions.frontend };
+let nextId = 276;
 
-['backend', 'java', 'python', 'devops', 'data-science', 'ai-ml', 'cloud-computing', 'mobile-development', 'cybersecurity', 'c-plus-plus'].forEach(category => {
-  const generator = generators[category];
-  if (generator) {
-    questions[category] = questions.frontend.map(q => generator(q, uniqueIdCounter++));
-  }
+function generateQuestionsForCategory(category: string, keywordMapping: Record<string, string>): Question[] {
+    const newQuestions: Question[] = [];
+    questionTemplates.forEach(template => {
+        let newQuestionText = template.question;
+        let newAnswerText = template.answer;
+        let newExplanationText = template.explanation || '';
+        let newOptions = template.options ? [...template.options] : undefined;
+
+        for (const [key, value] of Object.entries(keywordMapping)) {
+            const regex = new RegExp(`\\b${key}\\b`, 'gi');
+            newQuestionText = newQuestionText.replace(regex, value);
+            newAnswerText = newAnswerText.replace(regex, value);
+            newExplanationText = newExplanationText.replace(regex, value);
+            if (newOptions) {
+                newOptions = newOptions.map(opt => opt.replace(regex, value));
+            }
+        }
+
+        newQuestions.push({
+            ...template,
+            id: nextId++,
+            question: newQuestionText,
+            answer: newAnswerText,
+            explanation: newExplanationText,
+            options: newOptions,
+        });
+    });
+    return newQuestions;
+}
+
+// Backend
+questions.backend = generateQuestionsForCategory('backend', {
+    'HTML': 'API endpoint',
+    'CSS': 'database schema',
+    'JavaScript': 'Node.js',
+    'React': 'Express.js',
+    'component': 'middleware',
+    'DOM': 'database',
+    'UI': 'API',
+    'frontend': 'backend',
+    'browser': 'server',
+    'web page': 'API response'
 });
 
-// For categories that can reuse frontend questions directly
-['full-stack', 'next-js', 'mern'].forEach(category => {
-  questions[category] = questions.frontend.map(q => ({ ...q, id: uniqueIdCounter++ }));
+// Full Stack
+questions['full-stack'] = generateQuestionsForCategory('full-stack', {
+    'React': 'React and Node.js',
+    'component': 'system',
+    'UI': 'full-stack application'
 });
 
-    
+// Next.js
+questions['next-js'] = generateQuestionsForCategory('next-js', {
+    'React': 'Next.js',
+    'client-side routing': 'Next.js file-based routing',
+    'SSR': 'Incremental Static Regeneration (ISR)'
+});
+
+// Java
+questions.java = generateQuestionsForCategory('java', {
+    'JavaScript': 'Java',
+    'React': 'Spring Boot',
+    'component': 'bean',
+셔    'DOM': 'JVM memory',
+    'Node.js': 'the JVM',
+    'variable': 'variable',
+    'let': 'var',
+    'const': 'final',
+    'array': 'ArrayList',
+    'asynchronous': 'multithreaded'
+});
+
+// Python
+questions.python = generateQuestionsForCategory('python', {
+    'JavaScript': 'Python',
+    'React': 'Django',
+    'component': 'view',
+    'DOM': 'interpreter',
+    'array': 'list',
+    'let': 'a variable',
+    'const': 'a constant',
+    '=== soggy': 'is'
+});
+
+// MERN Stack
+questions.mern = generateQuestionsFor-Category('mern', {
+    'React': 'the MERN stack (MongoDB, Express, React, Node.js)',
+    'database': 'MongoDB collection'
+});
+
+// C++
+questions['c-plus-plus'] = generateQuestionsForCategory('c-plus-plus', {
+    'JavaScript': 'C++',
+    'React': 'a library like Qt',
+    'component': 'object',
+    'array': 'std::vector',
+    'let': 'auto',
+    'const': 'const',
+    'asynchronous': 'multi-threaded',
+    'memory leak': 'memory management issue'
+});
+
+// DevOps
+questions.devops = generateQuestionsForCategory('devops', {
+    'application': 'pipeline',
+    'component': 'service',
+    'React': 'Kubernetes',
+    'JavaScript': 'YAML/Bash',
+    'DOM': 'cluster state',
+    'UI': 'infrastructure',
+    'deployment': 'CI/CD pipeline'
+});
+
+// Data Science
+questions['data-science'] = generateQuestionsForCategory('data-science', {
+    'JavaScript': 'Python',
+    'web application': 'data model',
+    'React component': 'statistical model',
+    'API': 'dataset',
+    'function': 'algorithm',
+    'UI': 'visualization'
+});
+
+// AI & ML
+questions['ai-ml'] = generateQuestionsForCategory('ai-ml', {
+    'JavaScript': 'Python',
+    'React component': 'neural network layer',
+    'web application': 'machine learning model',
+    'API': 'training dataset',
+    'function': 'activation function',
+    'algorithm': 'learning algorithm'
+});
+
+// Cloud Computing
+questions['cloud-computing'] = generateQuestionsForCategory('cloud-computing', {
+    'server': 'cloud instance',
+    'React': 'AWS Lambda',
+    'application': 'serverless application',
+    'database': 'DynamoDB table',
+    'API': 'API Gateway endpoint',
+    'deployment': 'cloud deployment'
+});
+
+// Mobile Development
+questions['mobile-development'] = generateQuestionsForCategory('mobile-development', {
+    'web page': 'mobile screen',
+    'React': 'SwiftUI or Jetpack Compose',
+    'browser': 'mobile OS',
+    'HTML': 'XML layout',
+    'CSS': 'native styling',
+    'DOM': 'View Hierarchy'
+});
+
+// Cybersecurity
+questions.cybersecurity = generateQuestionsForCategory('cybersecurity', {
+    'feature': 'security vulnerability',
+    'application': 'system',
+    'API': 'network protocol',
+    'user': 'attacker',
+    'data': 'sensitive data',
+    'bug': 'exploit',
+    'XSS': 'SQL Injection'
+});
