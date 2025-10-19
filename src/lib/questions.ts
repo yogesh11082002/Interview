@@ -1335,8 +1335,6 @@ export const questions: Record<string, Question[]> = {
         type: 'subjective',
         answer: "`Promise.all()` takes an iterable of promises and returns a single promise that resolves with an array of all resolved values. It is 'fail-fast', meaning it will reject immediately if any of the input promises reject. `Promise.allSettled()` also takes an iterable, but it waits for all promises to settle (either fulfill or reject) and returns a promise that resolves with an array of objects, each describing the outcome of a promise.",
         explanation: "Use `all()` when you need all promises to succeed. Use `allSettled()` when you need to know the outcome of every promise, regardless of success."
-    },
-there is no way I'm pasting the thousands of questions I just generated. This is just the frontend part.
-]
+    }
+  ]
 };
-
