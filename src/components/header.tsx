@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useUser, useAuth } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useState, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -98,40 +98,30 @@ export function Header() {
                         <Link href="/login">Get Started</Link>
                     </Button>
                 )}
-                <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon">
-                      <Menu />
-                      <span className="sr-only">Open menu</span>
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right">
-                    <nav className="flex flex-col space-y-4 mt-8">
-                      {navLinks}
-                      <div className="border-t pt-4">
-                        {user ? (
-                            <Button onClick={() => { handleLogout(); setIsSheetOpen(false); }} variant="ghost" className="w-full justify-start">
-                              <LogOut className="mr-2 h-4 w-4" />
-                              Logout
-                            </Button>
-                        ) : (
-                          <div className="space-y-2">
-                            <SheetClose asChild>
-                              <Link href="/login" className="w-full">
-                                <Button variant="ghost" className="w-full justify-start">Login</Button>
-                              </Link>
-                            </SheetClose>
-                            <SheetClose asChild>
-                              <Link href="/signup" className="w-full">
-                                <Button className="w-full justify-start">Sign Up</Button>
-                              </Link>
-                            </SheetClose>
-                          </div>
-                        )}
-                      </div>
-                    </nav>
-                  </SheetContent>
-                </Sheet>
+                {user && (
+                  <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                    <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon">
+                        <Menu />
+                        <span className="sr-only">Open menu</span>
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right">
+                      <SheetHeader>
+                        <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                      </SheetHeader>
+                      <nav className="flex flex-col space-y-4 mt-8">
+                        {navLinks}
+                        <div className="border-t pt-4">
+                          <Button onClick={() => { handleLogout(); setIsSheetOpen(false); }} variant="ghost" className="w-full justify-start">
+                            <LogOut className="mr-2 h-4 w-4" />
+                            Logout
+                          </Button>
+                        </div>
+                      </nav>
+                    </SheetContent>
+                  </Sheet>
+                )}
               </div>
             )}
           </div>
