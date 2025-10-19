@@ -47,7 +47,8 @@ export default function Home() {
   const { user, isUserLoading } = useUser();
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
   const featuredCategories = categories.slice(0, 8);
-  const prepareLink = user ? '/prepare' : '/login';
+  const ctaLink = user ? '/prepare' : '/login';
+  const ctaText = user ? 'Start Preparing Now' : 'Get Started';
 
   return (
     <div className="flex flex-col">
@@ -87,9 +88,9 @@ export default function Home() {
               AI-powered interview prep for developers. Practice with real questions, get instant feedback, and ace your next interview.
             </motion.p>
             <motion.div variants={itemVariants}>
-              <Link href={prepareLink}>
+              <Link href={ctaLink}>
                 <Button size="lg" className="font-bold">
-                  Start Preparing Now <ArrowRight className="ml-2" />
+                  {ctaText} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
             </motion.div>
@@ -171,7 +172,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Link href={prepareLink}>
+            <Link href={ctaLink}>
               <Button variant="outline" size="lg">Show All Categories</Button>
             </Link>
           </motion.div>

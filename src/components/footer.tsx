@@ -22,21 +22,23 @@ export function Footer() {
               <span className="text-muted-foreground ml-2">Loved by creators</span>
             </div>
           </div>
-          <div>
-            <h3 className="font-headline font-semibold mb-4">Quick Links</h3>
-            <nav className="flex flex-col space-y-2">
-              <Link href="/prepare" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Prepare</Link>
-              <Link href="/mock-interview" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Mock Interview</Link>
-              <Link href="/review" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Review History</Link>
-            </nav>
-          </div>
-           <div>
-            <h3 className="font-headline font-semibold mb-4">Company</h3>
-            <nav className="flex flex-col space-y-2">
-              <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About Us</Link>
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
-            </nav>
+          <div className="grid grid-cols-2 gap-8 md:col-span-2">
+            <div>
+              <h3 className="font-headline font-semibold mb-4">Quick Links</h3>
+              <nav className="flex flex-col space-y-2">
+                <Link href="/prepare" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Prepare</Link>
+                <Link href="/mock-interview" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Mock Interview</Link>
+                <Link href="/review" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Review History</Link>
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-headline font-semibold mb-4">Company</h3>
+              <nav className="flex flex-col space-y-2">
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About Us</Link>
+                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+              </nav>
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t pt-4 text-center">
