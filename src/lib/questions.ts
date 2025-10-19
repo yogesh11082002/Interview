@@ -1,5 +1,4 @@
 
-
 export type Question = {
   id: number;
   question: string;
@@ -314,55 +313,57 @@ export const questions: Record<string, Question[]> = {
   cybersecurity: [],
 };
 
-const questionCategories = [
+const allCategories = [
   'backend', 'full-stack', 'next-js', 'java', 'python', 'mern', 'c-plus-plus',
   'devops', 'data-science', 'ai-ml', 'cloud-computing', 'mobile-development', 'cybersecurity'
 ];
 
-let currentId = 276;
+const testQuestionCounts = [
+    { testId: 1, count: 5 },
+    { testId: 2, count: 10 },
+    { testId: 3, count: 15 },
+    { testId: 4, count: 20 },
+    { testId: 5, count: 25 },
+    { testId: 6, count: 30 },
+    { testId: 7, count: 35 },
+    { testId: 8, count: 40 },
+    { testId: 9, count: 45 },
+    { testId: 10, count: 50 },
+];
 
-questionCategories.forEach(category => {
-  for (let testId = 1; testId <= 10; testId++) {
-    let questionCount = 0;
-    if (testId === 1) questionCount = 5;
-    else if (testId === 2) questionCount = 10;
-    else if (testId === 3) questionCount = 15;
-    else if (testId === 4) questionCount = 20;
-    else if (testId === 5) questionCount = 25;
-    else if (testId === 6) questionCount = 30;
-    else if (testId === 7) questionCount = 35;
-    else if (testId === 8) questionCount = 40;
-    else if (testId === 9) questionCount = 45;
-    else if (testId === 10) questionCount = 50;
+const difficultyLevels: Array<'easy' | 'medium' | 'hard' | 'expert'> = ['easy', 'medium', 'hard', 'expert'];
 
-    const mcqCount = Math.ceil(questionCount * 0.6);
-    const subjectiveCount = questionCount - mcqCount;
+let questionIdCounter = 276; 
 
-    for (let i = 0; i < mcqCount; i++) {
-      questions[category].push({
-        id: currentId++,
-        testId: testId,
-        difficulty: 'medium',
-        question: `This is a placeholder MCQ for ${category} Test ${testId}. Question ${i + 1}.`,
-        type: 'mcq',
-        options: ['Option A', 'Option B', 'Option C', 'Correct Answer'],
-        answer: 'Correct Answer',
-        explanation: `This is a placeholder explanation for a ${category} question.`
-      });
-    }
+allCategories.forEach(category => {
+    testQuestionCounts.forEach(({ testId, count }) => {
+        const mcqCount = Math.round(count * 0.6);
+        const subjectiveCount = count - mcqCount;
+        const difficulty = difficultyLevels[Math.min(Math.floor((testId - 1)/2.5), 3)];
 
-    for (let i = 0; i < subjectiveCount; i++) {
-      questions[category].push({
-        id: currentId++,
-        testId: testId,
-        difficulty: 'medium',
-        question: `This is a placeholder Subjective question for ${category} Test ${testId}. Question ${i + 1}.`,
-        type: 'subjective',
-        answer: `This is a placeholder answer for a ${category} subjective question.`,
-        explanation: `This is a placeholder explanation for a ${category} question.`
-      });
-    }
-  }
+        for (let i = 0; i < mcqCount; i++) {
+            questions[category].push({
+                id: questionIdCounter++,
+                testId: testId,
+                difficulty: difficulty,
+                question: `This is a placeholder MCQ for ${category} Test ${testId}. Question ${i + 1}.`,
+                type: 'mcq',
+                options: [`${category} Option A`, `${category} Option B`, `${category} Option C`, `Correct ${category} Answer`],
+                answer: `Correct ${category} Answer`,
+                explanation: `This is a placeholder explanation for a ${category} question.`
+            });
+        }
+
+        for (let i = 0; i < subjectiveCount; i++) {
+            questions[category].push({
+                id: questionIdCounter++,
+                testId: testId,
+                difficulty: difficulty,
+                question: `This is a placeholder Subjective question for ${category} Test ${testId}. Question ${i + 1}.`,
+                type: 'subjective',
+                answer: `This is a placeholder answer for a ${category} subjective question.`,
+                explanation: `This is a placeholder explanation for a ${category} question.`
+            });
+        }
+    });
 });
-
-    
