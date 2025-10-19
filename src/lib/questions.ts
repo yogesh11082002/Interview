@@ -331,7 +331,7 @@ const testQuestionCounts = [
     { testId: 10, count: 50 },
 ];
 
-const difficultyLevels: Array<'easy' | 'medium' | 'hard' | 'expert'> = ['easy', 'medium', 'hard', 'expert'];
+const difficultyLevels: Array<'easy' | 'medium' | 'hard' | 'expert'> = ['easy', 'easy', 'medium', 'medium', 'medium', 'hard', 'hard', 'hard', 'expert', 'expert'];
 
 let questionIdCounter = 276; 
 
@@ -339,7 +339,7 @@ allCategories.forEach(category => {
     testQuestionCounts.forEach(({ testId, count }) => {
         const mcqCount = Math.round(count * 0.6);
         const subjectiveCount = count - mcqCount;
-        const difficulty = difficultyLevels[Math.min(Math.floor((testId - 1)/2.5), 3)];
+        const difficulty = difficultyLevels[testId - 1];
 
         for (let i = 0; i < mcqCount; i++) {
             questions[category].push({
