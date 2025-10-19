@@ -80,6 +80,16 @@ export default function TestPage() {
     const allQuestionsForCategory = questions[categorySlug];
     if (allQuestionsForCategory) {
       const questionsForTest = allQuestionsForCategory.filter(q => q.testId === testId);
+      
+      if (questionsForTest.length === 0) {
+          toast({
+              title: "No questions available",
+              description: `There are no questions for ${category?.name} - Test ${testId} yet.`,
+              variant: "destructive"
+          });
+          return;
+      }
+      
       const shuffledQuestions = questionsForTest.sort(() => Math.random() - 0.5);
       
       setQuestionSet(shuffledQuestions);
@@ -236,7 +246,7 @@ export default function TestPage() {
                             {category?.name} - Test {testId}
                         </CardTitle>
                         <CardDescription>
-                            This test contains {questionsForTest} questions.
+                            This test contains {questionsForTest > 0 ? questionsForTest : 'an unknown number of' } questions.
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
