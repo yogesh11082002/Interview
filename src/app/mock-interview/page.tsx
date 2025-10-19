@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -9,7 +10,7 @@ import { categories } from '@/lib/categories';
 import { startMockInterview, type MockInterviewInput, type MockInterviewOutput } from '@/ai/flows/mock-interview-mode';
 import { useToast } from '@/hooks/use-toast';
 import { useUser } from '@/firebase';
-import { Bot, Loader2, Mic, Play, Square, ChevronsUpDown } from 'lucide-react';
+import { Bot, Loader2, Mic, Play, Square, ChevronsUpDown, ListChecks, Headphones, BookOpen, UserCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
@@ -214,6 +215,48 @@ export default function MockInterviewPage() {
           </CardContent>
         </Card>
       </motion.div>
+
+      <motion.section 
+        className="max-w-4xl mx-auto mt-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">How It Works</h2>
+            <p className="text-md md:text-lg text-muted-foreground mt-2">A simple guide to get you started.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <motion.div variants={itemVariants}>
+                <div className="mx-auto bg-accent text-accent-foreground rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                    <ListChecks size={24} />
+                </div>
+                <h3 className="font-headline text-lg font-semibold">1. Select Category</h3>
+                <p className="text-sm text-muted-foreground">Choose the topic you want to practice from the dropdown menu.</p>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+                <div className="mx-auto bg-accent text-accent-foreground rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                    <Mic size={24} />
+                </div>
+                <h3 className="font-headline text-lg font-semibold">2. Start Interview</h3>
+                <p className="text-sm text-muted-foreground">Click the "Start" button to have our AI generate and ask you a question.</p>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+                <div className="mx-auto bg-accent text-accent-foreground rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                    <Headphones size={24} />
+                </div>
+                <h3 className="font-headline text-lg font-semibold">3. Listen & Respond</h3>
+                <p className="text-sm text-muted-foreground">Listen to the question carefully. Think about your answer before responding.</p>
+            </motion.div>
+            <motion.div variants={itemVariants}>
+                <div className="mx-auto bg-accent text-accent-foreground rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                    <BookOpen size={24} />
+                </div>
+                <h3 className="font-headline text-lg font-semibold">4. Review Answer</h3>
+                <p className="text-sm text-muted-foreground">After the question, click "Show Answer" to compare your response with the correct one.</p>
+            </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 }
