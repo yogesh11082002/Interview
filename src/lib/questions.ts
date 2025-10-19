@@ -315,7 +315,7 @@ export const questions: Record<string, Question[]> = {
 
 // --- Question Generation Logic ---
 
-const questionTemplates = { ...questions.frontend };
+const questionTemplates = [...questions.frontend];
 let nextId = 276;
 
 function generateQuestionsForCategory(category: string, keywordMapping: Record<string, string>): Question[] {
@@ -481,5 +481,3 @@ questions.cybersecurity = generateQuestionsForCategory('cybersecurity', {
     'bug': 'exploit',
     'XSS': 'SQL Injection'
 });
-
-    
