@@ -89,43 +89,50 @@ export function Header() {
             {authButtons}
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation & Auth */}
           <div className="md:hidden">
             {isClient && (
-              <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <nav className="flex flex-col space-y-4 mt-8">
-                    {navLinks}
-                    <div className="border-t pt-4">
-                      {user ? (
-                          <Button onClick={() => { handleLogout(); setIsSheetOpen(false); }} variant="ghost" className="w-full justify-start">
-                            <LogOut className="mr-2 h-4 w-4" />
-                            Logout
-                          </Button>
-                      ) : (
-                        <div className="space-y-2">
-                          <SheetClose asChild>
-                            <Link href="/login" className="w-full">
-                              <Button variant="ghost" className="w-full justify-start">Login</Button>
-                            </Link>
-                          </SheetClose>
-                          <SheetClose asChild>
-                            <Link href="/signup" className="w-full">
-                              <Button className="w-full justify-start">Sign Up</Button>
-                            </Link>
-                          </SheetClose>
-                        </div>
-                      )}
-                    </div>
-                  </nav>
-                </SheetContent>
-              </Sheet>
+              <div className="flex items-center gap-2">
+                {!user && !isUserLoading && (
+                    <Button asChild size="sm">
+                        <Link href="/login">Get Started</Link>
+                    </Button>
+                )}
+                <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                      <Menu />
+                      <span className="sr-only">Open menu</span>
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right">
+                    <nav className="flex flex-col space-y-4 mt-8">
+                      {navLinks}
+                      <div className="border-t pt-4">
+                        {user ? (
+                            <Button onClick={() => { handleLogout(); setIsSheetOpen(false); }} variant="ghost" className="w-full justify-start">
+                              <LogOut className="mr-2 h-4 w-4" />
+                              Logout
+                            </Button>
+                        ) : (
+                          <div className="space-y-2">
+                            <SheetClose asChild>
+                              <Link href="/login" className="w-full">
+                                <Button variant="ghost" className="w-full justify-start">Login</Button>
+                              </Link>
+                            </SheetClose>
+                            <SheetClose asChild>
+                              <Link href="/signup" className="w-full">
+                                <Button className="w-full justify-start">Sign Up</Button>
+                              </Link>
+                            </SheetClose>
+                          </div>
+                        )}
+                      </div>
+                    </nav>
+                  </SheetContent>
+                </Sheet>
+              </div>
             )}
           </div>
         </div>

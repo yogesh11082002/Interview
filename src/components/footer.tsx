@@ -6,8 +6,8 @@ export function Footer() {
   return (
     <footer className="border-t bg-card">
       <div className="container py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4 md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="space-y-4 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
               <StepForward className="h-6 w-6 text-accent" />
               <span className="font-bold font-headline text-lg">NextStep</span>
