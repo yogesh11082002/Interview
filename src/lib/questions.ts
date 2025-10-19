@@ -381,7 +381,7 @@ questions.java = generateQuestionsForCategory('java', {
     'JavaScript': 'Java',
     'React': 'Spring Boot',
     'component': 'bean',
-셔    'DOM': 'JVM memory',
+    'DOM': 'JVM memory',
     'Node.js': 'the JVM',
     'variable': 'variable',
     'let': 'var',
@@ -403,7 +403,7 @@ questions.python = generateQuestionsForCategory('python', {
 });
 
 // MERN Stack
-questions.mern = generateQuestionsFor-Category('mern', {
+questions.mern = generateQuestionsForCategory('mern', {
     'React': 'the MERN stack (MongoDB, Express, React, Node.js)',
     'database': 'MongoDB collection'
 });
@@ -481,3 +481,5 @@ questions.cybersecurity = generateQuestionsForCategory('cybersecurity', {
     'bug': 'exploit',
     'XSS': 'SQL Injection'
 });
+
+    
