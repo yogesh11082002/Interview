@@ -3076,73 +3076,864 @@ export const questions: Record<string, Question[]> = {
         explanation: "This process establishes a secure, encrypted channel between the client and server."
     }
   ],
-  backend: [],
-  'full-stack': [],
-  'next-js': [],
-  java: [],
-  python: [],
-  mern: [],
-  'c-plus-plus': [],
-  devops: [],
-  'data-science': [],
-  'ai-ml': [],
-  'cloud-computing': [],
-  'mobile-development': [],
-  cybersecurity: []
-};
-
-// This is a simplified example of how you might generate questions.
-// In a real application, you'd want a more robust templating system.
-const questionTemplates = questions.frontend;
-
-const keywordMapping: Record<string, Record<string, string>> = {
-    'backend': { 'frontend': 'backend', 'Frontend': 'Backend', 'React': 'Express.js', 'DOM': 'database', 'browser': 'server', 'component': 'service', 'UI': 'API', 'CSS': 'SQL', 'HTML': 'data model', 'website': 'application', 'web page': 'endpoint', 'user interface': 'service layer', 'rendering': 'processing', 'clicking': 'requesting' },
-    'full-stack': { 'React': 'MERN stack', 'frontend': 'full-stack', 'Frontend': 'Full-Stack', 'component': 'application', 'UI': 'system' },
-    'next-js': { 'React': 'Next.js', 'component': 'page', 'client-side routing': 'file-based routing', 'CSR': 'SSR/SSG' },
-    'java': { 'JavaScript': 'Java', 'React': 'Spring Boot', 'component': 'bean', 'DOM': 'JVM memory', 'Node.js': 'the JVM', 'variable': 'variable', 'let': 'var' },
-    'python': { 'JavaScript': 'Python', 'React': 'Django', 'component': 'module', 'array': 'list', 'Node.js': 'Python runtime' },
-    'mern': { 'frontend': 'MERN stack', 'React': 'the MERN stack' },
-    'c-plus-plus': { 'JavaScript': 'C++', 'React': 'a C++ framework', 'Node.js': 'a native application', 'component': 'object', 'array': 'vector' },
-    'devops': { 'application': 'pipeline', 'React': 'Kubernetes', 'component': 'container', 'code': 'infrastructure', 'server': 'cluster', 'deployment': 'CI/CD pipeline' },
-    'data-science': { 'component': 'model', 'React': 'pandas', 'data': 'dataset', 'API': 'Jupyter notebook', 'function': 'algorithm' },
-    'ai-ml': { 'component': 'neural network', 'function': 'model', 'React': 'TensorFlow', 'data': 'training data', 'API': 'inference API' },
-    'cloud-computing': { 'server': 'EC2 instance', 'application': 'serverless function', 'React': 'AWS Lambda', 'database': 'DynamoDB', 'deployment': 'CloudFormation stack' },
-    'mobile-development': { 'React': 'SwiftUI', 'web page': 'screen', 'component': 'view controller', 'browser': 'mobile app', 'website': 'application' },
-    'cybersecurity': { 'application': 'system', 'React': 'firewall configuration', 'user': 'threat actor', 'data': 'sensitive data', 'API': 'network protocol', 'vulnerability': 'exploit' }
-};
-
-function generateQuestionsForCategory(category: string, keywordMap: Record<string, string>): Question[] {
-    const newQuestions: Question[] = [];
-    questionTemplates.forEach(template => {
-        let newQuestionText = template.question;
-        let newAnswerText = template.answer;
-        let newExplanationText = template.explanation || '';
-
-        for (const [key, value] of Object.entries(keywordMap)) {
-            newQuestionText = newQuestionText.replace(new RegExp(`\\b${key}\\b`, 'gi'), value);
-            newAnswerText = newAnswerText.replace(new RegExp(`\\b${key}\\b`, 'gi'), value);
-            newExplanationText = newExplanationText.replace(new RegExp(`\\b${key}\\b`, 'gi'), value);
-        }
-
-        const newQuestion: Question = { ...template, question: newQuestionText, answer: newAnswerText, explanation: newExplanationText };
-        
-        if (template.options) {
-            newQuestion.options = template.options.map(option => {
-                let newOption = option;
-                for (const [key, value] of Object.entries(keywordMap)) {
-                    newOption = newOption.replace(new RegExp(`\\b${key}\\b`, 'gi'), value);
-                }
-                return newOption;
-            });
-        }
-        newQuestions.push(newQuestion);
-    });
-    return newQuestions;
-}
-
-for (const category in keywordMapping) {
-    if (Object.prototype.hasOwnProperty.call(keywordMapping, category)) {
-        questions[category] = generateQuestionsForCategory(category, keywordMapping[category]);
+  backend: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 276,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is an API?",
+        type: 'mcq',
+        options: [
+            'Application Programming Interface',
+            'Automated Programming Interface',
+            'Application Protocol Interface',
+            'Automated Protocol Interface'
+        ],
+        answer: 'Application Programming Interface',
+        explanation: 'An API is a set of rules and definitions that allows different software applications to communicate with each other.'
+    },
+    {
+        id: 277,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a common database type used in backend development?",
+        type: 'mcq',
+        options: [
+            'CSS',
+            'HTML',
+            'SQL',
+            'JSON'
+        ],
+        answer: 'SQL',
+        explanation: 'SQL (Structured Query Language) is a standard language for managing and manipulating relational databases.'
+    },
+    {
+        id: 278,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does REST stand for?",
+        type: 'mcq',
+        options: [
+            'Representational State Transfer',
+            'Relational State Transfer',
+            'Representational Style Transfer',
+            'Relational Style Transfer'
+        ],
+        answer: 'Representational State Transfer',
+        explanation: 'REST is an architectural style for designing networked applications, often used for creating web services.'
+    },
+    {
+        id: 279,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a server in the context of backend development?",
+        type: 'subjective',
+        answer: "A server is a computer program or device that provides a service to another computer program and its user, also known as the client. In backend development, a server typically handles requests from clients, processes them, and returns a response.",
+        explanation: 'The server is responsible for the business logic and data management of an application.'
+    },
+    {
+        id: 280,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a database schema?",
+        type: 'subjective',
+        answer: "A database schema is the blueprint or structure of a database. It defines the tables, the fields in each table, and the relationships between fields and tables.",
+        explanation: 'The schema ensures data is organized and consistent.'
     }
-}
+],
+  'full-stack': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 551,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does 'full-stack' development mean?",
+        type: 'mcq',
+        options: [
+            'Working only on the frontend',
+            'Working only on the backend',
+            'Working on both the frontend and backend of an application',
+            'Working on mobile app development'
+        ],
+        answer: 'Working on both the frontend and backend of an application',
+        explanation: 'Full-stack developers are proficient in both client-side and server-side technologies.'
+    },
+    {
+        id: 552,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a popular full-stack framework?",
+        type: 'mcq',
+        options: [
+            'React',
+            'Express.js',
+            'Next.js',
+            'CSS'
+        ],
+        answer: 'Next.js',
+        explanation: 'Next.js is a full-stack framework for React, providing both frontend and backend capabilities.'
+    },
+    {
+        id: 553,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the role of a database in a full-stack application?",
+        type: 'mcq',
+        options: [
+            'To style the application',
+            'To store and manage data',
+            'To handle user interactions',
+            'To render the user interface'
+        ],
+        answer: 'To store and manage data',
+        explanation: 'The database is a crucial part of the backend, responsible for persisting application data.'
+    },
+    {
+        id: 554,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between the frontend and the backend?",
+        type: 'subjective',
+        answer: "The frontend is the part of the application that the user interacts with directly (the user interface). The backend is the server-side of the application, responsible for business logic, data processing, and communication with the database.",
+        explanation: 'The frontend is the client-side, while the backend is the server-side.'
+    },
+    {
+        id: 555,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is an API endpoint?",
+        type: 'subjective',
+        answer: "An API endpoint is a specific URL where an API can be accessed. In a full-stack application, the frontend sends requests to these endpoints to interact with the backend.",
+        explanation: 'Endpoints define the specific operations that can be performed by the API.'
+    }
+],
+  'next-js': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 826,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is Next.js?",
+        type: 'mcq',
+        options: [
+            'A CSS framework',
+            'A React framework for building full-stack web applications',
+            'A database',
+            'A programming language'
+        ],
+        answer: 'A React framework for building full-stack web applications',
+        explanation: 'Next.js provides features like server-side rendering, static site generation, and file-based routing to enhance React applications.'
+    },
+    {
+        id: 827,
+        testId: 1,
+        difficulty: 'easy',
+        question: "How do you create a new page in Next.js?",
+        type: 'mcq',
+        options: [
+            'By adding a new route in a configuration file',
+            'By creating a new JavaScript file in the `pages` or `app` directory',
+            'By using a special command',
+            'By editing the `index.js` file'
+        ],
+        answer: 'By creating a new JavaScript file in the `pages` or `app` directory',
+        explanation: 'Next.js uses a file-based routing system, where each page is a file in the `pages` or `app` directory.'
+    },
+    {
+        id: 828,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the purpose of the `<Link>` component in Next.js?",
+        type: 'mcq',
+        options: [
+            'To link to external websites',
+            'To enable client-side navigation between pages',
+            'To style links',
+            'To create anchor tags'
+        ],
+        answer: 'To enable client-side navigation between pages',
+        explanation: 'The `<Link>` component pre-fetches page data and enables smooth transitions between pages without a full page reload.'
+    },
+    {
+        id: 829,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is Server-Side Rendering (SSR) in Next.js?",
+        type: 'subjective',
+        answer: "Server-Side Rendering is a feature in Next.js where the HTML for a page is generated on the server for each request, rather than in the browser. This improves initial page load performance and is beneficial for SEO.",
+        explanation: 'SSR is one of the key features that makes Next.js powerful.'
+    },
+    {
+        id: 830,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the `app` directory in Next.js?",
+        type: 'subjective',
+        answer: "The `app` directory is a new feature in Next.js that introduces a more powerful and flexible way to build applications. It uses React Server Components and allows for nested layouts and more advanced routing patterns.",
+        explanation: 'The `app` directory is the recommended way to build new Next.js applications.'
+    }
+],
+  java: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 1101,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the main method in Java?",
+        type: 'mcq',
+        options: [
+            'The entry point of a Java application',
+            'A method for mathematical calculations',
+            'A method for string manipulation',
+            'A method for creating objects'
+        ],
+        answer: 'The entry point of a Java application',
+        explanation: 'The `public static void main(String[] args)` method is where the Java Virtual Machine (JVM) begins execution of a program.'
+    },
+    {
+        id: 1102,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a primitive data type in Java?",
+        type: 'mcq',
+        options: [
+            'String',
+            'int',
+            'Array',
+            'Object'
+        ],
+        answer: 'int',
+        explanation: '`int` is a primitive type, while `String`, `Array`, and `Object` are reference types.'
+    },
+    {
+        id: 1103,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the purpose of the `new` keyword in Java?",
+        type: 'mcq',
+        options: [
+            'To declare a variable',
+            'To create an instance of an object',
+            'To define a method',
+            'To import a package'
+        ],
+        answer: 'To create an instance of an object',
+        explanation: 'The `new` keyword is used to allocate memory for a new object and call its constructor.'
+    },
+    {
+        id: 1104,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between `==` and `.equals()` in Java?",
+        type: 'subjective',
+        answer: "The `==` operator checks if two references point to the same object in memory. The `.equals()` method, by default, does the same, but it can be overridden in a class to check for logical equality (i.e., if the objects have the same content).",
+        explanation: 'For objects like `String`, `.equals()` should always be used to compare content.'
+    },
+    {
+        id: 1105,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a constructor in Java?",
+        type: 'subjective',
+        answer: "A constructor is a special method that is used to initialize an object. It is called when an instance of the class is created using the `new` keyword. A constructor has the same name as the class and no return type.",
+        explanation: 'Constructors are essential for setting the initial state of an object.'
+    }
+],
+  python: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 1376,
+        testId: 1,
+        difficulty: 'easy',
+        question: "How do you create a single-line comment in Python?",
+        type: 'mcq',
+        options: [
+            '// This is a comment',
+            '# This is a comment',
+            '/* This is a comment */',
+            '-- This is a comment'
+        ],
+        answer: '# This is a comment',
+        explanation: 'The `#` symbol is used for single-line comments in Python.'
+    },
+    {
+        id: 1377,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a mutable data type in Python?",
+        type: 'mcq',
+        options: [
+            'string',
+            'tuple',
+            'list',
+            'int'
+        ],
+        answer: 'list',
+        explanation: 'Lists are mutable, meaning their contents can be changed after creation. Strings, tuples, and integers are immutable.'
+    },
+    {
+        id: 1378,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the correct way to create a function in Python?",
+        type: 'mcq',
+        options: [
+            'function myFunction():',
+            'def myFunction():',
+            'create myFunction():',
+            'function: myFunction()'
+        ],
+        answer: 'def myFunction():',
+        explanation: 'The `def` keyword is used to define a function in Python.'
+    },
+    {
+        id: 1379,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between a list and a tuple in Python?",
+        type: 'subjective',
+        answer: "The main difference is that lists are mutable, meaning they can be changed after they are created, while tuples are immutable, meaning they cannot be changed. Lists are defined with square brackets `[]` and tuples with parentheses `()`.",
+        explanation: 'This immutability makes tuples suitable for use as dictionary keys.'
+    },
+    {
+        id: 1380,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the purpose of indentation in Python?",
+        type: 'subjective',
+        answer: "Indentation in Python is not just for readability; it is a fundamental part of the language's syntax. It is used to define blocks of code, such as the body of a function, loop, or conditional statement.",
+        explanation: 'Incorrect indentation will cause a syntax error.'
+    }
+],
+  mern: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 1651,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does 'MERN' stand for?",
+        type: 'mcq',
+        options: [
+            'MongoDB, Express.js, React, Node.js',
+            'MySQL, Express.js, React, Node.js',
+            'MongoDB, EJS, React, Node.js',
+            'MySQL, EJS, React, Node.js'
+        ],
+        answer: 'MongoDB, Express.js, React, Node.js',
+        explanation: 'MERN is a popular technology stack for building full-stack JavaScript applications.'
+    },
+    {
+        id: 1652,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which component of the MERN stack is a database?",
+        type: 'mcq',
+        options: [
+            'Express.js',
+            'React',
+            'Node.js',
+            'MongoDB'
+        ],
+        answer: 'MongoDB',
+        explanation: 'MongoDB is a NoSQL database commonly used in the MERN stack.'
+    },
+    {
+        id: 1653,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the role of Express.js in the MERN stack?",
+        type: 'mcq',
+        options: [
+            'To create the user interface',
+            'To provide a backend web framework for Node.js',
+            'To manage the database',
+            'To run JavaScript in the browser'
+        ],
+        answer: 'To provide a backend web framework for Node.js',
+        explanation: 'Express.js is used to build the server-side application and APIs.'
+    },
+    {
+        id: 1654,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is Node.js?",
+        type: 'subjective',
+        answer: "Node.js is a JavaScript runtime environment that allows you to run JavaScript code on the server. In the MERN stack, it provides the foundation for the backend application.",
+        explanation: 'Node.js enables the use of JavaScript for both frontend and backend development.'
+    },
+    {
+        id: 1655,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is React's role in the MERN stack?",
+        type: 'subjective',
+        answer: "React is a JavaScript library used to build the user interface (the frontend) of the application. It allows developers to create reusable UI components and manage the application's state.",
+        explanation: 'React is responsible for what the user sees and interacts with in the browser.'
+    }
+],
+  'c-plus-plus': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 1926,
+        testId: 1,
+        difficulty: 'easy',
+        question: "How do you declare a variable that stores an integer in C++?",
+        type: 'mcq',
+        options: [
+            'int x;',
+            'integer x;',
+            'num x;',
+            'var x;'
+        ],
+        answer: 'int x;',
+        explanation: '`int` is the keyword for declaring an integer variable in C++.'
+    },
+    {
+        id: 1927,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the purpose of the `cout` object in C++?",
+        type: 'mcq',
+        options: [
+            'To read input from the user',
+            'To print output to the console',
+            'To create a new object',
+            'To declare a constant'
+        ],
+        answer: 'To print output to the console',
+        explanation: '`cout` is part of the iostream library and is used for standard output.'
+    },
+    {
+        id: 1928,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is the correct way to start a `for` loop in C++?",
+        type: 'mcq',
+        options: [
+            'for (i = 0; i < 5; i++)',
+            'for i = 0 to 5',
+            'for (int i = 0; i < 5; i++)',
+            'loop (i = 0; i < 5; i++)'
+        ],
+        answer: 'for (int i = 0; i < 5; i++)',
+        explanation: 'This is the standard syntax for a `for` loop in C++, including the declaration of the loop variable.'
+    },
+    {
+        id: 1929,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between a class and an object in C++?",
+        type: 'subjective',
+        answer: "A class is a blueprint or template for creating objects. It defines the properties (member variables) and behaviors (member functions) that an object of that class will have. An object is an instance of a class.",
+        explanation: 'A class is the definition, while an object is a concrete entity created from that definition.'
+    },
+    {
+        id: 1930,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a pointer in C++?",
+        type: 'subjective',
+        answer: "A pointer is a variable that stores the memory address of another variable. It allows for direct memory manipulation and is a key feature of C++ for tasks like dynamic memory allocation and building complex data structures.",
+        explanation: 'Pointers are a powerful but complex feature of C++ that require careful handling.'
+    }
+],
+  devops: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 2201,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the primary goal of DevOps?",
+        type: 'mcq',
+        options: [
+            'To write more code',
+            'To shorten the systems development life cycle and provide continuous delivery with high software quality',
+            'To replace developers with operations staff',
+            'To focus only on software testing'
+        ],
+        answer: 'To shorten the systems development life cycle and provide continuous delivery with high software quality',
+        explanation: 'DevOps is a culture and practice that aims to improve collaboration and automation between development and operations teams.'
+    },
+    {
+        id: 2202,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does 'CI' stand for in CI/CD?",
+        type: 'mcq',
+        options: [
+            'Continuous Integration',
+            'Code Integration',
+            'Continuous Implementation',
+            'Code Implementation'
+        ],
+        answer: 'Continuous Integration',
+        explanation: 'Continuous Integration is the practice of frequently merging code changes from multiple developers into a central repository.'
+    },
+    {
+        id: 2203,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a popular CI/CD tool?",
+        type: 'mcq',
+        options: [
+            'Photoshop',
+            'Jenkins',
+            'Excel',
+            'Word'
+        ],
+        answer: 'Jenkins',
+        explanation: 'Jenkins is a widely used open-source automation server for building, testing, and deploying software.'
+    },
+    {
+        id: 2204,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is 'Infrastructure as Code' (IaC)?",
+        type: 'subjective',
+        answer: "Infrastructure as Code is the practice of managing and provisioning infrastructure (like servers, networks, and databases) through machine-readable definition files, rather than manual configuration. This allows infrastructure to be treated like software, with versioning, automated testing, and repeatable deployments.",
+        explanation: 'Tools like Terraform and Ansible are commonly used for IaC.'
+    },
+    {
+        id: 2205,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a container in the context of DevOps?",
+        type: 'subjective',
+        answer: "A container is a lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, system libraries, and settings. Docker is the most popular containerization platform.",
+        explanation: 'Containers ensure that an application runs the same way regardless of the environment.'
+    }
+],
+  'data-science': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 2476,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is data science?",
+        type: 'mcq',
+        options: [
+            'The study of data storage',
+            'An interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data',
+            'A type of computer hardware',
+            'A programming language'
+        ],
+        answer: 'An interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data',
+        explanation: 'Data science combines aspects of statistics, computer science, and domain expertise.'
+    },
+    {
+        id: 2477,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a popular Python library for data analysis?",
+        type: 'mcq',
+        options: [
+            'React',
+            'Pandas',
+            'Express.js',
+            'jQuery'
+        ],
+        answer: 'Pandas',
+        explanation: 'Pandas provides high-performance, easy-to-use data structures and data analysis tools for Python.'
+    },
+    {
+        id: 2478,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between supervised and unsupervised learning?",
+        type: 'mcq',
+        options: [
+            'Supervised learning uses labeled data, while unsupervised learning uses unlabeled data',
+            'Unsupervised learning uses labeled data, while supervised learning uses unlabeled data',
+            'They are the same',
+            'Supervised learning is for classification, unsupervised learning is for regression'
+        ],
+        answer: 'Supervised learning uses labeled data, while unsupervised learning uses unlabeled data',
+        explanation: 'Labeled data has a known outcome or target, which the model learns from. Unlabeled data does not.'
+    },
+    {
+        id: 2479,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is data cleaning?",
+        type: 'subjective',
+        answer: "Data cleaning, or data cleansing, is the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset. This can include handling missing values, removing duplicates, and correcting inconsistencies.",
+        explanation: 'Data cleaning is a crucial first step in any data science project to ensure the quality of the analysis.'
+    },
+    {
+        id: 2480,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a 'feature' in machine learning?",
+        type: 'subjective',
+        answer: "A feature is an individual measurable property or characteristic of a phenomenon being observed. In a dataset, features are typically the columns that are used as input for a machine learning model to make predictions.",
+        explanation: 'Choosing the right features (feature engineering) is a key part of building an effective model.'
+    }
+],
+  'ai-ml': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 2751,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is Artificial Intelligence (AI)?",
+        type: 'mcq',
+        options: [
+            'A type of robot',
+            'The simulation of human intelligence in machines that are programmed to think and learn',
+            'A new type of computer chip',
+            'A brand of software'
+        ],
+        answer: 'The simulation of human intelligence in machines that are programmed to think and learn',
+        explanation: 'AI encompasses a broad range of techniques that enable machines to mimic human cognitive functions.'
+    },
+    {
+        id: 2752,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is Machine Learning (ML)?",
+        type: 'mcq',
+        options: [
+            'A type of machine',
+            'A subset of AI that gives computers the ability to learn without being explicitly programmed',
+            'A hardware component',
+            'A programming language'
+        ],
+        answer: 'A subset of AI that gives computers the ability to learn without being explicitly programmed',
+        explanation: 'ML focuses on creating algorithms that can learn patterns from data.'
+    },
+    {
+        id: 2753,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is an example of a supervised learning task?",
+        type: 'mcq',
+        options: [
+            'Grouping customers into market segments',
+            'Predicting house prices based on features like size and location',
+            'Finding the natural structure of a dataset',
+            'Identifying anomalies in network traffic'
+        ],
+        answer: 'Predicting house prices based on features like size and location',
+        explanation: 'This is a regression task, a common type of supervised learning where the goal is to predict a continuous value based on labeled input data.'
+    },
+    {
+        id: 2754,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a 'training set' in machine learning?",
+        type: 'subjective',
+        answer: "A training set is the portion of a dataset used to train a machine learning model. The model learns the underlying patterns and relationships from this data.",
+        explanation: 'The performance of the model is then evaluated on a separate dataset called the test set.'
+    },
+    {
+        id: 2755,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a neural network?",
+        type: 'subjective',
+        answer: "A neural network is a computational model inspired by the structure and function of the human brain. It consists of interconnected layers of nodes, or 'neurons,' that process information and learn to recognize patterns in data.",
+        explanation: 'Neural networks are the foundation of deep learning.'
+    }
+],
+  'cloud-computing': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 3026,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is cloud computing?",
+        type: 'mcq',
+        options: [
+            'Storing files on your local computer',
+            'The delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud")',
+            'A type of weather forecasting',
+            'A new kind of laptop'
+        ],
+        answer: 'The delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud")',
+        explanation: 'Cloud computing offers faster innovation, flexible resources, and economies of scale.'
+    },
+    {
+        id: 3027,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a major cloud provider?",
+        type: 'mcq',
+        options: [
+            'Microsoft Office',
+            'Google Chrome',
+            'Amazon Web Services (AWS)',
+            'Adobe Photoshop'
+        ],
+        answer: 'Amazon Web Services (AWS)',
+        explanation: 'AWS, Google Cloud Platform (GCP), and Microsoft Azure are the three largest public cloud providers.'
+    },
+    {
+        id: 3028,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does 'IaaS' stand for?",
+        type: 'mcq',
+        options: [
+            'Infrastructure as a Service',
+            'Internet as a Service',
+            'Infrastructure as a Software',
+            'Internet as a Software'
+        ],
+        answer: 'Infrastructure as a Service',
+        explanation: 'IaaS is a cloud computing model where a provider hosts the fundamental infrastructure components, such as servers, storage, and networking.'
+    },
+    {
+        id: 3029,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a 'Virtual Machine' (VM)?",
+        type: 'subjective',
+        answer: "A Virtual Machine is a digital version of a physical computer. It is a software-based emulation of a computer system that can run its own operating system and applications, just like a physical computer. Multiple VMs can run on a single physical host.",
+        explanation: 'VMs are a fundamental building block of cloud computing.'
+    },
+    {
+        id: 3030,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is 'scalability' in the context of cloud computing?",
+        type: 'subjective',
+        answer: "Scalability is the ability of a system to handle a growing amount of work by adding resources. In cloud computing, this often means the ability to automatically add or remove servers or other resources in response to changes in demand.",
+        explanation: 'The cloud\'s ability to scale on demand is one of its key advantages.'
+    }
+],
+  'mobile-development': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 3301,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What are the two primary mobile operating systems?",
+        type: 'mcq',
+        options: [
+            'Windows and macOS',
+            'iOS and Android',
+            'Linux and Windows',
+            'iOS and Windows'
+        ],
+        answer: 'iOS and Android',
+        explanation: 'iOS (from Apple) and Android (from Google) dominate the mobile operating system market.'
+    },
+    {
+        id: 3302,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What programming language is primarily used for native Android development?",
+        type: 'mcq',
+        options: [
+            'Swift',
+            'Kotlin',
+            'JavaScript',
+            'C#'
+        ],
+        answer: 'Kotlin',
+        explanation: 'Kotlin is the officially recommended language for native Android app development, having largely replaced Java.'
+    },
+    {
+        id: 3303,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What programming language is used for native iOS development?",
+        type: 'mcq',
+        options: [
+            'Kotlin',
+            'Java',
+            'Swift',
+            'Python'
+        ],
+        answer: 'Swift',
+        explanation: 'Swift is Apple\'s modern, powerful, and intuitive programming language for building apps for iOS, Mac, Apple TV, and Apple Watch.'
+    },
+    {
+        id: 3304,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a 'native' mobile app?",
+        type: 'subjective',
+        answer: "A native mobile app is an application developed specifically for a particular mobile operating system (like iOS or Android) using the platform's native programming language and tools. This allows it to take full advantage of the device's features and provides the best performance.",
+        explanation: 'Native apps are built with languages like Swift for iOS and Kotlin for Android.'
+    },
+    {
+        id: 3305,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is an 'SDK' in mobile development?",
+        type: 'subjective',
+        answer: "An SDK (Software Development Kit) is a collection of software development tools in one installable package. For mobile development, the iOS SDK and the Android SDK provide the necessary tools, libraries, and documentation to build apps for those platforms.",
+        explanation: 'The SDK is the foundation for building any app on a specific platform.'
+    }
+],
+  cybersecurity: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 3576,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is 'phishing'?",
+        type: 'mcq',
+        options: [
+            'A type of computer virus',
+            'A fraudulent attempt to obtain sensitive information, such as usernames, passwords, and credit card details, by disguising as a trustworthy entity in an electronic communication',
+            'A method for securing a network',
+            'A type of fishing'
+        ],
+        answer: 'A fraudulent attempt to obtain sensitive information, such as usernames, passwords, and credit card details, by disguising as a trustworthy entity in an electronic communication',
+        explanation: 'Phishing is a common form of social engineering attack.'
+    },
+    {
+        id: 3577,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a 'firewall'?",
+        type: 'mcq',
+        options: [
+            'A type of software that spreads between computers',
+            'A network security device that monitors and filters incoming and outgoing network traffic based on an organization\'s previously established security policies',
+            'A physical barrier to prevent access to a server room',
+            'A tool for extinguishing fires'
+        ],
+        answer: 'A network security device that monitors and filters incoming and outgoing network traffic based on an organization\'s previously established security policies',
+        explanation: 'A firewall acts as a barrier between a trusted internal network and an untrusted external network, such as the Internet.'
+    },
+    {
+        id: 3578,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is 'malware'?",
+        type: 'mcq',
+        options: [
+            'A type of computer hardware',
+            'A secure software application',
+            'Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system',
+            'A type of network protocol'
+        ],
+        answer: 'Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system',
+        explanation: 'Malware is a broad term that includes viruses, worms, ransomware, and spyware.'
+    },
+    {
+        id: 3579,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the principle of 'least privilege'?",
+        type: 'subjective',
+        answer: "The principle of least privilege requires that a user or process be given only the minimum levels of access—or permissions—needed to perform its job functions. This helps to limit the damage that can be caused by a compromised account or system.",
+        explanation: 'It is a fundamental concept in information security.'
+    },
+    {
+        id: 3580,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is two-factor authentication (2FA)?",
+        type: 'subjective',
+        answer: "Two-factor authentication is a security process in which users provide two different authentication factors to verify themselves. This adds an extra layer of security beyond just a password, making it harder for attackers to gain access to a person's devices or online accounts.",
+        explanation: 'The two factors can be something you know (password), something you have (phone), or something you are (fingerprint).'
+    }
+  ]
+};
 
+    
