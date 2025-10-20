@@ -3935,5 +3935,3 @@ export const questions: Record<string, Question[]> = {
     }
   ]
 };
-
-    
