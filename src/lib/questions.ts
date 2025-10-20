@@ -845,7 +845,7 @@ export const questions: Record<string, Question[]> = {
         question: "Why is `requestAnimationFrame` better for animations than `setTimeout`?",
         type: 'mcq',
         options: ['It runs code after a specified delay with higher priority', 'It synchronizes with the browser\'s repaint cycle for smoother animations', 'It is a newer version of `setInterval`', 'It is used exclusively for network requests'],
-        answer: 'It synchronizes with the browser\\\'s repaint cycle for smoother animations',
+        answer: 'It synchronizes with the browser\'s repaint cycle for smoother animations',
         explanation: "This prevents layout thrashing and results in more efficient, smoother animations."
     },
     {
@@ -978,7 +978,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'hard',
         question: "Explain event delegation in JavaScript.",
         type: 'subjective',
-        answer: 'Event delegation is a technique where you add a single event listener to a parent element to manage events for all of its children. When an event bubbles up, the parent listener checks the `event.target` to identify which child triggered the event. This improves performance by reducing the number of event listeners.',
+        answer: "Event delegation is a technique where you add a single event listener to a parent element to manage events for all of its children. When an event bubbles up, the parent listener checks the `event.target` to identify which child triggered the event. This improves performance by reducing the number of event listeners.",
         explanation: "It's a memory-efficient way to handle events on many elements."
     },
     {
@@ -1247,67 +1247,67 @@ export const questions: Record<string, Question[]> = {
         explanation: "This is useful for defining 'private' or internal properties on objects."
     },
     {
-      id: 128,
-      testId: 7,
-      difficulty: 'hard',
-      question: 'What is "code splitting"?',
-      type: 'subjective',
-      answer: "Code splitting is a feature supported by bundlers like Webpack which can create multiple bundles that can be dynamically loaded at runtime. Instead of one massive bundle, you can split code by route or component. This is crucial for improving initial page load time.",
-      explanation: "`React.lazy` and dynamic `import()` are common ways to implement code splitting."
+        id: 128,
+        testId: 7,
+        difficulty: 'hard',
+        question: 'What is "code splitting"?',
+        type: 'subjective',
+        answer: "Code splitting is a feature supported by bundlers like Webpack which can create multiple bundles that can be dynamically loaded at runtime. Instead of one massive bundle, you can split code by route or component. This is crucial for improving initial page load time.",
+        explanation: "`React.lazy` and dynamic `import()` are common ways to implement code splitting."
     },
     {
-      id: 129,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What are ES modules (ESM)?",
-      type: 'subjective',
-      answer: 'ES Modules are the official, standardized module system for JavaScript. They use `import` and `export` statements. Unlike older systems like CommonJS, ESM is resolved statically at parse time, which allows for powerful optimizations like tree shaking.',
-      explanation: "They offer a cleaner syntax and better performance than older module systems."
+        id: 129,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What are ES modules (ESM)?",
+        type: 'subjective',
+        answer: 'ES Modules are the official, standardized module system for JavaScript. They use `import` and `export` statements. Unlike older systems like CommonJS, ESM is resolved statically at parse time, which allows for powerful optimizations like tree shaking.',
+        explanation: "They offer a cleaner syntax and better performance than older module systems."
     },
     {
-      id: 130,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What is OAuth 2.0?",
-      type: 'subjective',
-      answer: "OAuth 2.0 is an authorization framework that enables a third-party application to obtain limited access to a user's account on an HTTP service. It works by delegating user authentication to the service that hosts the user account and authorizing the application via access tokens.",
-      explanation: "It's the industry standard for authorization, used by Google, Facebook, and others."
+        id: 130,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is OAuth 2.0?",
+        type: 'subjective',
+        answer: "OAuth 2.0 is an authorization framework that enables a third-party application to obtain limited access to a user's account on an HTTP service. It works by delegating user authentication to the service that hosts the user account and authorizing the application via access tokens.",
+        explanation: "It's the industry standard for authorization, used by Google, Facebook, and others."
     },
     {
-      id: 131,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What is a `WeakMap` in JavaScript?",
-      type: 'subjective',
-      answer: "A `WeakMap` only accepts objects as keys and holds 'weak' references, meaning if there are no other references to an object used as a key, it can be garbage collected. This is its main difference from a regular `Map`. `WeakMap` is not iterable and is used to prevent memory leaks.",
-      explanation: "It's an advanced feature for specific memory management scenarios."
+        id: 131,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a `WeakMap` in JavaScript?",
+        type: 'subjective',
+        answer: "A `WeakMap` only accepts objects as keys and holds 'weak' references, meaning if there are no other references to an object used as a key, it can be garbage collected. This is its main difference from a regular `Map`. `WeakMap` is not iterable and is used to prevent memory leaks.",
+        explanation: "It's an advanced feature for specific memory management scenarios."
     },
     {
-      id: 132,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What is `git cherry-pick` used for?",
-      type: 'subjective',
-      answer: "`git cherry-pick` is a command used to apply a specific commit from one branch onto another. Instead of merging an entire branch, it allows you to select individual commits. This is useful for backporting a bug fix or applying a small feature from a development branch to a stable one.",
-      explanation: "It's a powerful tool for surgical changes between branches."
+        id: 132,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is `git cherry-pick` used for?",
+        type: 'subjective',
+        answer: "`git cherry-pick` is a command used to apply a specific commit from one branch onto another. Instead of merging an entire branch, it allows you to select individual commits. This is useful for backporting a bug fix or applying a small feature from a development branch to a stable one.",
+        explanation: "It's a powerful tool for surgical changes between branches."
     },
     {
-      id: 133,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What is the 'critical rendering path'?",
-      type: 'subjective',
-      answer: "The critical rendering path is the sequence of steps a browser goes through to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing this path involves minimizing the number and size of critical resources and optimizing their load order to achieve the fastest possible initial render.",
-      explanation: "Understanding this is key to improving web performance."
+        id: 133,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the 'critical rendering path'?",
+        type: 'subjective',
+        answer: "The critical rendering path is the sequence of steps a browser goes through to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing this path involves minimizing the number and size of critical resources and optimizing their load order to achieve the fastest possible initial render.",
+        explanation: "Understanding this is key to improving web performance."
     },
     {
-      id: 134,
-      testId: 7,
-      difficulty: 'hard',
-      question: "What is a Content Delivery Network (CDN) and how does it improve performance?",
-      type: 'subjective',
-      answer: "A CDN is a geographically distributed network of proxy servers. The goal is to provide high availability and performance by distributing content closer to end-users. When a user requests a static asset, the request is routed to the server closest to them, reducing latency.",
-      explanation: "CDNs are essential for fast load times for a global audience."
+        id: 134,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a Content Delivery Network (CDN) and how does it improve performance?",
+        type: 'subjective',
+        answer: "A CDN is a geographically distributed network of proxy servers. The goal is to provide high availability and performance by distributing content closer to end-users. When a user requests a static asset, the request is routed to the server closest to them, reducing latency.",
+        explanation: "CDNs are essential for fast load times for a global audience."
     },
     {
         id: 135,
@@ -1905,8 +1905,8 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: "What is the 'n+1' query problem?",
         type: 'mcq',
-        options: ['A security vulnerability', "A performance issue where one query retrieves a list, and then 'n' additional queries are made for related data", 'A mathematical paradox', 'An off-by-one error'],
-        answer: "A performance issue where one query retrieves a list, and then 'n' additional queries are made for related data",
+        options: ['A security vulnerability', 'A performance issue where one query retrieves a list, and then \'n\' additional queries are made for related data', 'A mathematical paradox', 'An off-by-one error'],
+        answer: 'A performance issue where one query retrieves a list, and then \'n\' additional queries are made for related data',
         explanation: 'This is a common performance bottleneck solved by \'eager loading\' the related data.'
     },
     {
@@ -2270,7 +2270,7 @@ export const questions: Record<string, Question[]> = {
         question: "What does the `box-shadow` CSS property do?",
         type: 'mcq',
         options: ['It changes the shape of an element', 'It adds shadow effects around an element\'s frame', 'It adds a shadow to the text inside an element', 'It controls the element\'s stacking order'],
-        answer: 'It adds shadow effects around an element\\\'s frame',
+        answer: 'It adds shadow effects around an element\'s frame',
         explanation: '`box-shadow` is used to create depth and dimension in a layout, accepting values for offset, blur, spread, and color.'
     },
     {
@@ -2420,7 +2420,7 @@ export const questions: Record<string, Question[]> = {
         question: "What is 'OAuth 2.0'?",
         type: 'mcq',
         options: ['An authentication protocol', 'An authorization framework that enables a third-party application to obtain limited access to a user\'s resources without exposing their credentials', 'A type of encryption', 'A session management library'],
-        answer: 'An authorization framework that enables a third-party application to obtain limited access to a user\\\'s resources without exposing their credentials',
+        answer: 'An authorization framework that enables a third-party application to obtain limited access to a user\'s resources without exposing their credentials',
         explanation: 'OAuth 2.0 is the industry standard for delegated authorization.'
     },
     {
@@ -2654,7 +2654,154 @@ export const questions: Record<string, Question[]> = {
         explanation: "POST is typically not idempotent, as calling it multiple times will create multiple resources."
     }
   ],
-  backend: [],
+  backend: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective)
+    {
+      id: 275,
+      testId: 1,
+      difficulty: 'easy',
+      question: 'Which of the following is a primary responsibility of a backend developer?',
+      type: 'mcq',
+      options: ['Designing the user interface', 'Writing CSS and animations', 'Managing databases and server-side logic', 'Creating frontend components'],
+      answer: 'Managing databases and server-side logic',
+      explanation: 'Backend development focuses on the server, database, and application logic that power the user-facing frontend.'
+    },
+    {
+      id: 276,
+      testId: 1,
+      difficulty: 'easy',
+      question: 'What is an API?',
+      type: 'mcq',
+      options: ['A type of database', 'A visual design language', 'A way for different software applications to communicate with each other', 'A frontend framework'],
+      answer: 'A way for different software applications to communicate with each other',
+      explanation: 'API stands for Application Programming Interface, and it defines the methods and data formats that applications can use to request and exchange information.'
+    },
+    {
+      id: 277,
+      testId: 1,
+      difficulty: 'easy',
+      question: 'Which HTTP method is typically used to retrieve data from a server?',
+      type: 'mcq',
+      options: ['POST', 'GET', 'DELETE', 'UPDATE'],
+      answer: 'GET',
+      explanation: 'The GET method is used to request data from a specified resource. It is a read-only operation.'
+    },
+    {
+      id: 278,
+      testId: 1,
+      difficulty: 'easy',
+      question: 'What is a database?',
+      type: 'subjective',
+      answer: 'A database is an organized collection of structured information, or data, typically stored electronically in a computer system. It is used to efficiently store, retrieve, manage, and update data.',
+      explanation: 'Databases are essential for any application that needs to persist data, such as user information or application content.'
+    },
+    {
+      id: 279,
+      testId: 1,
+      difficulty: 'easy',
+      question: 'What is server-side logic?',
+      type: 'subjective',
+      answer: 'Server-side logic refers to the code that runs on the server and is responsible for processing client requests, interacting with databases, authenticating users, and preparing the data that gets sent back to the client. It is the "brain" of the application.',
+      explanation: 'This logic is hidden from the end-user and handles the core functionality of a web application.'
+    },
+    // Test 2: 10 Questions (6 MCQ, 4 Subjective)
+    {
+      id: 280,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What does SQL stand for?',
+      type: 'mcq',
+      options: ['Strong Question Language', 'Structured Query Language', 'Simple Query Logic', 'Server Query Language'],
+      answer: 'Structured Query Language',
+      explanation: 'SQL is the standard language for dealing with Relational Databases.'
+    },
+    {
+      id: 281,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'Which of the following is a popular backend programming language?',
+      type: 'mcq',
+      options: ['HTML', 'CSS', 'Python', 'React'],
+      answer: 'Python',
+      explanation: 'Python, along with Node.js, Java, Ruby, and PHP, is a very common choice for backend development.'
+    },
+    {
+      id: 282,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'In a REST API, what does "stateless" mean?',
+      type: 'mcq',
+      options: ['The server has no memory', 'The server does not store any client context between requests', 'The server cannot store data in a database', 'The client is responsible for all logic'],
+      answer: 'The server does not store any client context between requests',
+      explanation: 'Each request from a client to a server must contain all the information needed to understand and complete the request.'
+    },
+    {
+      id: 283,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'Which HTTP status code indicates a successful request?',
+      type: 'mcq',
+      options: ['404', '500', '200', '301'],
+      answer: '200',
+      explanation: 'A 200 OK status code means the request has succeeded. 4xx codes indicate client errors, and 5xx codes indicate server errors.'
+    },
+    {
+      id: 284,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What is Node.js?',
+      type: 'mcq',
+      options: ['A frontend framework', 'A JavaScript runtime environment that executes JavaScript code outside a web browser', 'A database', 'A CSS preprocessor'],
+      answer: 'A JavaScript runtime environment that executes JavaScript code outside a web browser',
+      explanation: 'Node.js allows developers to use JavaScript for server-side scripting.'
+    },
+    {
+      id: 285,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'Which of the following is a NoSQL database?',
+      type: 'mcq',
+      options: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
+      answer: 'MongoDB',
+      explanation: 'MongoDB is a document-oriented NoSQL database, while the others are relational (SQL) databases.'
+    },
+    {
+      id: 286,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What is the purpose of an environment variable?',
+      type: 'subjective',
+      answer: 'Environment variables are used to store configuration settings for an application, such as database credentials, API keys, or server ports. They allow the application\'s behavior to be changed without modifying its code, making it more portable and secure.',
+      explanation: 'This separates configuration from code, which is a best practice in software development.'
+    },
+    {
+      id: 287,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What is a "route" in the context of a backend framework like Express.js?',
+      type: 'subjective',
+      answer: 'A route defines an endpoint for handling client requests. It specifies how an application responds to a client request to a particular URL (or URI) and a specific HTTP request method (GET, POST, etc.).',
+      explanation: 'For example, a route could handle GET requests to `/users` to return a list of users.'
+    },
+    {
+      id: 288,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What is "authentication"?',
+      type: 'subjective',
+      answer: 'Authentication is the process of verifying the identity of a user or service. It answers the question "Who are you?". This is typically done with a username and password, a token, or a biometric scan.',
+      explanation: 'It is often confused with authorization, which is about permissions.'
+    },
+    {
+      id: 289,
+      testId: 2,
+      difficulty: 'easy',
+      question: 'What is a server?',
+      type: 'subjective',
+      answer: 'A server is a computer program or a device that provides functionality for other programs or devices, called "clients". In web development, a server typically listens for HTTP requests from clients (browsers) and sends back HTTP responses containing resources like HTML pages or data.',
+      explanation: 'The term can refer to the physical machine, a virtual machine, or the software that performs the serving function.'
+    }
+  ],
   'full-stack': [],
   'next-js': [],
   java: [],
