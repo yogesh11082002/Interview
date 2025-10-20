@@ -1782,7 +1782,7 @@ export const questions: Record<string, Question[]> = {
         id: 170,
         testId: 8,
         difficulty: 'expert',
-        question: "Explain the 'event loop' in Node.js.",
+        question: "Explain how the 'event loop' in Node.js works.",
         type: 'subjective',
         answer: "The event loop allows Node.js to perform non-blocking I/O operations, despite being single-threaded. It offloads operations to the system kernel whenever possible. When an operation (like a database query or file read) is initiated, the callback is registered and the main thread continues. When the operation completes, its callback is placed in the event queue. The event loop continuously takes callbacks from the queue and pushes them onto the call stack for execution when the stack is empty.",
         explanation: "This model allows a single Node.js process to handle thousands of concurrent connections."
@@ -2041,7 +2041,7 @@ export const questions: Record<string, Question[]> = {
             '`git merge` is for local branches, `git rebase` is for remote branches'
         ],
         answer: '`git merge` creates a new merge commit, preserving branch history, while `git rebase` rewrites commit history to create a linear sequence',
-        explanation: 'Rebase results in a cleaner, linear history, but should not be used on public branches that others are working on.'
+        explanation: 'Rebasing results in a cleaner, linear history, but should not be used on public branches that others are working on.'
     },
     {
         id: 192,
@@ -2095,10 +2095,10 @@ export const questions: Record<string, Question[]> = {
         question: "What is 'tailwind CSS' and how does it differ from traditional CSS frameworks?",
         type: 'mcq',
         options: [
-            'A component-based framework like Bootstrap',
+            'A JavaScript framework',
             'A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup',
-            'A CSS preprocessor like Sass',
-            'A JavaScript library for styling'
+            'A CSS preprocessor',
+            'A type of CSS selector'
         ],
         answer: 'A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup',
         explanation: 'Instead of pre-styled components like `.btn`, you compose designs with utilities like `bg-blue-500`, `px-4`, and `rounded`.'
@@ -2158,8 +2158,7 @@ export const questions: Record<string, Question[]> = {
             'A long, detailed function',
             'A small, anonymous function defined with the `lambda` keyword',
             'A function that runs on AWS Lambda',
-            'A function used for mathematical calculations only'
-        ],
+            'A function for generating HTML'],
         answer: 'A small, anonymous function defined with the `lambda` keyword',
         explanation: 'Lambda functions are useful for short, simple operations, especially when passed as arguments to higher-order functions.'
     },
@@ -2308,7 +2307,7 @@ export const questions: Record<string, Question[]> = {
         question: "Describe the 'Saga' pattern for distributed transactions.",
         type: 'subjective',
         answer: "The Saga pattern is a way to manage data consistency across multiple microservices without using traditional distributed transactions. A saga is a sequence of local transactions where each transaction updates a single service and publishes an event to trigger the next one. If any local transaction fails, the saga executes a series of compensating transactions that undo the changes made by the preceding transactions, thereby maintaining consistency.",
-        explanation: "It's an event-driven approach to achieving atomicity in a distributed environment."
+        explanation: "It's an event-driven approach to achieving transactional semantics in a distributed environment."
     },
     {
         id: 211,
@@ -2442,7 +2441,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: "How do JavaScript `async/await` and Promises relate to the event loop?",
         type: 'subjective',
-        answer: "async/await and Promises are high-level abstractions for managing asynchronous operations that are powered by the event loop. When you await a Promise, the async function is paused, and its execution context is removed from the call stack. The underlying asynchronous operation (e.g., a fetch request) runs in the background. When the Promise settles, a task is placed in the microtask queue. The event loop prioritizes the microtask queue, so as soon as the call stack is clear, the async function's execution is resumed.",
+        answer: "async/await and Promises are high-level abstractions for managing asynchronous operations that are powered by the event loop. When you await a Promise, the async function is paused, and its execution context is removed from the call stack. The underlying asynchronous operation (e.g., a `fetch` request) runs in the background. When the Promise settles, a task is placed in the microtask queue. The event loop prioritizes the microtask queue, so as soon as the call stack is clear, the async function's execution is resumed.",
         explanation: "They provide a synchronous-looking syntax for code that is fundamentally asynchronous and non-blocking."
     },
      // Test 10: 50 Questions (30 MCQ, 20 Subjective) - Expert
@@ -2513,7 +2512,7 @@ export const questions: Record<string, Question[]> = {
         question: "In the context of CSS, what does `will-change` property do?",
         type: 'mcq',
         options: [
-            'It prevents a property from being changed',
+            'It prevents a property from changing',
             'It animates a property change',
             'It hints to the browser about which properties are expected to change, allowing it to perform optimizations in advance',
             'It is an alias for `transform`'
@@ -2528,13 +2527,13 @@ export const questions: Record<string, Question[]> = {
         question: "What is the primary benefit of 'HTTP/2 multiplexing'?",
         type: 'mcq',
         options: [
-            'It encrypts all traffic',
-            'It allows multiple requests and responses to be sent in parallel over a single TCP connection, eliminating head-of-line blocking',
-            'It compresses HTTP headers',
-            'It is a caching mechanism'
+            'It provides better SEO than JavaScript',
+            'It allows code written in languages like C++ and Rust to run on the web at near-native speed',
+            'It is easier to write than JavaScript',
+            'It replaces the need for HTML and CSS'
         ],
-        answer: 'It allows multiple requests and responses to be sent in parallel over a single TCP connection, eliminating head-of-line blocking',
-        explanation: 'This is a major performance improvement over HTTP/1.1, which could only handle one request at a time per connection.'
+        answer: 'It allows code written in languages like C++ and Rust to run on the web at near-native speed',
+        explanation: 'Wasm is a performance-focused complement to JavaScript, not a replacement.'
     },
     {
         id: 232,
@@ -2543,553 +2542,2842 @@ export const questions: Record<string, Question[]> = {
         question: "What is a 'Kubernetes Operator'?",
         type: 'mcq',
         options: [
-            'A person who operates a Kubernetes cluster',
-            'A security policy for Kubernetes',
-            'A method of packaging, deploying, and managing a Kubernetes application by extending the Kubernetes API with custom controllers',
-            'A networking plugin for Kubernetes'
+            'A network proxy configuration',
+            'An object used to define custom behavior for fundamental operations (e.g., property lookup)',
+            'A placeholder for a future value',
+            'A security feature'
         ],
-        answer: 'A method of packaging, deploying, and managing a Kubernetes application by extending the Kubernetes API with custom controllers',
-        explanation: 'Operators encode human operational knowledge for managing stateful applications (like databases) on Kubernetes.'
+        answer: 'An object used to define custom behavior for fundamental operations (e.g., property lookup)',
+        explanation: "Proxies enable powerful metaprogramming patterns, such as reactivity in frameworks like Vue."
     },
     {
         id: 233,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'semantic versioning' (SemVer)?",
+        question: "Which CSS property can be used to prevent text from wrapping?",
         type: 'mcq',
-        options: [
-            'A way to add meaning to version numbers',
-            'A versioning scheme (MAJOR.MINOR.PATCH) where MAJOR indicates breaking changes, MINOR adds functionality in a backward-compatible way, and PATCH is for backward-compatible bug fixes',
-            'A versioning scheme based on dates',
-            'A security scanning tool'
-        ],
-        answer: 'A versioning scheme (MAJOR.MINOR.PATCH) where MAJOR indicates breaking changes, MINOR adds functionality in a backward-compatible way, and PATCH is for backward-compatible bug fixes',
-        explanation: 'SemVer provides a standard way to communicate the nature of changes in a new release.'
+        options: ['`text-wrap: no-wrap`', '`word-break: break-all`', '`white-space: nowrap`', '`overflow: hidden`'],
+        answer: 'white-space: nowrap',
+        explanation: "It collapses white space and prevents line breaks."
     },
     {
         id: 234,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'PaaS' (Platform as a Service)?",
+        question: "Which is a valid way to create a private class field in modern JavaScript?",
         type: 'mcq',
-        options: [
-            'A service that provides virtual machines',
-            'A cloud computing model that provides a platform for developers to build, run, and manage applications without dealing with the underlying infrastructure',
-            'A complete software application delivered over the web',
-            'A service for managing physical servers'
-        ],
-        answer: 'A cloud computing model that provides a platform for developers to build, run, and manage applications without dealing with the underlying infrastructure',
-        explanation: 'PaaS abstracts away the operating system, servers, and networking. Heroku is a classic example.'
+        options: ['`let myVar`', '`this._myVar`', '`const myVar`', '`#myVar`'],
+        answer: '`#myVar`',
+        explanation: "The `#` prefix makes a field private to the class, inaccessible from outside."
     },
     {
         id: 235,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'WebRTC'?",
+        question: "What is a `PureComponent` in React?",
         type: 'mcq',
-        options: [
-            'A new version of CSS',
-            'A framework that enables real-time communication (video, voice, and generic data) to be sent directly between browsers and devices (peer-to-peer)',
-            'A server-side rendering technology',
-            'A security protocol'
-        ],
-        answer: 'A framework that enables real-time communication (video, voice, and generic data) to be sent directly between browsers and devices (peer-to-peer)',
-        explanation: 'WebRTC is the technology that powers applications like Google Meet and Discord.'
+        options: ['A component with no state', 'A component that only contains pure functions', 'A class component that implements a shallow prop and state comparison to prevent unnecessary re-renders', 'A functional component'],
+        answer: 'A class component that implements a shallow prop and state comparison to prevent unnecessary re-renders',
+        explanation: "`React.memo` is the equivalent for functional components."
     },
     {
         id: 236,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'garbage collection' in languages like Java or JavaScript?",
+        question: "What is a `Symbol` in JavaScript used for?",
         type: 'mcq',
-        options: [
-            'A process of cleaning up unused files',
-            'A form of automatic memory management that reclaims memory occupied by objects that are no longer in use by the program',
-            'A debugging tool',
-            'A code optimization technique'
-        ],
-        answer: 'A form of automatic memory management that reclaims memory occupied by objects that are no longer in use by the program',
-        explanation: 'This frees the developer from manual memory management, but can sometimes introduce unpredictable pauses.'
+        options: ['To create unique object properties to avoid name collisions', 'To store special characters', 'To create vector graphics', 'To perform mathematical operations'],
+        answer: 'To create unique object properties to avoid name collisions',
+        explanation: "They are a primitive data type that is guaranteed to be unique."
     },
     {
         id: 237,
         testId: 10,
         difficulty: 'expert',
-        question: "What does the 'ACID' acronym stand for in database transactions?",
+        question: "Why is `requestAnimationFrame` better for animations than `setTimeout`?",
         type: 'mcq',
-        options: [
-            'Atomicity, Concurrency, Integrity, Durability',
-            'Availability, Consistency, Isolation, Durability',
-            'Atomicity, Consistency, Isolation, Durability',
-            'Association, Concurrency, Integrity, Distribution'
-        ],
-        answer: 'Atomicity, Consistency, Isolation, Durability',
-        explanation: 'These four properties guarantee that database transactions are processed reliably.'
+        options: ['It runs code after a specified delay with higher priority', 'It synchronizes with the browser\'s repaint cycle for smoother animations', 'It is a newer version of `setInterval`', 'It is used exclusively for network requests'],
+        answer: 'It synchronizes with the browser\'s repaint cycle for smoother animations',
+        explanation: "This prevents layout thrashing and results in more efficient, smoother animations."
     },
     {
         id: 238,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'API versioning'?",
+        question: "What is webpack's Module Federation?",
         type: 'mcq',
-        options: [
-            'A way to check the version of an API',
-            'The practice of managing changes to an API to ensure that new changes do not break existing client applications',
-            'A tool for documenting APIs',
-            'A security feature for APIs'
-        ],
-        answer: 'The practice of managing changes to an API to ensure that new changes do not break existing client applications',
-        explanation: 'This is often done by including a version number in the URL (e.g., `/v2/users`) or in a request header.'
+        options: ['A way to manage different versions of the same module', 'A method for loading modules from a CDN', 'A feature that allows a JavaScript application to dynamically load code from another application', 'A security policy for modules'],
+        answer: 'A feature that allows a JavaScript application to dynamically load code from another application',
+        explanation: "It enables micro-frontend architectures by allowing separately built applications to share code."
     },
     {
         id: 239,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'Jamstack' architecture?",
+        question: "What is a `WeakMap` in JavaScript?",
         type: 'mcq',
-        options: [
-            'A traditional server-rendered architecture',
-            'A modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup',
-            'A backend framework for Java',
-            'A mobile development stack'
-        ],
-        answer: 'A modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup',
-        explanation: 'Jamstack sites are often pre-rendered as static files and served from a CDN, making them very fast and secure.'
+        options: ["A Map that cannot be iterated", "A Map that only holds weak references to its keys, allowing them to be garbage collected", "A less performant version of Map", "An alias for an Object"],
+        answer: "A Map that only holds weak references to its keys, allowing them to be garbage collected",
+        explanation: "This prevents memory leaks when the only reference to an object is the WeakMap key."
     },
     {
         id: 240,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'Stateful' vs 'Stateless' architecture?",
+        question: "What is the purpose of `rel='noopener'` attribute on a link?",
         type: 'mcq',
-        options: [
-            'Stateful means the server stores client session data; stateless means each request must contain all necessary information',
-            'Stateless applications cannot store any data',
-            'Stateful applications are faster',
-            'There is no difference'
-        ],
-        answer: 'Stateful means the server stores client session data; stateless means each request must contain all necessary information',
-        explanation: 'Stateless architectures (a key principle of REST) are easier to scale horizontally, as any server can handle any request.'
+        options: ["To stop search engines from following the link", "To prevent the new page from being able to access the `window.opener` property for security", "To open the link in a special popup", "To load the link content in the background"],
+        answer: "To prevent the new page from being able to access the `window.opener` property for security",
+        explanation: "This is a security measure to prevent malicious pages from manipulating the original page."
     },
     {
         id: 241,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'Singleton' design pattern?",
+        question: "What is the `for...of` loop used for in JavaScript?",
         type: 'mcq',
-        options: [
-            'A pattern for creating single-page applications',
-            'A creational pattern that restricts the instantiation of a class to a single object',
-            'A pattern for database connections',
-            'A way to manage state in React'
-        ],
-        answer: 'A creational pattern that restricts the instantiation of a class to a single object',
-        explanation: 'This is useful when exactly one object is needed to coordinate actions across a system, though it can be considered an anti-pattern as it introduces global state.'
+        options: ["Iterating over the properties of an object", "Iterating over the values of an iterable object (like an Array or String)", "Creating a loop that runs a specific number of times", "It is an alias for the `for...in` loop"],
+        answer: "Iterating over the values of an iterable object (like an Array or String)",
+        explanation: "`for...in` iterates over keys, while `for...of` iterates over values."
     },
     {
         id: 242,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'dependency injection'?",
+        question: "What is CSS Containment?",
         type: 'mcq',
-        options: [
-            'A security vulnerability',
-            'A design pattern in which a component\'s dependencies are provided to it from an external source rather than it creating them itself',
-            'A way to manage `node_modules`',
-            'A database management technique'
-        ],
-        answer: 'A design pattern in which a component\'s dependencies are provided to it from an external source rather than it creating them itself',
-        explanation: 'This inverts the control, leading to more loosely coupled, modular, and testable code.'
+        options: ["A property to contain elements within the viewport", "A property (`contain`) that allows you to isolate a part of the page for performance optimization", "A security feature to contain scripts", "A way to group CSS variables"],
+        answer: "A property (`contain`) that allows you to isolate a part of the page for performance optimization",
+        explanation: "It tells the browser that an element's subtree is independent, allowing for rendering optimizations."
     },
     {
         id: 243,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'polymorphism'?",
+        question: "What is `git stash` used for?",
         type: 'mcq',
-        options: [
-            'A way to store many shapes',
-            'A core concept of object-oriented programming that allows objects of different classes to be treated as objects of a common superclass',
-            'A data encryption method',
-            'A memory management technique'
-        ],
-        answer: 'A core concept of object-oriented programming that allows objects of different classes to be treated as objects of a common superclass',
-        explanation: 'It allows for writing more generic and flexible code. Method overriding is a common way to achieve polymorphism.'
+        options: ["To delete uncommitted changes", "To save uncommitted changes temporarily without committing them", "To merge branches", "To create a new commit"],
+        answer: "To save uncommitted changes temporarily without committing them",
+        explanation: "It's useful for quickly switching contexts without making a commit."
     },
     {
         id: 244,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'mutex'?",
+        question: "What is `requestAnimationFrame` primarily used for?",
         type: 'mcq',
-        options: [
-            'A type of database',
-            'A synchronization primitive that provides \'mutual exclusion,\' ensuring that only one thread can access a shared resource at a time',
-            'A network hardware device',
-            'An error in a program'
-        ],
-        answer: 'A synchronization primitive that provides \'mutual exclusion,\' ensuring that only one thread can access a shared resource at a time',
-        explanation: 'Mutexes are a fundamental tool for preventing race conditions in multithreaded programming.'
+        options: ["Fetching data from an API", "Running background tasks", "Performing smooth animations in the browser", "Debouncing user input"],
+        answer: "Performing smooth animations in the browser",
+        explanation: "It schedules a function to be called just before the next browser repaint."
     },
     {
         id: 245,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'Big O notation' used for?",
-        type: 'mcq',
-        options: [
-            'To measure the exact speed of an algorithm',
-            'To describe the performance or complexity of an algorithm in terms of how its runtime or space requirements grow as the input size grows',
-            'To write mathematical formulas in code',
-            'To document code'
-        ],
-        answer: 'To describe the performance or complexity of an algorithm in terms of how its runtime or space requirements grow as the input size grows',
-        explanation: 'It provides a high-level understanding of an algorithm\'s efficiency, such as O(n) for linear time or O(log n) for logarithmic time.'
+        question: "Describe the JavaScript event loop.",
+        type: 'subjective',
+        answer: "The event loop is a mechanism that allows JavaScript's single thread to handle asynchronous operations. It consists of a call stack, a message queue (or callback queue), and Web APIs. When an async operation completes (e.g., a `setTimeout`), its callback is placed in the queue. The event loop continuously checks if the call stack is empty. If it is, it takes the first message from the queue and pushes its callback onto the stack to be executed.",
+        explanation: "This model allows for non-blocking I/O in a single-threaded environment."
     },
     {
         id: 246,
         testId: 10,
         difficulty: 'expert',
-        question: "What is the `this` keyword in JavaScript?",
-        type: 'mcq',
-        options: [
-            'It always refers to the global window object',
-            'Its value is determined by how a function is called (the execution context)',
-            'It refers to the function itself',
-            'It is a reference to the `document` object'
-        ],
-        answer: 'Its value is determined by how a function is called (the execution context)',
-        explanation: 'In a method, it\'s the object. In a simple function call, it can be the global object or `undefined` in strict mode. Arrow functions lexically bind `this`.'
+        question: "What are WebSockets?",
+        type: 'subjective',
+        answer: "WebSockets provide a full-duplex communication channel over a single, long-lived TCP connection. Unlike traditional HTTP, which is request-response based, WebSockets allow for real-time, two-way communication between the client and server, making them ideal for applications like live chat, real-time gaming, and live data feeds.",
+        explanation: "They solve the limitations of HTTP polling and long-polling."
     },
     {
         id: 247,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'JWT' (JSON Web Token)?",
-        type: 'mcq',
-        options: [
-            'A session cookie',
-            'A compact, URL-safe means of representing claims to be transferred between two parties, commonly used for authentication and authorization',
-            'An encryption standard',
-            'A JavaScript object'
-        ],
-        answer: 'A compact, URL-safe means of representing claims to be transferred between two parties, commonly used for authentication and authorization',
-        explanation: 'A JWT is digitally signed, allowing the receiver to verify its authenticity.'
+        question: "How would you debounce a function in JavaScript?",
+        type: 'subjective',
+        answer: "You would create a wrapper function that uses `setTimeout`. Inside the wrapper, you first clear any existing timeout with `clearTimeout`, then set a new timeout to execute the original function after a specified delay. This ensures the function only runs once after a burst of calls has ended.",
+        explanation: "Commonly used for handling user input, like in a search bar."
     },
     {
         id: 248,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'Web Worker'?",
-        type: 'mcq',
-        options: [
-            'A UI component for displaying user profiles',
-            'A simple way for web content to run scripts in background threads, allowing for long-running, CPU-intensive tasks without blocking the main UI thread',
-            'A security feature',
-            'A CSS animation property'
-        ],
-        answer: 'A simple way for web content to run scripts in background threads, allowing for long-running, CPU-intensive tasks without blocking the main UI thread',
-        explanation: 'Web Workers are essential for maintaining a responsive user interface during heavy computations.'
+        question: "Explain how the `this` keyword works in JavaScript.",
+        type: 'subjective',
+        answer: "The value of `this` is determined by how a function is called (its execution context). In a method (e.g., `obj.myMethod()`), `this` refers to the owner object. In a regular function, `this` refers to the global object (`window` in browsers) or `undefined` in strict mode. In an event handler, `this` refers to the element that received the event. Arrow functions do not have their own `this`; they lexically bind it from their parent scope.",
+        explanation: "The behavior of `this` is one of the most frequently misunderstood parts of JavaScript."
     },
     {
         id: 249,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'Webpack'?",
-        type: 'mcq',
-        options: [
-            'A JavaScript framework',
-            'A static module bundler for modern JavaScript applications. It takes modules with dependencies and generates static assets representing those modules.',
-            'A code editor',
-            'A testing library'
-        ],
-        answer: 'A static module bundler for modern JavaScript applications. It takes modules with dependencies and generates static assets representing those modules.',
-        explanation: 'Webpack is a fundamental tool in the modern frontend development toolchain, enabling features like code splitting, loaders, and plugins.'
+        question: "What are CSS Custom Properties (Variables) and what are their benefits?",
+        type: 'subjective',
+        answer: "CSS Custom Properties are entities defined by CSS authors that contain specific values to be reused throughout a document. They are set using custom property notation (e.g., `--main-color: #ff0000;`) and are accessed using the `var()` function. Benefits include DRY (Don't Repeat Yourself) code, easier theming, and the ability to be read and changed dynamically via JavaScript.",
+        explanation: "They are a powerful feature for creating maintainable and dynamic stylesheets."
     },
     {
         id: 250,
         testId: 10,
         difficulty: 'expert',
-        question: "What is the `useMemo` hook in React?",
-        type: 'mcq',
-        options: [
-            'A hook for managing component state',
-            'A hook that memoizes the result of a function, re-computing it only when its dependencies change, to optimize performance',
-            'A hook for handling side effects',
-            'A hook for fetching data'
-        ],
-        answer: 'A hook that memoizes the result of a function, re-computing it only when its dependencies change, to optimize performance',
-        explanation: 'It is used to prevent expensive calculations from being re-executed on every render.'
+        question: "What is hydration in the context of SSR with React?",
+        type: 'subjective',
+        answer: "Hydration is the process of attaching event listeners and making the static HTML received from a server-side rendering (SSR) process interactive. React 'hydrates' the server-rendered HTML by building its virtual DOM in memory, comparing it to the existing HTML, and then attaching the necessary JavaScript logic and event listeners to the markup.",
+        explanation: "It turns a static page into a dynamic single-page application."
     },
     {
         id: 251,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'Babel' in the context of JavaScript?",
-        type: 'mcq',
-        options: [
-            'A package manager',
-            'A JavaScript compiler that is mainly used to convert ECMAScript 2015+ (ES6+) code into a backward-compatible version of JavaScript that can be run by older browsers',
-            'A testing framework',
-            'A linter'
-        ],
-        answer: 'A JavaScript compiler that is mainly used to convert ECMAScript 2015+ (ES6+) code into a backward-compatible version of JavaScript that can be run by older browsers',
-        explanation: 'Babel is a crucial tool that allows developers to use the latest JavaScript features while maintaining broad browser support.'
+        question: "Explain event delegation in JavaScript.",
+        type: 'subjective',
+        answer: 'Event delegation is a technique where you add a single event listener to a parent element to manage events for all of its children, including dynamically added ones. When an event bubbles up from a child, the parent listener can check the `event.target` property to identify which child triggered the event and respond accordingly. This improves performance by reducing the number of event listeners.',
+        explanation: "It's a memory-efficient way to handle events on many elements."
     },
     {
         id: 252,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'man-in-the-middle' (MITM) attack?",
-        type: 'mcq',
-        options: [
-            'An attack where the attacker overloads a server',
-            'An attack where the attacker secretly relays and possibly alters the communication between two parties who believe they are directly communicating with each other',
-            'An attack that injects malicious scripts into a website',
-            'An attack that tries to guess a user\'s password'
-        ],
-        "answer": "An attack where the attacker secretly relays and possibly alters the communication between two parties who believe they are directly communicating with each other",
-        "explanation": "HTTPS is the primary defense against MITM attacks, as it encrypts the communication and verifies the server's identity."
+        question: "How does React's reconciliation algorithm work?",
+        type: 'subjective',
+        answer: "Reconciliation is the process through which React updates the DOM. When a component's state or props change, React creates a new virtual DOM tree. It then compares ('diffs') this new tree with the previous one using a heuristic algorithm. Based on this comparison, it computes the most efficient, minimal set of changes needed to update the real DOM and applies them in a batch.",
+        explanation: "The key assumption is that different component types produce different trees and that developers can hint at stable elements using the `key` prop."
     },
     {
         id: 253,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'DNS' (Domain Name System)?",
-        type: 'mcq',
-        options: [
-            'A protocol for sending email',
-            'The system that translates human-readable domain names (like google.com) into machine-readable IP addresses',
-            'A type of computer virus',
-            'A file storage system'
-        ],
-        answer: 'The system that translates human-readable domain names (like google.com) into machine-readable IP addresses',
-        explanation: 'DNS is often called the \'phonebook of the Internet\' and is a fundamental component of how the web works.'
+        question: "What are render props in React?",
+        type: 'subjective',
+        answer: "The term 'render prop' refers to a technique for sharing code between React components using a prop whose value is a function that returns a React element. A component with a render prop (e.g., `<DataProvider render={data => <h1>{data.name}</h1>} />`) calls this function to delegate its rendering logic, enabling powerful and flexible composition.",
+        explanation: "It's a pattern for sharing logic, similar in purpose to hooks and HOCs."
     },
     {
         id: 254,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'Server-Side Rendering' (SSR)?",
-        type: 'mcq',
-        options: [
-            'Rendering a web page entirely in the client\'s browser',
-            'The process of rendering a client-side JavaScript application on the server and sending a fully rendered HTML page to the browser',
-            'A technique for caching server responses',
-            'A type of database'
-        ],
-        answer: 'The process of rendering a client-side JavaScript application on the server and sending a fully rendered HTML page to the browser',
-        explanation: 'SSR improves initial page load performance (perceived speed) and is beneficial for SEO. Frameworks like Next.js specialize in this.'
+        question: "What is the difference between throttling and debouncing?",
+        type: 'subjective',
+        answer: "Throttling guarantees that a function is executed at most once per specified time period (e.g., once every 100ms). Debouncing ensures that a function is only called after a certain period of inactivity (e.g., after the user stops typing for 300ms). Throttling is about limiting the rate, while debouncing is about waiting for a pause.",
+        explanation: "Throttling is good for scroll events, while debouncing is good for search input."
     },
     {
         id: 255,
         testId: 10,
         difficulty: 'expert',
-        question: "What is a 'container orchestration' tool like Kubernetes?",
-        type: 'mcq',
-        options: [
-            'A tool for building container images',
-            'A tool for automating the deployment, scaling, and management of containerized applications',
-            'A monitoring tool for containers',
-            'A container runtime like Docker'
-        ],
-        answer: 'A tool for automating the deployment, scaling, and management of containerized applications',
-        explanation: 'Kubernetes manages the complexity of running applications across a cluster of machines, handling tasks like scheduling, networking, and service discovery.'
+        question: "What is a Progressive Web App (PWA)?",
+        type: 'subjective',
+        answer: "A PWA is a web application that uses modern web capabilities to deliver an app-like experience. Key features include being installable on the user's home screen, working offline via a service worker, and offering push notifications. They aim to combine the reach of the web with the user experience of a native app.",
+        explanation: "They represent the evolution of web apps to be more capable and reliable."
     },
     {
         id: 256,
         testId: 10,
         difficulty: 'expert',
-        question: "How does 'public key cryptography' (asymmetric encryption) work?",
+        question: "What is the `Same-Origin Policy` and why is it important?",
         type: 'subjective',
-        answer: "Public key cryptography uses a pair of keys: a public key and a private key. The public key can be shared freely. A message encrypted with the public key can only be decrypted with the corresponding private key. This ensures confidentiality. It can also be used for digital signatures: a message signed with a private key can be verified by anyone with the public key, ensuring authenticity and non-repudiation.",
-        explanation: "This is the foundation of modern secure communication, including HTTPS/TLS."
+        answer: 'The Same-Origin Policy (SOP) is a critical security mechanism in web browsers. It restricts how a document or script loaded from one origin (domain, protocol, port) can interact with a resource from another origin. This helps prevent malicious scripts on one page from accessing sensitive data on another page.',
+        explanation: "It's a cornerstone of web security."
     },
+    // Test 7: 35 Questions (21 MCQ, 14 Subjective) - Hard
     {
         id: 257,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'salting' in the context of password hashing and why is it important?",
+        question: "What is a 'CRDT' (Conflict-free Replicated Data Type)?",
         type: 'subjective',
-        answer: "Salting is the process of adding a unique, randomly generated string (the salt) to each user's password before it is hashed. The salt is then stored along with the hash. This is important because it ensures that even if two users have the same password, their stored hashes will be different. This defeats 'rainbow table' attacks, which use precomputed hashes of common passwords.",
-        explanation: "Without a unique salt for each password, security is significantly weakened."
+        answer: "A `Symbol` is a unique and immutable primitive data type introduced in ES6. Symbols are often used as keys for object properties to avoid name collisions, as each symbol value returned from `Symbol()` is guaranteed to be unique.",
+        explanation: "This is useful for defining 'private' or internal properties on objects."
     },
     {
-        id: 258,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain the difference between TCP and UDP.",
-        type: 'subjective',
-        answer: "TCP (Transmission Control Protocol) is a connection-oriented protocol that guarantees reliable, ordered delivery of data. It establishes a connection (handshake), numbers packets, and re-transmits lost packets. UDP (User Datagram Protocol) is a connectionless protocol that is faster but provides no guarantees about delivery, order, or duplication. TCP is used for applications like web browsing and email where reliability is key. UDP is used for applications like live video streaming or online gaming where speed is more critical than perfect reliability.",
-        explanation: "TCP is like a registered letter; UDP is like a postcard."
+      id: 258,
+      testId: 10,
+      difficulty: 'hard',
+      question: 'What is "code splitting"?',
+      type: 'subjective',
+      answer: "Code splitting is a feature supported by bundlers like Webpack or Rollup which can create multiple bundles that can be dynamically loaded at runtime. Instead of one massive bundle, you can split code by route or component. This is crucial for improving initial page load time, as the user only downloads the code needed for the initial view.",
+      explanation: "`React.lazy` and dynamic `import()` are common ways to implement code splitting."
     },
     {
-        id: 259,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is a 'DDoS' (Distributed Denial of Service) attack?",
-        type: 'subjective',
-        answer: "A DDoS attack is a malicious attempt to disrupt a service by overwhelming it with a flood of traffic from many different sources (a 'botnet'). The goal is to exhaust the target's resources (like bandwidth, CPU, or memory) so that it cannot respond to legitimate requests. Because the traffic comes from many distributed sources, it's difficult to block.",
-        explanation: "Defenses involve services that can absorb and filter out the malicious traffic before it reaches the target server."
+      id: 259,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What are ES modules (ESM)?",
+      type: 'subjective',
+      answer: 'ES Modules are the official, standardized module system for JavaScript, introduced in ES6. They use the `import` and `export` statements. Unlike older systems like CommonJS, ESM is resolved statically at parse time, which allows for powerful optimizations like tree shaking. They are the standard for modern browsers and Node.js.',
+      explanation: "They offer a cleaner syntax and better performance than older module systems."
     },
     {
-        id: 260,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is a CI/CD pipeline?",
-        type: 'subjective',
-        answer: "A CI/CD pipeline is an automated workflow that developers use to build, test, and deploy their software. CI (Continuous Integration) is the practice of frequently merging code changes into a central repository, where automated builds and tests are run. CD (Continuous Delivery/Deployment) is the practice of automatically releasing the successfully tested code to a staging or production environment. The entire pipeline automates the path from code commit to production release.",
-        explanation: "CI/CD is a core practice of DevOps, enabling faster and more reliable software delivery."
+      id: 260,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is OAuth 2.0?",
+      type: 'subjective',
+      answer: "OAuth 2.0 is an authorization framework, not an authentication protocol. It enables a third-party application to obtain limited access to a user's account on an HTTP service. It works by delegating user authentication to the service that hosts the user account and authorizing the third-party application to access the user account via access tokens, rather than sharing the user's credentials.",
+      explanation: "It's the industry standard for authorization, used by Google, Facebook, and others."
     },
     {
-        id: 261,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Describe what happens, from a networking perspective, when you type a URL into your browser and press Enter.",
-        type: 'subjective',
-        answer: "1) **DNS Lookup:** The browser checks its cache for the domain's IP address. If not found, it queries a DNS server to resolve the domain name to an IP address. 2) **TCP Handshake:** The browser establishes a TCP connection with the server at that IP address using a three-way handshake (SYN, SYN-ACK, ACK). 3) **TLS Handshake:** For HTTPS, a TLS handshake occurs to establish a secure, encrypted channel. 4) **HTTP Request:** The browser sends an HTTP GET request to the server for the specified resource. 5) **HTTP Response:** The server processes the request and sends back an HTTP response, including the status code and the page's HTML content. 6) **Rendering:** The browser parses the HTML and begins rendering the page, making additional requests for assets like CSS, JS, and images.",
-        explanation: "This is a fundamental and comprehensive question about how the web works."
+      id: 261,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is a `WeakMap` in JavaScript?",
+      type: 'subjective',
+      answer: "A `WeakMap` only accepts objects as keys and holds 'weak' references, meaning if there are no other references to an object used as a key, it can be garbage collected. This is its main difference from a regular `Map`, which holds strong references. `WeakMap` is not iterable and is primarily used to prevent memory leaks by associating data with an object without preventing its collection.",
+      explanation: "It's an advanced feature for specific memory management scenarios."
     },
     {
-        id: 262,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'Infrastructure as Code' (IaC)?",
-        type: 'subjective',
-        answer: "IaC is the practice of managing and provisioning infrastructure (like servers, networks, and databases) using machine-readable definition files, rather than manual configuration. Tools like Terraform, Ansible, or AWS CloudFormation are used. This allows infrastructure to be version-controlled, tested, and automated, just like application code. It enables the creation of consistent, repeatable environments and reduces the risk of human error.",
-        explanation: "IaC is a core principle of modern DevOps and cloud infrastructure management."
+      id: 262,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is the purpose of `Array.prototype.flat()`?",
+      type: 'subjective',
+      answer: "The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to a specified depth. The default depth is 1. This is useful for simplifying nested arrays into a single, flat array.",
+      explanation: "For example, `[1, [2, 3], [4, [5]]].flat()` results in `[1, 2, 3, 4, [5]]`."
     },
     {
-        id: 263,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain the 'strangler fig' pattern for modernizing legacy systems.",
-        type: 'subjective',
-        answer: "The strangler fig pattern is a strategy for incrementally migrating a legacy monolithic application to a microservices architecture. It works by placing a proxy or router in front of the monolith. New functionality is built as a separate microservice. The proxy then intercepts requests for that functionality and routes them to the new service instead of the monolith. Over time, more and more functionality is 'strangled' out of the monolith and replaced by new services, until the monolith becomes small enough to be retired completely.",
-        explanation: "This is a gradual, lower-risk approach compared to a 'big bang' rewrite."
+      id: 263,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is the `will-change` CSS property used for?",
+      type: 'subjective',
+      answer: "The `will-change` property provides a hint to the browser about what properties of an element are expected to change in the future. This allows the browser to set up optimizations in advance, before the element is actually changed. For example, it might move the element to its own layer on the GPU. It should be used sparingly as it can be a performance cost if overused.",
+      explanation: "It's a way to tell the browser 'get ready to animate this'."
     },
     {
-        id: 264,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is a 'service mesh' and what problems does it solve?",
-        type: 'subjective',
-        answer: "A service mesh is a dedicated infrastructure layer for managing service-to-service communication in a microservices architecture. It uses a 'sidecar' proxy deployed alongside each service to handle tasks like service discovery, load balancing, security (mTLS), traffic management (retries, circuit breakers), and observability (metrics, traces). This abstracts away complex networking logic from the application code, making services simpler, more resilient, and more secure.",
-        explanation: "Istio and Linkerd are popular service mesh implementations."
+      id: 264,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is `ESLint` and why is it useful?",
+      type: 'subjective',
+      answer: "`ESLint` is a static analysis tool for identifying and fixing problems in JavaScript code. It's highly configurable and helps enforce code quality, style consistency, and prevent common errors. By analyzing code without executing it, it can catch bugs early in the development process.",
+      explanation: "It's an essential tool for any modern JavaScript project, especially for teams."
     },
     {
-        id: 265,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain database 'isolation levels' and the problems they prevent.",
-        type: 'subjective',
-        answer: "Isolation levels control the degree to which transactions are isolated from each other. They prevent concurrency issues like: 1) **Dirty Reads:** Reading uncommitted data from another transaction. 2) **Non-Repeatable Reads:** Getting different values for the same row if you read it multiple times in one transaction. 3) **Phantom Reads:** Seeing new rows appear in a query that were inserted by another transaction. Levels like `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE` offer progressively stronger guarantees at the cost of reduced concurrency.",
-        explanation: "Choosing the right isolation level is a trade-off between performance and data consistency."
+      id: 265,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is `git cherry-pick` used for?",
+      type: 'subjective',
+      answer: "`git cherry-pick` is a command used to apply a specific commit from one branch onto another branch. Instead of merging an entire branch, it allows you to select individual commits. This is useful for backporting a bug fix or applying a small feature from a development branch to a stable branch.",
+      explanation: "It's a powerful tool for surgical changes between branches."
     },
     {
-        id: 266,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'event sourcing' as an architectural pattern?",
-        type: 'subjective',
-        answer: "Event sourcing is a pattern where all changes to application state are stored as a sequence of immutable events. Instead of storing the current state of an entity, you store the log of events that led to that state. The current state can be rebuilt at any time by replaying the events. This provides a full audit log, makes it easier to debug issues, and allows for powerful temporal queries (e.g., 'what was the state of this user a week ago?').",
-        explanation: "It is often used with the CQRS pattern to build complex, scalable systems."
+      id: 266,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is the difference between `Promise.all()` and `Promise.allSettled()`?",
+      type: 'subjective',
+      answer: "`Promise.all()` takes an iterable of promises and returns a single promise that resolves with an array of all resolved values. It is 'fail-fast', meaning it will reject immediately if any of the input promises reject. `Promise.allSettled()` also takes an iterable, but it waits for all promises to settle (either fulfill or reject) and returns a promise that resolves with an array of objects, each describing the outcome of a promise.",
+      explanation: "Use `all()` when you need all promises to succeed. Use `allSettled()` when you need to know the outcome of every promise, regardless of success."
     },
     {
-        id: 267,
-        testId: 10,
-        difficulty: 'expert',
-        question: "How do you handle secrets management in a modern application?",
-        type: 'subjective',
-        answer: "Secrets like API keys and database credentials should never be stored in source code. Modern best practices involve using a dedicated secrets management tool like HashiCorp Vault, AWS Secrets Manager, or Google Secret Manager. These tools provide centralized storage, fine-grained access control, auditing, and dynamic secret rotation. Applications retrieve secrets at runtime through a secure API call or via injected environment variables in a secure environment like Kubernetes.",
-        explanation: "Proper secrets management is a critical aspect of application security."
+      id: 267,
+      testId: 10,
+      difficulty: 'hard',
+      question: "Explain the concept of WebAssembly (Wasm) and its use cases.",
+      type: 'subjective',
+      answer: "WebAssembly is a binary instruction format for a stack-based virtual machine. It's designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications. It allows you to run code written in languages like C++, Rust, and Go on the web at near-native speed. Use cases include performance-intensive tasks like gaming, video editing, and scientific simulations.",
+      explanation: "Wasm is not a replacement for JavaScript, but a complement for performance-critical parts of an application."
     },
     {
-        id: 268,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain 'Chaos Engineering'.",
-        type: 'subjective',
-        answer: "Chaos Engineering is the discipline of experimenting on a distributed system in production to build confidence in its ability to withstand turbulent conditions. It involves proactively and deliberately injecting failures (like terminating servers, adding network latency, or causing CPU spikes) in a controlled manner. The goal is to identify and fix systemic weaknesses before they can cause a user-facing outage.",
-        explanation: "This practice, pioneered by Netflix, aims to find failures before they find you."
+      id: 268,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What is a Content Delivery Network (CDN) and how does it improve website performance?",
+      type: 'subjective',
+      answer: "A CDN is a geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and performance by distributing the service spatially relative to end-users. When a user requests a static asset (like an image, CSS, or JS file) from a site using a CDN, the request is routed to the server closest to the user. This reduces latency and speeds up content delivery.",
+      explanation: "CDNs are essential for modern high-traffic websites to ensure fast load times for a global audience."
     },
     {
-        id: 269,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'GraphQL' and how does it compare to 'REST'?",
-        type: 'subjective',
-        answer: "GraphQL is a query language for APIs. Unlike REST, which has multiple endpoints for different resources, GraphQL typically has a single endpoint. The client sends a query specifying exactly the data it needs, and the server responds with only that data. This solves the problems of over-fetching (getting too much data) and under-fetching (needing to make multiple requests) that can occur with REST. However, it can make server-side caching and rate-limiting more complex.",
-        explanation: "GraphQL gives more power to the client, while REST is simpler and leverages HTTP standards more directly."
+      id: 269,
+      testId: 10,
+      difficulty: 'hard',
+      question: "What are HTTP/2 and HTTP/3, and what are their key improvements over HTTP/1.1?",
+      type: 'subjective',
+      answer: "HTTP/2 introduced multiplexing, allowing multiple requests and responses to be sent over a single TCP connection, solving the head-of-line blocking issue of HTTP/1.1. It also added header compression and server push. HTTP/3 builds on this by using QUIC instead of TCP, which further reduces latency, improves connection setup time, and handles packet loss more gracefully, making it more resilient on unstable networks.",
+      explanation: "These newer protocols significantly improve web performance, especially on mobile and unreliable networks."
     },
     {
-        id: 270,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'blue-green deployment'?",
-        type: 'subjective',
-        answer: "Blue-green deployment is a release strategy that reduces downtime and risk. It involves maintaining two identical production environments: 'blue' (the current live version) and 'green' (the new version). The new version is deployed and tested in the green environment. Once it's fully verified, the router is switched to direct all live traffic to the green environment. The blue environment is kept on standby for a quick rollback if needed. This allows for zero-downtime releases.",
-        explanation: "The main trade-off is the cost of maintaining double the infrastructure."
+      id: 270,
+      testId: 10,
+      difficulty: 'hard',
+      question: "Describe what happens from the moment you type a URL into your browser until the page is rendered.",
+      type: 'subjective',
+      answer: "The process involves several steps: 1) DNS Resolution to find the IP address. 2) A TCP connection is established with the server. 3) The browser sends an HTTP request. 4) The server processes the request and sends back an HTTP response with the HTML. 5) The browser parses the HTML to build the DOM tree. 6) It parses CSS to build the CSSOM tree. 7) The DOM and CSSOM are combined to form the Render Tree. 8) The browser performs Layout (calculating positions) and then Paint (drawing the pixels on the screen).",
+      explanation: "This is a classic and comprehensive web knowledge question."
     },
-    {
+     // Test 8: 40 Questions (24 MCQ, 16 Subjective) - Expert
+     {
         id: 271,
         testId: 10,
         difficulty: 'expert',
-        question: "Explain 'optimistic' vs 'pessimistic' locking.",
+        question: "What is a 'race condition' and how can it be mitigated in JavaScript?",
         type: 'subjective',
-        answer: "Pessimistic locking assumes conflicts are likely and prevents them by acquiring a lock on a resource before modification, blocking other transactions. Optimistic locking assumes conflicts are rare. It allows transactions to proceed without locks but checks for conflicts (e.g., using a version number or timestamp) before committing. If a conflict is detected, the transaction is typically rolled back and retried. Pessimistic locking prioritizes consistency, while optimistic locking prioritizes concurrency.",
-        explanation: "Pessimistic locking is 'ask for permission'; optimistic locking is 'ask for forgiveness'."
+        answer: "An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events.",
+        explanation: "Mitigation strategies include using async/await to ensure sequential execution, using a locking mechanism, or designing state updates to be atomic."
     },
     {
         id: 272,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'TDD' (Test-Driven Development)?",
+        question: "What are WebSockets?",
         type: 'subjective',
-        answer: "TDD is a software development process that follows a short, repetitive cycle: 1) **Red:** Write a failing automated test case that defines a new function or improvement. 2) **Green:** Write the minimum amount of code necessary to make the test pass. 3) **Refactor:** Clean up the new code to improve its design and quality, ensuring all tests continue to pass. This process encourages simple design and ensures high test coverage from the start.",
-        explanation: "The core mantra of TDD is 'Red, Green, Refactor'."
+        answer: "A full-duplex communication channel over a single, long-lived TCP connection.",
+        explanation: "Solve the limitations of HTTP polling and long-polling."
     },
     {
         id: 273,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'mTLS' (Mutual TLS) and where is it used?",
+        question: "How would you debounce a function in JavaScript?",
         type: 'subjective',
-        answer: "Mutual TLS is an authentication method where both parties in a connection, the client and the server, authenticate each other's identity using X.509 certificates. This is different from standard TLS where only the client authenticates the server. mTLS is commonly used to secure service-to-service communication within a trusted environment, like a microservices architecture managed by a service mesh, to ensure that only authorized services can communicate with each other.",
-        explanation: "It provides strong, certificate-based, two-way authentication."
+        answer: "You would create a wrapper function that uses `setTimeout`. Inside the wrapper, you first clear any existing timeout with `clearTimeout`, then set a new timeout to execute the original function after a specified delay. This ensures the function only runs once after a burst of calls has ended.",
+        explanation: "Commonly used for handling user input, like in a search bar."
     },
     {
         id: 274,
         testId: 10,
         difficulty: 'expert',
-        question: "How do 'WebSockets' differ from traditional 'HTTP' requests?",
+        question: "Describe the JavaScript event loop.",
         type: 'subjective',
-        answer: "HTTP is a unidirectional, request-response protocol. The client sends a request, and the server sends a response. WebSockets provide a full-duplex, bidirectional communication channel over a single, long-lived TCP connection. After an initial handshake, either the client or the server can send data at any time. This makes WebSockets ideal for real-time applications like live chat, online gaming, and financial data streams, avoiding the overhead of repeated HTTP polling.",
-        explanation: "HTTP is like sending letters, while WebSockets are like having a continuous phone call."
+        answer: "Mechanism that allows JavaScript's single thread to handle asynchronous operations.",
+        explanation: "Allows for non-blocking I/O in a single-threaded environment."
     },
     {
         id: 275,
         testId: 10,
         difficulty: 'expert',
-        question: "What is the difference between a 'container' (like Docker) and a 'virtual machine' (VM)?",
+        question: "In the context of networking, what is a 'port'?",
         type: 'subjective',
-        answer: "A VM virtualizes the hardware, running a full guest operating system on top of a hypervisor. A container virtualizes the operating system, allowing multiple containers to run on a single host OS kernel. This makes containers much more lightweight, faster to start, and less resource-intensive than VMs. VMs provide stronger isolation, while containers offer better efficiency and portability.",
-        explanation: "Containers are like apartments in a building (sharing plumbing), while VMs are like separate houses on a street (each with its own plumbing)."
+        answer: "A numerical identifier that specifies a particular process or service on a host computer.",
+        explanation: "Ports allow a single host to run multiple services, directing network traffic to the correct application (e.g., a web server on port 80)."
     }
   ],
-  backend: [],
-  'full-stack': [],
-  'next-js': [],
-  java: [],
-  python: [],
-  mern: [],
-  'c-plus-plus': [],
-  devops: [],
-  'data-science': [],
-  'ai-ml': [],
-  'cloud-computing': [],
-  'mobile-development': [],
-  cybersecurity: []
-};
+  backend: [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 276,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is an API?",
+        type: 'mcq',
+        options: ['A type of database', 'Application Programming Interface', 'A user interface', 'A server'],
+        answer: 'Application Programming Interface',
+        explanation: 'An API is a set of rules and protocols that allows different software applications to communicate with each other.'
+    },
+    {
+        id: 277,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is a common backend programming language?",
+        type: 'mcq',
+        options: ['HTML', 'CSS', 'Node.js (JavaScript)', 'React'],
+        answer: 'Node.js (JavaScript)',
+        explanation: 'Node.js allows JavaScript to be run on the server side. Python, Java, Ruby, and Go are also common backend languages.'
+    },
+    {
+        id: 278,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does SQL stand for?",
+        type: 'mcq',
+        options: ['Structured Query Language', 'Simple Question Language', 'Server Quality Logic', 'Standard Query Language'],
+        answer: 'Structured Query Language',
+        explanation: 'SQL is the standard language for managing and manipulating data in relational databases.'
+    },
+    {
+        id: 279,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the purpose of a database?",
+        type: 'subjective',
+        answer: "The purpose of a database is to store, organize, manage, and retrieve data efficiently and persistently. It provides a structured way to handle large amounts of information, ensuring data integrity and security.",
+        explanation: "Databases are a core component of almost every backend system."
+    },
+    {
+        id: 280,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a server in the context of web development?",
+        type: 'subjective',
+        answer: "A server is a computer program or a physical machine that provides services to other computers, known as clients. In web development, a web server processes incoming requests from clients (browsers) and sends back responses, such as HTML pages, data, or other resources.",
+        explanation: "The server is the 'backend' that powers the 'frontend' you see in a browser."
+    },
+    // Test 2: 10 Questions (6 MCQ, 4 Subjective) - Easy
+    {
+        id: 281,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is a primary key in a database table?",
+        type: 'mcq',
+        options: ['A key used to encrypt the data', 'The first column in a table', 'A unique identifier for each record in a table', 'A key that links to another table'],
+        answer: 'A unique identifier for each record in a table',
+        explanation: 'A primary key must contain unique values and cannot contain NULL values.'
+    },
+    {
+        id: 282,
+        testId: 2,
+        difficulty: 'easy',
+        question: "Which HTTP method is typically used for retrieving data from a server?",
+        type: 'mcq',
+        options: ['POST', 'GET', 'PUT', 'DELETE'],
+        answer: 'GET',
+        explanation: 'GET requests are used to request data from a specified resource and should have no other effect.'
+    },
+    {
+        id: 283,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is a 'route' in a backend framework like Express.js?",
+        type: 'mcq',
+        options: ['A path to a file on the server', 'A way to define how the application responds to a client request to a particular endpoint (URI)', 'A connection to the database', 'A type of middleware'],
+        answer: 'A way to define how the application responds to a client request to a particular endpoint (URI)',
+        explanation: 'Routes are fundamental to defining the functionality of an API.'
+    },
+    {
+        id: 284,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What does 'localhost' refer to?",
+        type: 'mcq',
+        options: ['A remote server', 'The public internet', 'The current computer you are working on', 'A type of database'],
+        answer: 'The current computer you are working on',
+        explanation: 'Localhost is a hostname that means "this computer," and its IP address is typically 127.0.0.1.'
+    },
+    {
+        id: 285,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is Node.js?",
+        type: 'mcq',
+        options: ['A frontend framework', 'A JavaScript runtime environment that executes JavaScript code outside a web browser', 'A database', 'A programming language'],
+        answer: 'A JavaScript runtime environment that executes JavaScript code outside a web browser',
+        explanation: 'Node.js is what allows developers to use JavaScript for backend development.'
+    },
+    {
+        id: 286,
+        testId: 2,
+        difficulty: 'easy',
+        question: "Which of the following is a NoSQL database?",
+        type: 'mcq',
+        options: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
+        answer: 'MongoDB',
+        explanation: 'MongoDB is a document-oriented NoSQL database, while the others are relational (SQL) databases.'
+    },
+    {
+        id: 287,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is a REST API?",
+        type: 'subjective',
+        answer: "A REST (Representational State Transfer) API is an architectural style for designing networked applications. It relies on a stateless, client-server communication protocol, almost always HTTP. It uses standard HTTP methods (GET, POST, PUT, DELETE) and is based on the idea of resources identified by URLs.",
+        explanation: 'REST is the most common architectural style for building web APIs.'
+    },
+    {
+        id: 288,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is the purpose of `npm` (Node Package Manager)?",
+        type: 'subjective',
+        answer: "npm is the default package manager for Node.js. Its primary purpose is to install and manage external libraries and packages (dependencies) that a project needs to run. It also includes a command-line client to interact with the npm registry.",
+        explanation: 'npm makes it easy to share and reuse code.'
+    },
+    {
+        id: 289,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is the difference between HTTP and HTTPS?",
+        type: 'subjective',
+        answer: "The main difference is security. HTTP (Hypertext Transfer Protocol) is unencrypted, meaning data is sent in plain text. HTTPS (HTTP Secure) uses TLS/SSL to encrypt the communication between the client and the server, ensuring confidentiality and integrity of the data.",
+        explanation: 'HTTPS is the standard for all modern websites to protect user data.'
+    },
+    {
+        id: 290,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is JSON?",
+        type: 'subjective',
+        answer: "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write and easy for machines to parse and generate. It is often used to send data between a server and a web application as an alternative to XML.",
+        explanation: 'JSON is the de facto standard format for data in web APIs.'
+    },
+    // Test 3: 15 Questions (9 MCQ, 6 Subjective) - Medium
+    {
+        id: 291,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is 'middleware' in the context of a backend framework like Express.js?",
+        type: 'mcq',
+        options: ['A database', 'Functions that have access to the request object, the response object, and the next middleware function in the application\'s request-response cycle', 'A user interface component', 'A type of server'],
+        answer: 'Functions that have access to the request object, the response object, and the next middleware function in the application\'s request-response cycle',
+        explanation: 'Middleware is used for tasks like logging, authentication, and parsing request bodies.'
+    },
+    {
+        id: 292,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is a foreign key in a relational database?",
+        type: 'mcq',
+        options: ['A key that is not from your country', 'A field in one table that uniquely identifies a row of another table', 'The main key of a table', 'An encrypted key'],
+        answer: 'A field in one table that uniquely identifies a row of another table',
+        explanation: 'Foreign keys are used to link tables together and enforce referential integrity.'
+    },
+    {
+        id: 293,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is an 'environment variable'?",
+        type: 'mcq',
+        options: ['A variable that describes the weather', 'A variable whose value is set outside the program, typically in the operating system, to configure its behavior', 'A variable that can only be used in the browser', 'A variable that is always a string'],
+        answer: 'A variable whose value is set outside the program, typically in the operating system, to configure its behavior',
+        explanation: 'Environment variables are commonly used for storing configuration like API keys or database connection strings, keeping them separate from the code.'
+    },
+    {
+        id: 294,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is hashing in the context of password security?",
+        type: 'mcq',
+        options: ['Encrypting a password', 'A one-way function that transforms a password into a fixed-size string of characters, which cannot be reversed', 'Storing a password in plain text', 'Compressing a password'],
+        answer: 'A one-way function that transforms a password into a fixed-size string of characters, which cannot be reversed',
+        explanation: 'Hashing is a fundamental security practice. Passwords should never be stored in plain text.'
+    },
+    {
+        id: 295,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the purpose of an ORM (Object-Relational Mapping)?",
+        type: 'mcq',
+        options: ['To optimize database queries', 'A technique for converting data between incompatible type systems in object-oriented programming languages', 'To create user interfaces', 'To manage server infrastructure'],
+        answer: 'A technique for converting data between incompatible type systems in object-oriented programming languages',
+        explanation: 'ORMs like Prisma, Sequelize, or TypeORM allow developers to interact with their database using an object-oriented paradigm instead of writing raw SQL.'
+    },
+    {
+        id: 296,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What does the HTTP status code `200 OK` signify?",
+        type: 'mcq',
+        options: ['The request was successful', 'The resource was not found', 'There was a server error', 'The request was created'],
+        answer: 'The request was successful',
+        explanation: '`200 OK` is the standard response for successful HTTP requests.'
+    },
+    {
+        id: 297,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What does the SQL `JOIN` clause do?",
+        type: 'mcq',
+        options: ['It adds a new row to a table', 'It deletes a table', 'It combines rows from two or more tables based on a related column between them', 'It updates a record'],
+        answer: 'It combines rows from two or more tables based on a related column between them',
+        explanation: 'JOINs are fundamental to querying data from a relational database.'
+    },
+    {
+        id: 298,
+        testId: 3,
+        difficulty: 'medium',
+        question: "In Node.js, what is the purpose of the `package.json` file?",
+        type: 'mcq',
+        options: ['To store application data', 'To list the project\'s dependencies and store other metadata', 'To write the main application logic', 'To configure the server'],
+        answer: 'To list the project\'s dependencies and store other metadata',
+        explanation: 'It serves as a manifest for the project, defining its properties, scripts, and dependencies.'
+    },
+    {
+        id: 299,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is a JWT (JSON Web Token)?",
+        type: 'mcq',
+        options: ['A type of database', 'A compact, URL-safe means of representing claims to be transferred between two parties', 'A session management tool', 'A server framework'],
+        answer: 'A compact, URL-safe means of representing claims to be transferred between two parties',
+        explanation: 'JWTs are commonly used for stateless authentication and authorization in APIs.'
+    },
+    {
+        id: 300,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the difference between a relational (SQL) and a non-relational (NoSQL) database?",
+        type: 'subjective',
+        answer: "Relational databases (like MySQL, PostgreSQL) store data in tables with a predefined schema, enforcing relationships between tables. They are good for structured data. Non-relational databases (like MongoDB, Redis) store data in various formats (documents, key-value pairs) with dynamic schemas, offering more flexibility and scalability for unstructured or semi-structured data.",
+        explanation: 'The choice depends on the application\'s data structure, scalability, and consistency requirements.'
+    },
+    {
+        id: 301,
+        testId: 3,
+        difficulty: 'medium',
+        question: "Explain the request-response cycle in a typical web application.",
+        type: 'subjective',
+        answer: "The cycle begins when a client (e.g., a browser) sends an HTTP request to a server's URL. The server receives the request, processes it (which may involve running business logic, querying a database, or calling other services), generates an HTTP response (containing a status code, headers, and a body like HTML or JSON), and sends it back to the client. The client then processes the response (e.g., rendering the HTML).",
+        explanation: 'This is the fundamental interaction model of the web.'
+    },
+    {
+        id: 302,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is 'salting' passwords and why is it important?",
+        type: 'subjective',
+        answer: "Salting is the process of adding a unique, random string of characters (the salt) to each user's password before it is hashed. The salt is then stored along with the hash. This is important because it ensures that even if two users have the same password, their stored hashes will be different. This defeats 'rainbow table' attacks, which use pre-computed hashes of common passwords.",
+        explanation: 'Salting is a critical security measure for storing user credentials.'
+    },
+    {
+        id: 303,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the role of an 'index' in a database?",
+        type: 'subjective',
+        answer: "A database index is a data structure that improves the speed of data retrieval operations on a database table. It works like an index in a book: instead of searching through every row in the table (a full table scan), the database can use the index to quickly locate the data. While indexes speed up reads, they can slow down writes, as the index also needs to be updated.",
+        explanation: 'Proper indexing is the most important factor in database query performance.'
+    },
+    {
+        id: 304,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is 'authentication' vs 'authorization'?",
+        type: 'subjective',
+        answer: "Authentication is the process of verifying who a user is (e.g., by checking their username and password). Authorization is the process of determining what an authenticated user is allowed to do (e.g., checking if a user has permission to delete a record). Authentication comes before authorization.",
+        explanation: 'A helpful analogy: authentication is showing your ID to enter a building; authorization is checking which rooms your keycard can open.'
+    },
+    {
+        id: 305,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is asynchronous programming, and why is it important for Node.js?",
+        type: 'subjective',
+        answer: "Asynchronous programming is a model where operations can run in the background without blocking the main application thread. Node.js is built on a single-threaded, event-driven architecture. Asynchronous I/O operations (like reading a file or making a database query) allow the single thread to handle other requests while waiting for the operation to complete, making it highly efficient and scalable for I/O-bound applications.",
+        explanation: 'This non-blocking nature is the key to Node.js\'s performance.'
+    },
+     // Test 4: 20 Questions (12 MCQ, 8 Subjective) - Medium
+    {
+        id: 306,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which HTTP status code indicates that a resource was not found?",
+        type: 'mcq',
+        options: ['200 OK', '404 Not Found', '500 Internal Server Error', '301 Moved Permanently'],
+        answer: '404 Not Found',
+        explanation: 'A 404 is the standard code for when a server cannot find the requested resource.'
+    },
+    {
+        id: 307,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of 'caching'?",
+        type: 'mcq',
+        options: ['To secure data', 'To store a copy of data in a temporary, fast-access location to speed up subsequent requests', 'To log server activity', 'To validate user input'],
+        answer: 'To store a copy of data in a temporary, fast-access location to speed up subsequent requests',
+        explanation: 'Caching is a critical technique for improving application performance and reducing server load.'
+    },
+    {
+        id: 308,
+        testId: 4,
+        difficulty: 'medium',
+        question: "In the context of APIs, what does 'stateless' mean?",
+        type: 'mcq',
+        options: ['The server has no memory', 'Each request from a client to the server must contain all the information needed to understand and process the request', 'The server cannot store any data', 'The API does not have a state management library'],
+        answer: 'Each request from a client to the server must contain all the information needed to understand and process the request',
+        explanation: 'Statelessness is a key principle of REST architecture, which simplifies server design and improves scalability.'
+    },
+    {
+        id: 309,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'Dockerfile' used for?",
+        type: 'mcq',
+        options: ['To configure a database', 'To write application code', 'A text document that contains all the commands a user could call on the command line to assemble a Docker container image', 'To manage user permissions'],
+        answer: 'A text document that contains all the commands a user could call on the command line to assemble a Docker container image',
+        explanation: 'A Dockerfile is the recipe for building a portable, self-contained application environment.'
+    },
+    {
+        id: 310,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which of the following is a key-value store database?",
+        type: 'mcq',
+        options: ['PostgreSQL', 'MySQL', 'Redis', 'MongoDB'],
+        answer: 'Redis',
+        explanation: 'Redis is an in-memory data structure store, used as a database, cache, and message broker. It is a prime example of a key-value store.'
+    },
+    {
+        id: 311,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the `event loop` in Node.js?",
+        type: 'mcq',
+        options: ['It listens for frontend UI events', 'A mechanism that allows Node.js to perform non-blocking I/O operations despite being single-threaded', 'A security feature', 'A tool for managing event logs'],
+        answer: 'A mechanism that allows Node.js to perform non-blocking I/O operations despite being single-threaded',
+        explanation: 'The event loop is the core of Node.js\'s asynchronous, non-blocking architecture.'
+    },
+    {
+        id: 312,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of the `async` and `await` keywords in JavaScript?",
+        type: 'mcq',
+        options: ['To make code run on a separate thread', 'To provide a more synchronous-looking syntax for handling asynchronous Promise-based code', 'To declare asynchronous variables', 'To create a new thread'],
+        answer: 'To provide a more synchronous-looking syntax for handling asynchronous Promise-based code',
+        explanation: 'They are syntactic sugar over Promises, making asynchronous code easier to write and read.'
+    },
+    {
+        id: 313,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What does 'database normalization' mean?",
+        type: 'mcq',
+        options: ['Making the database normal', 'The process of organizing columns and tables in a relational database to minimize data redundancy', 'Deleting old data from a database', 'A backup procedure for a database'],
+        answer: 'The process of organizing columns and tables in a relational database to minimize data redundancy',
+        explanation: 'Normalization involves dividing larger tables into smaller, well-structured tables and defining relationships between them.'
+    },
+    {
+        id: 314,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a 'linter' like ESLint?",
+        type: 'mcq',
+        options: ['To compile code', 'To run tests', 'To statically analyze code to find problems, bugs, and stylistic errors', 'To deploy an application'],
+        answer: 'To statically analyze code to find problems, bugs, and stylistic errors',
+        explanation: 'Linters help enforce code quality and consistency across a project.'
+    },
+    {
+        id: 315,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which of the following is NOT a principle of REST?",
+        type: 'mcq',
+        options: ['Stateless', 'Client-Server architecture', 'Stateful', 'Cacheable'],
+        answer: 'Stateful',
+        explanation: 'Statelessness is a core constraint of REST. The server should not store any client context between requests.'
+    },
+    {
+        id: 316,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is CORS (Cross-Origin Resource Sharing)?",
+        type: 'mcq',
+        options: ['A type of encryption', 'A security mechanism that uses HTTP headers to allow a server to indicate any origins other than its own from which a browser should permit loading resources', 'A database technology', 'A JavaScript framework'],
+        answer: 'A security mechanism that uses HTTP headers to allow a server to indicate any origins other than its own from which a browser should permit loading resources',
+        explanation: 'CORS is necessary to allow frontend applications on one domain to make API requests to a backend on another domain.'
+    },
+    {
+        id: 317,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'Promise' in JavaScript?",
+        type: 'mcq',
+        options: ['A guarantee that a function will execute', 'An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value', 'A type of variable', 'A security feature'],
+        answer: 'An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value',
+        explanation: 'Promises are a fundamental part of modern asynchronous JavaScript.'
+    },
+    {
+        id: 318,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the 'N+1' query problem and how can you solve it?",
+        type: 'subjective',
+        answer: "The N+1 query problem is a performance issue where an application makes one initial query to retrieve a list of items, and then makes 'N' additional queries to retrieve related data for each of those items. It can be solved by 'eager loading,' where the related data is fetched in a single, more complex query (e.g., using a SQL JOIN) along with the initial items.",
+        explanation: 'This is a common performance bottleneck in applications that use an ORM.'
+    },
+    {
+        id: 319,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a reverse proxy?",
+        type: 'subjective',
+        answer: "A reverse proxy is a server that sits in front of one or more web servers, intercepting requests from clients. It is used for several purposes, including load balancing traffic across multiple backend servers, providing SSL termination (offloading encryption), caching static content, and enhancing security by hiding the identity of the backend servers.",
+        explanation: 'NGINX and Apache are common examples of software used as reverse proxies.'
+    },
+    {
+        id: 320,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is dependency injection?",
+        type: 'subjective',
+        answer: "Dependency Injection (DI) is a design pattern in which a component's dependencies (the other objects it needs to work) are provided to it from an external source rather than it creating them itself. This 'inverts' the control of dependency management, leading to more loosely coupled, modular, and easily testable code.",
+        explanation: 'Frameworks like NestJS and Spring make heavy use of DI.'
+    },
+    {
+        id: 321,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Explain what a 'cookie' is and how it is used for session management.",
+        type: 'subjective',
+        answer: "A cookie is a small piece of data that a server sends to a user's web browser. The browser may store it and send it back with subsequent requests to the same server. For session management, after a user logs in, the server creates a unique session ID, sends it to the client as a cookie, and the client includes this cookie in future requests to identify itself as authenticated.",
+        explanation: 'Cookies are a fundamental mechanism for maintaining state in the stateless HTTP protocol.'
+    },
+    {
+        id: 322,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'container' (like Docker) and what problem does it solve?",
+        type: 'subjective',
+        answer: "A container is a lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, libraries, and settings. It solves the 'it works on my machine' problem by creating a consistent and reproducible environment for an application, ensuring it runs the same way regardless of where it is deployed.",
+        explanation: 'Containers virtualize the operating system, making them more efficient than traditional virtual machines.'
+    },
+    {
+        id: 323,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the difference between a `let` and `const` in JavaScript?",
+        type: 'subjective',
+        answer: "Both `let` and `const` are block-scoped variable declarations. The main difference is that a variable declared with `let` can be reassigned a new value, while a variable declared with `const` cannot be reassigned after its initial declaration. Note that for objects and arrays declared with `const`, their properties or elements can still be modified.",
+        explanation: '`const` should be preferred for variables that will not be reassigned, as it makes the code easier to reason about.'
+    },
+    {
+        id: 324,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a `.env` file?",
+        type: 'subjective',
+        answer: "A `.env` file is used to store environment-specific variables, such as database credentials, API keys, and port numbers. This practice allows developers to keep sensitive configuration data separate from the source code, which is important for security and for maintaining different configurations for development, staging, and production environments.",
+        explanation: 'The `.env` file should never be committed to version control.'
+    },
+    {
+        id: 325,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a unit test in backend development?",
+        type: 'subjective',
+        answer: "A unit test is a type of automated test that isolates and verifies the functionality of a small, specific 'unit' of code, such as a single function or method, in isolation from the rest of the application. Dependencies like databases or external APIs are typically 'mocked' or 'stubbed' out. The goal is to ensure that each individual unit of code works correctly on its own.",
+        explanation: 'Unit tests form the foundation of a solid testing strategy.'
+    },
+     // Test 5: 25 Questions (15 MCQ, 10 Subjective) - Medium
+    {
+        id: 326,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'schema' in the context of a database?",
+        type: 'mcq',
+        options: ['A type of query', 'The blueprint or structure of the database, defining its tables, columns, data types, and relationships', 'A backup of the database', 'A user permission level'],
+        answer: 'The blueprint or structure of the database, defining its tables, columns, data types, and relationships',
+        explanation: 'The schema enforces the structure and integrity of the data.'
+    },
+    {
+        id: 327,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What does it mean for an API to be 'idempotent'?",
+        type: 'mcq',
+        options: ['The API is secure', 'Making the same request multiple times has the same effect as making it once', 'The API is very fast', 'The API can only be called once'],
+        answer: 'Making the same request multiple times has the same effect as making it once',
+        explanation: 'HTTP methods like GET, PUT, and DELETE are idempotent. This is important for building reliable systems that may retry requests.'
+    },
+    {
+        id: 328,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following is a primary benefit of using a message queue (e.g., RabbitMQ, Kafka)?",
+        type: 'mcq',
+        options: ['To make database queries faster', 'To decouple services and handle asynchronous communication between them', 'To store user session data', 'To serve static files'],
+        answer: 'To decouple services and handle asynchronous communication between them',
+        explanation: 'Message queues allow different parts of a system to communicate without being directly connected, improving scalability and resilience.'
+    },
+    {
+        id: 329,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of the `finally` block in a `try...catch...finally` statement?",
+        type: 'mcq',
+        options: ['It executes only if an error occurs', 'It executes only if no error occurs', 'It always executes after the `try` and `catch` blocks, regardless of whether an error occurred', 'It is an alias for the `catch` block'],
+        answer: 'It always executes after the `try` and `catch` blocks, regardless of whether an error occurred',
+        explanation: 'The `finally` block is useful for cleanup code, like closing a file or database connection.'
+    },
+    {
+        id: 330,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'callback function' in asynchronous programming?",
+        type: 'mcq',
+        options: ['A function that calls another function', 'A function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action', 'A function that always returns a value', 'A function that blocks the main thread'],
+        answer: 'A function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action',
+        explanation: 'Callbacks are a fundamental pattern for handling asynchronous operations in JavaScript, though Promises and async/await are now more common.'
+    },
+    {
+        id: 331,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'WebHook'?",
+        type: 'mcq',
+        options: ['A frontend JavaScript library', 'An automated message sent from apps when something happens. It has a message (payload) which is sent to a unique URL.', 'A type of fishing lure', 'A security vulnerability'],
+        answer: 'An automated message sent from apps when something happens. It has a message (payload) which is sent to a unique URL.',
+        explanation: 'WebHooks are a way for one system to notify another system about an event, instead of the other system having to continuously poll for changes.'
+    },
+    {
+        id: 332,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following best describes 'microservices architecture'?",
+        type: 'mcq',
+        options: ['Building a single, large application', 'An architectural style that structures an application as a collection of small, independent, and loosely coupled services', 'A frontend design pattern', 'A database schema design'],
+        answer: 'An architectural style that structures an application as a collection of small, independent, and loosely coupled services',
+        explanation: 'Microservices allow for independent deployment, scaling, and technology choices for different parts of an application.'
+    },
+    {
+        id: 333,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is 'ACID' in the context of databases?",
+        type: 'mcq',
+        options: ['A type of chemical', 'A set of properties (Atomicity, Consistency, Isolation, Durability) that guarantee database transactions are processed reliably', 'A query language', 'A security standard'],
+        answer: 'A set of properties (Atomicity, Consistency, Isolation, Durability) that guarantee database transactions are processed reliably',
+        explanation: 'ACID compliance is a key feature of most relational databases.'
+    },
+    {
+        id: 334,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of `git clone`?",
+        type: 'mcq',
+        options: ['To create a new branch', 'To create a local copy of a remote repository', 'To merge two branches', 'To delete a repository'],
+        answer: 'To create a local copy of a remote repository',
+        explanation: '`git clone` is the standard way to start working on a project that already exists on a remote server like GitHub.'
+    },
+    {
+        id: 335,
+        testId: 5,
+        difficulty: 'medium',
+        question: "In SQL, what is the difference between `DELETE` and `TRUNCATE`?",
+        type: 'mcq',
+        options: ['There is no difference', '`DELETE` removes all rows from a table, while `TRUNCATE` removes the table itself', '`DELETE` is a row-level operation that can be rolled back, while `TRUNCATE` is a faster, non-logged operation that removes all rows', '`TRUNCATE` can be used with a `WHERE` clause, but `DELETE` cannot'],
+        answer: '`DELETE` is a row-level operation that can be rolled back, while `TRUNCATE` is a faster, non-logged operation that removes all rows',
+        explanation: '`TRUNCATE` is much faster for deleting all rows from a large table as it doesn\'t log each row deletion.'
+    },
+    {
+        id: 336,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the `Content-Type` header in an HTTP response used for?",
+        type: 'mcq',
+        options: ['To specify the length of the response body', 'To indicate the media type of the resource (e.g., `application/json` or `text/html`)', 'To control caching', 'To set a cookie'],
+        answer: 'To indicate the media type of the resource (e.g., `application/json` or `text/html`)',
+        explanation: 'This header tells the client how to parse and interpret the response body.'
+    },
+    {
+        id: 337,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is 'scalability'?",
+        type: 'mcq',
+        options: ['The security of a system', 'The ability of a system to handle a growing amount of work by adding resources', 'The speed of a system', 'The user-friendliness of a system'],
+        answer: 'The ability of a system to handle a growing amount of work by adding resources',
+        explanation: 'Backend systems are often designed with scalability in mind, either vertically (adding more power to a single server) or horizontally (adding more servers).'
+    },
+    {
+        id: 338,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is an 'endpoint' in an API?",
+        type: 'mcq',
+        options: ['The start of the API', 'A specific URL where an API can be accessed to perform an operation', 'The database connection', 'A security key'],
+        answer: 'A specific URL where an API can be accessed to perform an operation',
+        explanation: 'For example, `/api/users/123` is an endpoint for retrieving a specific user.'
+    },
+    {
+        id: 339,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following is a common use case for WebSockets?",
+        type: 'mcq',
+        options: ['Serving a static website', 'Building a real-time chat application', 'Storing user preferences', 'Processing batch jobs'],
+        answer: 'Building a real-time chat application',
+        explanation: 'WebSockets provide a persistent, bidirectional communication channel, which is ideal for real-time applications.'
+    },
+    {
+        id: 340,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What does the HTTP status code `500 Internal Server Error` mean?",
+        type: 'mcq',
+        options: ['The request was successful', 'The client made an invalid request', 'The server encountered an unexpected condition that prevented it from fulfilling the request', 'The requested resource was not found'],
+        answer: 'The server encountered an unexpected condition that prevented it from fulfilling the request',
+        explanation: 'This is a generic error message indicating a problem on the server-side.'
+    },
+    {
+        id: 341,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'load balancer' and why is it used?",
+        type: 'subjective',
+        answer: "A load balancer is a device or software that distributes network or application traffic across multiple servers. It is used to improve the availability and scalability of an application by ensuring that no single server is overwhelmed with too many requests. If one server fails, the load balancer can redirect traffic to the remaining healthy servers.",
+        explanation: 'Load balancing is a fundamental technique for building highly available systems.'
+    },
+    {
+        id: 342,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the difference between SQL and NoSQL databases?",
+        type: 'subjective',
+        answer: "SQL databases are relational, storing data in structured tables with predefined schemas and using SQL for queries. They are good for complex queries and ensuring data integrity. NoSQL databases are non-relational and can have dynamic schemas, storing data as documents, key-value pairs, or graphs. They generally scale horizontally more easily and are often used for large-scale, unstructured data.",
+        explanation: 'The choice depends on the specific needs of the application regarding structure, scalability, and consistency.'
+    },
+    {
+        id: 343,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of 'API rate limiting'?",
+        type: 'subjective',
+        answer: "API rate limiting is a technique used to control the number of requests a client can make to an API within a certain time frame. Its purposes are to prevent abuse or misuse (both intentional and accidental), ensure fair usage for all clients, protect the backend services from being overwhelmed, and manage operational costs.",
+        explanation: 'It is a crucial feature for any public-facing API.'
+    },
+    {
+        id: 344,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Explain what a 'Connection Pool' is for a database.",
+        type: 'subjective',
+        answer: "A connection pool is a cache of database connections maintained by the server so that the connections can be reused for future requests. Opening and closing a database connection is an expensive operation. A connection pool improves performance by avoiding this overhead, reusing existing connections instead of creating new ones for each request.",
+        explanation: 'Connection pooling is a standard practice for improving the performance of database-driven applications.'
+    },
+    {
+        id: 345,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the difference between a `let` and a `const` in JavaScript?",
+        type: 'subjective',
+        answer: "Both `let` and `const` are block-scoped variable declarations. The main difference is that a variable declared with `let` can be reassigned a new value, while a variable declared with `const` cannot be reassigned after its initial declaration. Note that for objects and arrays declared with `const`, their properties or elements can still be modified.",
+        explanation: '`const` should be preferred for variables that will not be reassigned, as it makes the code easier to reason about.'
+    },
+    {
+        id: 346,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of a `.gitignore` file?",
+        type: 'subjective',
+        answer: "A `.gitignore` file specifies intentionally untracked files that Git should ignore. This is used to prevent files that are generated by the build process (like `node_modules` or compiled code) or files that contain sensitive information (like `.env` files) from being accidentally committed to the version control repository.",
+        explanation: 'It helps keep the repository clean and secure.'
+    },
+    {
+        id: 347,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What are some common security vulnerabilities in a web application backend?",
+        type: 'subjective',
+        answer: "Common vulnerabilities include SQL Injection (where an attacker can manipulate database queries), Cross-Site Scripting (XSS, injecting malicious scripts), Cross-Site Request Forgery (CSRF, forcing a user to execute unwanted actions), insecure authentication/session management, and insecure direct object references (accessing unauthorized data by manipulating IDs).",
+        explanation: 'A strong understanding of common vulnerabilities is essential for any backend developer.'
+    },
+    {
+        id: 348,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'monolithic' architecture?",
+        type: 'subjective',
+        answer: "A monolithic architecture is a traditional model where an application is built as a single, unified unit. The entire application—including the user interface, business logic, and data access layer—is deployed as one large codebase. While simpler to develop and deploy initially, monoliths can become difficult to scale, maintain, and update as they grow in complexity.",
+        explanation: 'The microservices architecture is an alternative to the monolithic approach.'
+    },
+    {
+        id: 349,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of `bcrypt` when hashing passwords?",
+        type: 'subjective',
+        answer: "`bcrypt` is a password hashing function designed to be slow and computationally intensive. This slowness is a feature, as it makes brute-force attacks (trying many passwords) very time-consuming and expensive for an attacker. It also includes a salt automatically to protect against rainbow table attacks.",
+        explanation: 'Modern, slow hashing algorithms like bcrypt or Argon2 are the standard for password security.'
+    },
+    {
+        id: 350,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Explain what 'sharding' is in a database context.",
+        type: 'subjective',
+        answer: "Sharding is a type of database partitioning, also known as horizontal partitioning. It involves splitting a large database into smaller, faster, more manageable parts called shards. Each shard is a separate database, and the data is distributed across these shards. This is a common technique for scaling out databases to handle massive amounts of data and traffic.",
+        explanation: 'Sharding allows a database to scale horizontally by adding more servers.'
+    },
+      // Test 6: 30 Questions (18 MCQ, 12 Subjective) - Hard
+    {
+        id: 351,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'race condition' in concurrent programming?",
+        type: 'mcq',
+        options: ['A performance bug in racing games', 'An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events', 'A network latency issue', 'A type of CPU error'],
+        answer: 'An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events',
+        explanation: 'Race conditions are a common and difficult problem in concurrent systems, often leading to corrupted data. They are typically mitigated using locks or atomic operations.'
+    },
+    {
+        id: 352,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the primary purpose of a 'service mesh' like Istio or Linkerd?",
+        type: 'mcq',
+        options: ['To manage database migrations', 'To provide a dedicated infrastructure layer for managing service-to-service communication, handling concerns like traffic management, security, and observability', 'To build user interfaces', 'To automate CI/CD pipelines'],
+        answer: 'To provide a dedicated infrastructure layer for managing service-to-service communication, handling concerns like traffic management, security, and observability',
+        explanation: 'A service mesh abstracts the complexity of network communication away from the application code by using sidecar proxies.'
+    },
+    {
+        id: 353,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'gRPC'?",
+        type: 'mcq',
+        options: ['A GraphQL client library', 'A REST API framework', 'A high-performance, open-source universal RPC framework that uses Protocol Buffers and HTTP/2', 'A database protocol'],
+        answer: 'A high-performance, open-source universal RPC framework that uses Protocol Buffers and HTTP/2',
+        explanation: 'gRPC is highly efficient and well-suited for low-latency communication between microservices.'
+    },
+    {
+        id: 354,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'eventual consistency'?",
+        type: 'mcq',
+        options: ['A model where the system is always consistent', 'A consistency model where, if no new updates are made, all replicas of a piece of data will eventually converge to the same value', 'A model where data becomes inconsistent over time', 'A database transaction property'],
+        answer: 'A consistency model where, if no new updates are made, all replicas of a piece of data will eventually converge to the same value',
+        explanation: 'This model is often chosen in distributed systems that prioritize high availability and partition tolerance over strong, immediate consistency.'
+    },
+    {
+        id: 355,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the difference between a `process` and a `thread`?",
+        type: 'mcq',
+        options: ['They are the same thing', 'A process has its own isolated memory space, while multiple threads can exist within a single process and share its memory space', 'A thread is a heavyweight operation, while a process is lightweight', 'Processes are for frontend, threads are for backend'],
+        answer: 'A process has its own isolated memory space, while multiple threads can exist within a single process and share its memory space',
+        explanation: 'This is a fundamental concept in operating systems and concurrent programming.'
+    },
+    {
+        id: 356,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'idempotency' in API design?",
+        type: 'mcq',
+        options: ['The API is secure', 'The property of an operation where making the same request multiple times has the same effect as making it once', 'The API is very fast', 'The API can only be called once'],
+        answer: 'The property of an operation where making the same request multiple times has the same effect as making it once',
+        explanation: 'Idempotency is crucial for building reliable systems where requests might be retried due to network failures.'
+    },
+    {
+        id: 357,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What problem does a 'circuit breaker' pattern solve?",
+        type: 'mcq',
+        options: ['It secures the application from electrical surges', 'It prevents an application from repeatedly trying to execute an operation that is likely to fail, allowing it to fail fast and prevent system-wide cascading failures', 'It helps with debugging', 'It encrypts network traffic'],
+        answer: 'It prevents an application from repeatedly trying to execute an operation that is likely to fail, allowing it to fail fast and prevent system-wide cascading failures',
+        explanation: 'The circuit breaker trips after a certain number of failures and will only allow requests through again after a timeout.'
+    },
+    {
+        id: 358,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'distributed hash table' (DHT)?",
+        type: 'mcq',
+        options: ['A centralized database using hashing', 'A data structure used only in C++', 'A decentralized system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes', 'A hashing algorithm for passwords'],
+        answer: 'A decentralized system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes',
+        explanation: 'DHTs are a core component of many peer-to-peer systems, like BitTorrent.'
+    },
+    {
+        id: 359,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the main benefit of HTTP/2 over HTTP/1.1?",
+        type: 'mcq',
+        options: ['It is more secure by default', 'It uses a different syntax for requests', 'Multiplexing, which allows multiple requests and responses to be sent in parallel over a single TCP connection', 'It only works with JSON'],
+        answer: 'Multiplexing, which allows multiple requests and responses to be sent in parallel over a single TCP connection',
+        explanation: 'This eliminates the head-of-line blocking problem and significantly improves performance.'
+    },
+    {
+        id: 360,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the purpose of 'database migration' scripts?",
+        type: 'mcq',
+        options: ['To move a database to a different server', 'To manage and version control the evolution of the database schema over time', 'To back up the database', 'To optimize query performance'],
+        answer: 'To manage and version control the evolution of the database schema over time',
+        explanation: 'Migration scripts allow for automated, repeatable, and reversible changes to the database structure.'
+    },
+    {
+        id: 361,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'CQRS' (Command Query Responsibility Segregation)?",
+        type: 'mcq',
+        options: ['A security pattern', 'An architectural pattern that separates the models for updating data (Commands) from the models for reading data (Queries)', 'A database technology', 'A testing methodology'],
+        answer: 'An architectural pattern that separates the models for updating data (Commands) from the models for reading data (Queries)',
+        explanation: 'CQRS allows for independent optimization of the read and write sides of an application.'
+    },
+    {
+        id: 362,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'OAuth 2.0' primarily used for?",
+        type: 'mcq',
+        options: ['Authentication (verifying who a user is)', 'Authorization (granting a third-party application limited access to a user\'s resources)', 'Encryption', 'Session management'],
+        answer: 'Authorization (granting a third-party application limited access to a user\'s resources)',
+        explanation: 'OAuth 2.0 is about delegating access, not about authenticating the user directly.'
+    },
+    {
+        id: 363,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'mutex'?",
+        type: 'mcq',
+        options: ['A type of database', 'A synchronization primitive that provides \'mutual exclusion,\' ensuring that only one thread can access a shared resource at a time', 'A network hardware device', 'An error in a program'],
+        answer: 'A synchronization primitive that provides \'mutual exclusion,\' ensuring that only one thread can access a shared resource at a time',
+        explanation: 'Mutexes are a fundamental tool for preventing race conditions in multithreaded programming.'
+    },
+    {
+        id: 364,
+        testId: 6,
+        difficulty: 'hard',
+        question: "In the context of 'SOLID' principles, what does the 'D' stand for?",
+        type: 'mcq',
+        options: ['Data-oriented design', 'Dependency Inversion Principle', 'Don\'t repeat yourself', 'Dynamic typing'],
+        answer: 'Dependency Inversion Principle',
+        explanation: 'This principle states that high-level modules should not depend on low-level modules; both should depend on abstractions.'
+    },
+    {
+        id: 365,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'Big O notation' used for?",
+        type: 'mcq',
+        options: ['To measure the exact speed of an algorithm', 'To describe the performance or complexity of an algorithm in terms of how its runtime or space requirements grow as the input size grows', 'To write mathematical formulas in code', 'To document code'],
+        answer: 'To describe the performance or complexity of an algorithm in terms of how its runtime or space requirements grow as the input size grows',
+        explanation: 'It provides a high-level understanding of an algorithm\'s efficiency, such as O(n) for linear time or O(log n) for logarithmic time.'
+    },
+    {
+        id: 366,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'Web Worker' in JavaScript?",
+        type: 'mcq',
+        options: ['A UI component for displaying user profiles', 'A simple way for web content to run scripts in background threads, allowing for long-running, CPU-intensive tasks without blocking the main UI thread', 'A security feature', 'A CSS animation property'],
+        answer: 'A simple way for web content to run scripts in background threads, allowing for long-running, CPU-intensive tasks without blocking the main UI thread',
+        explanation: 'Web Workers are essential for maintaining a responsive user interface during heavy computations.'
+    },
+    {
+        id: 367,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'canary release'?",
+        type: 'mcq',
+        options: ['Deploying to all users at once', 'Deploying a new version to a small subset of users to test its performance and stability before a full rollout', 'A deployment that happens only at night', 'A deployment that is manually verified by a QA team'],
+        answer: 'Deploying a new version to a small subset of users to test its performance and stability before a full rollout',
+        explanation: 'This strategy minimizes the risk and impact of deploying a faulty new version.'
+    },
+    {
+        id: 368,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'Infrastructure as Code' (IaC)?",
+        type: 'mcq',
+        options: ['Writing infrastructure code in JavaScript', 'A method of managing and provisioning infrastructure through machine-readable definition files, rather than manual configuration', 'A physical server with code on it', 'A networking protocol'],
+        answer: 'A method of managing and provisioning infrastructure through machine-readable definition files, rather than manual configuration',
+        explanation: 'IaC allows infrastructure to be version-controlled, tested, and automated. Terraform and CloudFormation are popular IaC tools.'
+    },
+    {
+        id: 369,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the CAP theorem in distributed systems?",
+        type: 'subjective',
+        answer: "The CAP theorem states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees: Consistency (every read receives the most recent write or an error), Availability (every request receives a non-error response, without guarantee that it contains the most recent write), and Partition Tolerance (the system continues to operate despite network partitions). Since network partitions are a given, the real trade-off is between consistency and availability.",
+        explanation: "This is a fundamental principle in the design of any distributed system."
+    },
+    {
+        id: 370,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the difference between TCP and UDP.",
+        type: 'subjective',
+        answer: "TCP (Transmission Control Protocol) is a connection-oriented protocol that guarantees reliable, ordered delivery of data. It establishes a connection via a three-way handshake and handles error checking and re-transmission of lost packets. UDP (User Datagram Protocol) is a connectionless protocol that is faster but provides no guarantees about delivery, order, or error correction. TCP is used for applications like web browsing and email where reliability is critical. UDP is used for applications like live video streaming or online gaming where speed is more important than perfect reliability.",
+        explanation: 'TCP is like a registered letter; UDP is like a postcard.'
+    },
+    {
+        id: 371,
+        testId: 6,
+        difficulty: 'hard',
+        question: "How does HTTPS work? Explain the TLS handshake.",
+        type: 'subjective',
+        answer: "HTTPS encrypts HTTP traffic using TLS/SSL. The TLS handshake process involves: 1) The client sends a 'ClientHello' message with its supported cipher suites. 2) The server responds with a 'ServerHello', its SSL certificate, and the chosen cipher suite. 3) The client verifies the server's certificate with a trusted Certificate Authority. 4) The client generates a session key, encrypts it with the server's public key (from the certificate), and sends it to the server. 5) The server decrypts the session key with its private key. All subsequent communication is then encrypted with this shared session key.",
+        explanation: "This process establishes a secure, encrypted channel, ensuring confidentiality and integrity."
+    },
+    {
+        id: 372,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the 'Saga' pattern and when would you use it?",
+        type: 'subjective',
+        answer: "The Saga pattern is a way to manage data consistency across multiple microservices without using traditional distributed transactions. A saga is a sequence of local transactions where each transaction updates a single service and publishes an event to trigger the next one. If a local transaction fails, the saga executes a series of compensating transactions that undo the changes made by the preceding transactions. It is used in distributed systems where you need to maintain consistency across services but want to avoid the tight coupling and performance issues of two-phase commits.",
+        explanation: 'It\'s an event-driven approach to achieving atomicity in a microservices architecture.'
+    },
+    {
+        id: 373,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'load balancer' and what are two common load balancing algorithms?",
+        type: 'subjective',
+        answer: "A load balancer distributes incoming network traffic across multiple backend servers to ensure no single server is overwhelmed. Two common algorithms are: 1) **Round Robin**, which simply cycles through the list of servers sequentially. 2) **Least Connections**, which directs traffic to the server with the fewest active connections. This is often more effective than Round Robin if requests have varying complexity.",
+        explanation: 'Load balancers are essential for achieving high availability, reliability, and scalability.'
+    },
+    {
+        id: 374,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain optimistic vs. pessimistic locking.",
+        type: 'subjective',
+        answer: "Pessimistic locking assumes conflicts are likely and prevents them by acquiring a lock on a resource before modification, blocking other transactions. It's like saying, 'I'm working on this, nobody else touch it.' Optimistic locking assumes conflicts are rare. It allows transactions to proceed without locks but checks for conflicts (e.g., using a version number) before committing. If a conflict is detected, the transaction is rolled back. Optimistic locking generally offers better concurrency.",
+        explanation: 'Pessimistic locking is "ask for permission," while optimistic locking is "ask for forgiveness."'
+    },
+    {
+        id: 375,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'backpressure' in a streaming data system?",
+        type: 'subjective',
+        answer: "Backpressure is a flow control mechanism where a data consumer can signal to a data producer that it is becoming overwhelmed and needs the producer to slow down or stop sending data temporarily. This prevents the consumer's buffers from overflowing and the system from becoming unstable. It's a crucial feature for building resilient, asynchronous data pipelines where the rate of production and consumption can vary.",
+        explanation: 'It\'s like a downstream worker telling an upstream worker to slow down the assembly line.'
+    },
+    {
+        id: 376,
+        testId: 6,
+        difficulty: 'hard',
+        question: "How do you prevent SQL injection attacks?",
+        type: 'subjective',
+        answer: "The most effective way to prevent SQL injection is to use prepared statements (also known as parameterized queries). With prepared statements, the SQL query template is sent to the database separately from the user-supplied parameters. The database can distinguish between the query logic and the data, so it does not interpret the user input as executable SQL. Using an ORM that handles this automatically is also a common and effective strategy. Input validation and sanitization are good secondary defenses.",
+        explanation: 'Never concatenate user input directly into SQL strings.'
+    },
+    {
+        id: 377,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What are database 'transactions' and why are they important?",
+        type: 'subjective',
+        answer: "A database transaction is a sequence of one or more database operations that are executed as a single, atomic unit of work. They are important because they guarantee that either all of the operations in the sequence succeed, or none of them do. If any operation fails, the entire transaction is rolled back to its initial state. This ensures the database remains in a consistent state and upholds data integrity, which is critical for operations like financial transfers.",
+        explanation: 'Transactions are defined by the ACID properties: Atomicity, Consistency, Isolation, Durability.'
+    },
+    {
+        id: 378,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the role of a 'message broker' like RabbitMQ or Kafka?",
+        type: 'subjective',
+        answer: "A message broker is an intermediary software that facilitates asynchronous communication between different services. Senders (producers) publish messages to the broker, which then delivers them to interested receivers (consumers). This decouples the services, meaning the producer and consumer don't need to know about each other or be online at the same time. This pattern improves system resilience, scalability, and allows for more flexible architectures.",
+        explanation: 'They are the backbone of many event-driven and microservices architectures.'
+    },
+    {
+        id: 379,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the 'publish-subscribe' (pub/sub) messaging pattern.",
+        type: 'subjective',
+        answer: "Pub/sub is a messaging pattern where senders (publishers) do not send messages directly to specific receivers (subscribers). Instead, they publish messages to topics or channels without knowledge of what, if any, subscribers there may be. Subscribers express interest in one or more topics and receive all messages published to those topics. This decouples publishers and subscribers, allowing them to evolve independently and improving scalability and flexibility.",
+        explanation: 'This is different from a point-to-point queue, where a message is typically consumed by only one receiver.'
+    },
+    {
+        id: 380,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'cache invalidation' strategy, and why is it considered a hard problem?",
+        type: 'subjective',
+        answer: "Cache invalidation is the process of declaring cached data as invalid and removing or replacing it. Common strategies include write-through (update cache and DB simultaneously), write-back (update cache and mark as 'dirty', write to DB later), and time-to-live (TTL, where data expires after a set time). It's considered one of the hard problems in computer science because it's difficult to ensure that the cache and the source of truth (the database) are perfectly in sync without sacrificing performance, especially in a distributed system.",
+        explanation: '"There are only two hard things in Computer Science: cache invalidation and naming things." - Phil Karlton'
+    },
+    // Test 7: 35 Questions (21 MCQ, 14 Subjective) - Hard
+    {
+        id: 381,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a 'blue-green deployment' strategy?",
+        type: 'mcq',
+        options: ['Deploying to two data centers at once', 'A release strategy that reduces downtime by maintaining two identical production environments ("blue" and "green") and switching traffic between them', 'A deployment that uses blue and green themes', 'A testing strategy for UI components'],
+        answer: 'A release strategy that reduces downtime by maintaining two identical production environments ("blue" and "green") and switching traffic between them',
+        explanation: 'This allows for instant releases and simple rollbacks, but requires double the infrastructure.'
+    },
+    {
+        id: 382,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the purpose of 'mTLS' (Mutual TLS)?",
+        type: 'mcq',
+        options: ['A more secure version of TLS', 'A process where both the client and server present certificates to authenticate each other', 'A TLS handshake where only the client authenticates the server', 'A tool for managing TLS certificates'],
+        answer: 'A process where both the client and server present certificates to authenticate each other',
+        explanation: 'mTLS is crucial for zero-trust networks and securing service-to-service communication.'
+    },
+    {
+        id: 383,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the 'Strangler Fig' pattern used for in software architecture?",
+        type: 'mcq',
+        options: ['To debug memory leaks', 'To incrementally migrate a legacy monolithic application to a microservices architecture', 'To optimize database queries', 'To design a user interface'],
+        answer: 'To incrementally migrate a legacy monolithic application to a microservices architecture',
+        explanation: 'It involves gradually replacing pieces of the monolith with new services until the monolith is \'strangled\' and can be retired.'
+    },
+    {
+        id: 384,
+        testId: 7,
+        difficulty: 'hard',
+        question: "In Node.js, which of the following is true about the event loop?",
+        type: 'mcq',
+        options: ['It runs on multiple threads', 'It blocks for long-running I/O operations', 'It allows Node.js to perform non-blocking I/O operations, making it highly scalable', 'It is only used for handling HTTP requests'],
+        answer: 'It allows Node.js to perform non-blocking I/O operations, making it highly scalable',
+        explanation: 'The event loop is the core of Node.js\'s asynchronous, non-blocking architecture.'
+    },
+    {
+        id: 385,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the 'n+1' query problem?",
+        type: 'mcq',
+        options: ['A security vulnerability', 'A performance issue where an application makes one initial query, and then \'n\' additional queries to retrieve related data for each item', 'A mathematical paradox', 'An error that occurs when `n` is equal to -1'],
+        answer: 'A performance issue where an application makes one initial query, and then \'n\' additional queries to retrieve related data for each item',
+        explanation: 'This is a common performance bottleneck that can be solved by "eager loading" the related data.'
+    },
+    {
+        id: 386,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What does 'database sharding' refer to?",
+        type: 'mcq',
+        options: ['A way to encrypt data', 'A type of horizontal partitioning where data is spread across multiple databases or servers', 'A backup strategy', 'A query optimization technique'],
+        answer: 'A type of horizontal partitioning where data is spread across multiple databases or servers',
+        explanation: 'Sharding is a common technique for scaling out databases to handle massive amounts of data and traffic.'
+    },
+    {
+        id: 387,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the difference between 'authentication' and 'authorization'?",
+        type: 'mcq',
+        options: ['They are the same thing', 'Authentication is verifying who a user is, while authorization is determining what they are allowed to do', 'Authorization happens before authentication', 'Authentication is for users, authorization is for services'],
+        answer: 'Authentication is verifying who a user is, while authorization is determining what they are allowed to do',
+        explanation: 'You authenticate to get into the building, but you are authorized to enter only certain rooms.'
+    },
+    {
+        id: 388,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is `Promise.race()`?",
+        type: 'mcq',
+        options: ['It returns a promise that fulfills or rejects as soon as one of the promises in the iterable fulfills or rejects', 'It runs all promises in parallel and returns the fastest one', 'It is a syntax error', 'It returns a random promise from the iterable'],
+        answer: "It returns a promise that fulfills or rejects as soon as one of the promises in the iterable fulfills or rejects",
+        explanation: "It's a race to the first settled promise."
+    },
+    {
+        id: 389,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the `useLayoutEffect` hook in React and how does it differ from `useEffect`?",
+        type: 'mcq',
+        options: ["It runs before the component renders", "It fires synchronously after all DOM mutations, but before the browser has painted", "It's an alias for `useEffect`", "It only runs on the server"],
+        answer: "It fires synchronously after all DOM mutations, but before the browser has painted",
+        explanation: "This makes it suitable for reading layout from the DOM and synchronously re-rendering to avoid visual flickers. `useEffect` runs asynchronously after the paint."
+    },
+    {
+        id: 390,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a `WeakMap` in JavaScript?",
+        type: 'mcq',
+        options: ["A Map that cannot be iterated", "A Map that only holds weak references to its keys, allowing them to be garbage collected", "A less performant version of Map", "An alias for an Object"],
+        answer: "A Map that only holds weak references to its keys, allowing them to be garbage collected",
+        explanation: "This prevents memory leaks when the only reference to an object is the WeakMap key."
+    },
+    {
+        id: 391,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which of the following is NOT a core concept of Redux?",
+        type: 'mcq',
+        options: ['Store', 'Action', 'Reducer', 'Component'],
+        answer: 'Component',
+        explanation: "While Redux is used with components (e.g., in React), the component itself is not a part of the core Redux architecture."
+    },
+    {
+        id: 392,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which CSS value is used to make a flex item grow and shrink as needed, ignoring its initial size?",
+        type: 'mcq',
+        options: ['`flex: 1`', '`flex: auto`', '`flex: initial`', '`flex: none`'],
+        answer: '`flex: 1`',
+        explanation: "`flex: 1` is shorthand for `flex-grow: 1`, `flex-shrink: 1`, and `flex-basis: 0%`."
+    },
+    {
+        id: 393,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which is a valid way to create a private class field in modern JavaScript?",
+        type: 'mcq',
+        options: ['`let myVar`', '`this._myVar`', '`const myVar`', '`#myVar`'],
+        answer: '`#myVar`',
+        explanation: "The `#` prefix makes a field private to the class, inaccessible from outside."
+    },
+    {
+        id: 394,
+        testId: 7,
+        difficulty: 'hard',
+        question: "In CSS Grid, what is the `fr` unit?",
+        type: 'mcq',
+        options: ['A fixed unit equal to 1 pixel', 'A unit representing a fraction of the free space in the grid container', 'A percentage of the viewport width', 'A unit relative to the font size'],
+        answer: 'A unit representing a fraction of the free space in the grid container',
+        explanation: "It allows for flexible and proportional grid layouts."
+    },
+    {
+        id: 395,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a 'Generator' function in JavaScript (`function*`)?",
+        type: 'mcq',
+        options: ['A function that generates random numbers', 'A function that can be paused and resumed using the `yield` keyword', 'A function that automatically generates documentation', 'A function for generating HTML'],
+        answer: 'A function that can be paused and resumed using the `yield` keyword',
+        explanation: "They are useful for creating iterators and managing complex asynchronous flows."
+    },
+    {
+        id: 396,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What does the `async` keyword do in a JavaScript function declaration?",
+        type: 'mcq',
+        options: ['It makes the function run on a separate thread', 'It ensures the function always returns a `Promise`', 'It blocks the execution of the code', 'It indicates the function is a security risk'],
+        answer: 'It ensures the function always returns a `Promise`',
+        explanation: "It also allows the `await` keyword to be used inside the function."
+    },
+    {
+        id: 397,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which CSS value is used to make a flex item grow and shrink as needed, ignoring its initial size?",
+        type: 'mcq',
+        options: ['`flex: 1`', '`flex: auto`', '`flex: initial`', '`flex: none`'],
+        answer: '`flex: 1`',
+        explanation: "`flex: 1` is shorthand for `flex-grow: 1`, `flex-shrink: 1`, and `flex-basis: 0%`."
+    },
+    {
+        id: 398,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which of these is a structural pseudo-class in CSS?",
+        type: 'mcq',
+        options: [':hover', ':active', ':nth-child(n)', ':focus'],
+        answer: ":nth-child(n)",
+        explanation: "Structural pseudo-classes select elements based on their position in the document tree, not their state."
+    },
+    {
+        id: 399,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which CSS value is used to make a flex item grow and shrink as needed, ignoring its initial size?",
+        type: 'mcq',
+        options: ['`flex: 1`', '`flex: auto`', '`flex: initial`', '`flex: none`'],
+        answer: '`flex: 1`',
+        explanation: "`flex: 1` is shorthand for `flex-grow: 1`, `flex-shrink: 1`, and `flex-basis: 0%`."
+    },
+    {
+        id: 400,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Which of these is a primary goal of the 'SOLID' principles in software design?",
+        type: 'mcq',
+        options: [
+            'To make software faster',
+            'To reduce the amount of code written',
+            'To create software that is more understandable, flexible, and maintainable',
+            'To make software more secure'
+        ],
+        answer: 'To create software that is more understandable, flexible, and maintainable',
+        explanation: 'SOLID principles guide developers in creating robust and scalable object-oriented designs.'
+    },
+    {
+        id: 401,
+        testId: 7,
+        difficulty: 'hard',
+        question: "The purpose of a `webpack loader` is to?",
+        type: 'mcq',
+        options: ['to run tasks before or after the build', 'to transform files from a different language (like TypeScript or Sass) into JavaScript/CSS', 'to bundle multiple files into one', 'to optimize images'],
+        answer: "To transform files from a different language (like TypeScript or Sass) into JavaScript/CSS",
+        explanation: "Loaders allow webpack to process more than just JavaScript files."
+    },
+        {
+        id: 402,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Explain the concept of 'hoisting' in JavaScript.",
+        type: 'subjective',
+        answer: "Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope before code execution. `var` declarations are hoisted and initialized with `undefined`. `let` and `const` are hoisted but not initialized, which creates a 'Temporal Dead Zone' where they cannot be accessed before their declaration.",
+        explanation: "This is why you can call a function declared with `function` before its definition, but not a function assigned to a `let` variable."
+    },
+    {
+        id: 403,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What are WebSockets?",
+        type: 'subjective',
+        answer: "WebSockets provide a full-duplex communication channel over a single, long-lived TCP connection. Unlike traditional HTTP, which is request-response based, WebSockets allow for real-time, two-way communication between the client and server, making them ideal for applications like live chat, real-time gaming, and live data feeds.",
+        explanation: "They solve the limitations of HTTP polling and long-polling."
+    },
+    {
+        id: 404,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is the purpose of the `Promise.all()` method?",
+        type: 'subjective',
+        answer: "`Promise.all()` takes an iterable of promises and returns a single Promise that resolves when all of the promises in the iterable have resolved. The resolved value is an array of the results. If any of the promises reject, the returned promise immediately rejects with the reason of the first promise that rejected.",
+        explanation: "It's useful for aggregating the results of multiple asynchronous operations."
+    },
+     {
+        id: 405,
+        testId: 7,
+        difficulty: 'hard',
+        question: "How would you debounce a function in JavaScript?",
+        type: 'subjective',
+        answer: "You would create a wrapper function that uses `setTimeout`. Inside the wrapper, you first clear any existing timeout with `clearTimeout`, then set a new timeout to execute the original function after a specified delay. This ensures the function only runs once after a burst of calls has ended.",
+        explanation: "It's commonly used for handling user input, like in a search bar."
+    },
+    {
+        id: 406,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What are CSS Custom Properties (Variables) and what are their benefits?",
+        type: 'subjective',
+        answer: "CSS Custom Properties are entities defined by CSS authors that contain specific values to be reused throughout a document. They are set using custom property notation (e.g., `--main-color: #ff0000;`) and are accessed using the `var()` function. Benefits include DRY (Don't Repeat Yourself) code, easier theming, and the ability to be read and changed dynamically via JavaScript.",
+        explanation: "They are a powerful feature for creating maintainable and dynamic stylesheets."
+    },
+    {
+        id: 407,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Explain event delegation in JavaScript.",
+        type: 'subjective',
+        answer: 'Event delegation is a technique where you add a single event listener to a parent element to manage events for all of its children, including dynamically added ones. When an event bubbles up from a child, the parent listener can check the `event.target` property to identify which child triggered the event and respond accordingly. This improves performance by reducing the number of event listeners.',
+        explanation: "It's a memory-efficient way to handle events on many elements."
+    },
+    {
+        id: 408,
+        testId: 7,
+        difficulty: 'hard',
+        question: "What is a PWA?",
+        type: 'subjective',
+        answer: "A PWA is a web application that uses modern web capabilities to deliver an app-like experience. Key features include being installable on the user's home screen, working offline via a service worker, and offering push notifications. They aim to combine the reach of the web with the user experience of a native app.",
+        explanation: "They represent the evolution of web apps to be more capable and reliable."
+    },
+    {
+        id: 409,
+        testId: 7,
+        difficulty: 'hard',
+        question: "Explain the concept of WebAssembly (Wasm) and its use cases.",
+        type: 'subjective',
+        answer: "WebAssembly is a binary instruction format for a stack-based virtual machine. It's designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications. It allows you to run code written in languages like C++, Rust, and Go on the web at near-native speed. Use cases include performance-intensive tasks like gaming, video editing, and scientific simulations.",
+        explanation: "Wasm is not a replacement for JavaScript, but a complement for performance-critical parts of an application."
+    },
+    {
+      id: 410,
+      testId: 7,
+      difficulty: 'hard',
+      question: "What is `git cherry-pick` used for?",
+      type: 'subjective',
+      answer: "`git cherry-pick` is a command used to apply a specific commit from one branch onto another branch. Instead of merging an entire branch, it allows you to select individual commits. This is useful for backporting a bug fix or applying a small feature from a development branch to a stable branch.",
+      explanation: "It's a powerful tool for surgical changes between branches."
+    },
+    {
+      id: 411,
+      testId: 7,
+      difficulty: 'hard',
+      question: "What is the purpose of `Array.prototype.flat()`?",
+      type: 'subjective',
+      answer: "The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to a specified depth. The default depth is 1. This is useful for simplifying nested arrays into a single, flat array.",
+      explanation: "For example, `[1, [2, 3], [4, [5]]].flat()` results in `[1, 2, 3, 4, [5]]`."
+    },
+    {
+      id: 412,
+      testId: 7,
+      difficulty: 'hard',
+      question: "What is `ESLint` and why is it useful?",
+      type: 'subjective',
+      answer: "`ESLint` is a static analysis tool for identifying and fixing problems in JavaScript code. It's highly configurable and helps enforce code quality, style consistency, and prevent common errors. By analyzing code without executing it, it can catch bugs early in the development process.",
+      explanation: "It's an essential tool for any modern JavaScript project, especially for teams."
+    },
+    {
+      id: 413,
+      testId: 7,
+      difficulty: 'hard',
+      question: "What is the difference between `Promise.all()` and `Promise.allSettled()`?",
+      type: 'subjective',
+      answer: "`Promise.all()` takes an iterable of promises and returns a single promise that resolves with an array of all resolved values. It is 'fail-fast', meaning it will reject immediately if any of the input promises reject. `Promise.allSettled()` also takes an iterable, but it waits for all promises to settle (either fulfill or reject) and returns a promise that resolves with an array of objects, each describing the outcome of a promise.",
+      explanation: "Use `all()` when you need all promises to succeed. Use `allSettled()` when you need to know the outcome of every promise, regardless of success."
+    },
+    {
+      id: 414,
+      testId: 7,
+      difficulty: 'hard',
+      question: "How does a 'Service Worker' work in a browser?",
+      type: 'subjective',
+      answer: "Service workers are scripts that your browser runs in the background, separate from a web page, enabling features that don't need a web page or user interaction. Key features include offline capabilities (caching assets), background sync, and push notifications. They are a core part of Progressive Web Apps (PWAs).",
+      explanation: "They act as a proxy between the web app, the browser, and the network."
+    },
+    {
+      id: 415,
+      testId: 7,
+      difficulty: 'hard',
+      question: "How does JavaScript `async/await` relate to the event loop and Promises?",
+      type: 'subjective',
+      answer: "async/await and Promises are high-level abstractions for managing asynchronous operations that are powered by the event loop. When you await a Promise, the async function is paused, and its execution context is removed from the call stack. The underlying asynchronous operation (e.g., a fetch request) runs in the background. When the Promise settles, a task is placed in the microtask queue. The event loop prioritizes the microtask queue, so as soon as the call stack is clear, the async function's execution is resumed.",
+      explanation: "They provide a synchronous-looking syntax for code that is fundamentally asynchronous and non-blocking."
+    },
+       // Test 8: 40 Questions (24 MCQ, 16 Subjective) - Expert
+     {
+        id: 416,
+        testId: 8,
+        difficulty: 'expert',
+        question: "What is a 'race condition' and how can it be mitigated in JavaScript?",
+        type: 'subjective',
+        answer: "An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events.",
+        explanation: "Mitigation strategies include using async/await to ensure sequential execution, using a locking mechanism, or designing state updates to be atomic."
+    },
+    {
+        id: 417,
+        testId: 8,
+        difficulty: 'expert',
+        question: "What are WebSockets?",
+        type: 'subjective',
+        answer: "A full-duplex communication channel over a single, long-lived TCP connection.",
+        explanation: "Solve the limitations of HTTP polling and long-polling."
+    },
+    {
+        id: 418,
+        testId: 8,
+        difficulty: 'expert',
+        question: "How would you debounce a function in JavaScript?",
+        type: 'subjective',
+        answer: "You would create a wrapper function that uses `setTimeout`. Inside the wrapper, you first clear any existing timeout with `clearTimeout`, then set a new timeout to execute the original function after a specified delay. This ensures the function only runs once after a burst of calls has ended.",
+        explanation: "Commonly used for handling user input, like in a search bar."
+    },
+    {
+        id: 419,
+        testId: 8,
+        difficulty: 'expert',
+        question: "Describe the JavaScript event loop.",
+        type: 'subjective',
+        answer: "Mechanism that allows JavaScript's single thread to handle asynchronous operations.",
+        explanation: "Allows for non-blocking I/O in a single-threaded environment."
+    },
+    {
+        id: 420,
+        testId: 8,
+        difficulty: 'expert',
+        question: "In the context of networking, what is a 'port'?",
+        type: 'subjective',
+        answer: "A numerical identifier that specifies a particular process or service on a host computer.",
+        explanation: "Ports allow a single host to run multiple services, directing network traffic to the correct application (e.g., a web server on port 80)."
+    }
+  ],
+  'full-stack': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
+    {
+        id: 421,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a full-stack developer?",
+        type: 'mcq',
+        options: ['A developer who only works on the frontend', 'A developer who only works on the backend', 'A developer comfortable working with both frontend and backend technologies', 'A developer who manages the server hardware'],
+        answer: 'A developer comfortable working with both frontend and backend technologies',
+        explanation: 'A full-stack developer has a broad range of skills covering the entire software stack, from the user interface to the database.'
+    },
+    {
+        id: 422,
+        testId: 1,
+        difficulty: 'easy',
+        question: "Which of the following is NOT typically part of a full-stack developer's skillset?",
+        type: 'mcq',
+        options: ['HTML/CSS', 'Database Management (SQL/NoSQL)', 'Graphic Design', 'Backend Language (e.g., Node.js, Python)'],
+        answer: 'Graphic Design',
+        explanation: 'While understanding UI/UX principles is helpful, graphic design is a separate discipline. A full-stack developer implements the design, but doesn\'t usually create it.'
+    },
+    {
+        id: 423,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What does 'API' stand for?",
+        type: 'mcq',
+        options: ['Application Programming Interface', 'Advanced Programming Integration', 'Application Process Interaction', 'Automated Program Interface'],
+        answer: 'Application Programming Interface',
+        explanation: 'An API is a crucial component that allows the frontend and backend of an application to communicate with each other.'
+    },
+    {
+        id: 424,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is the difference between the frontend and the backend?",
+        type: 'subjective',
+        answer: "The frontend is the part of the application that the user interacts with directly, also known as the client-side. It includes everything the user sees in their browser. The backend is the server-side, responsible for storing and organizing data, and handling the application's logic. It processes requests from the frontend and sends back the necessary information.",
+        explanation: 'Frontend is what you see; backend is how it works.'
+    },
+    {
+        id: 425,
+        testId: 1,
+        difficulty: 'easy',
+        question: "What is a database?",
+        type: 'subjective',
+        answer: "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. It is managed by a Database Management System (DBMS). In a full-stack application, the backend uses a database to store and retrieve data like user profiles, posts, or product information.",
+        explanation: 'Databases are essential for any application that needs to store data persistently.'
+    },
+    // Test 2: 10 Questions (6 MCQ, 4 Subjective) - Easy
+    {
+        id: 426,
+        testId: 2,
+        difficulty: 'easy',
+        question: "Which technology is used for styling the frontend of a web application?",
+        type: 'mcq',
+        options: ['HTML', 'SQL', 'CSS', 'Node.js'],
+        answer: 'CSS',
+        explanation: 'CSS (Cascading Style Sheets) is used to describe the presentation and styling of a document written in HTML.'
+    },
+    {
+        id: 427,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is Node.js?",
+        type: 'mcq',
+        options: ['A frontend framework', 'A JavaScript runtime environment for executing JavaScript on the server side', 'A database', 'A programming language'],
+        answer: 'A JavaScript runtime environment for executing JavaScript code outside a web browser',
+        explanation: 'Node.js is a very popular choice for building backends, allowing developers to use JavaScript for the full stack.'
+    },
+    {
+        id: 428,
+        testId: 2,
+        difficulty: 'easy',
+        question: "Which of the following is a popular frontend JavaScript framework?",
+        type: 'mcq',
+        options: ['Express.js', 'React', 'Django', 'Laravel'],
+        answer: 'React',
+        explanation: 'React is a library for building user interfaces. Express.js, Django, and Laravel are all backend frameworks.'
+    },
+    {
+        id: 429,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What does a `GET` HTTP request typically do?",
+        type: 'mcq',
+        options: ['Create a new resource', 'Update an existing resource', 'Retrieve a resource from the server', 'Delete a resource'],
+        answer: 'Retrieve a resource from the server',
+        explanation: 'GET requests are used by the frontend to fetch data from the backend API.'
+    },
+    {
+        id: 430,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is `git`?",
+        type: 'mcq',
+        options: ['A backend programming language', 'A database', 'A distributed version control system', 'A cloud hosting provider'],
+        answer: 'A distributed version control system',
+        explanation: 'Git is an essential tool for almost every developer, used to track changes in code and collaborate with others.'
+    },
+    {
+        id: 431,
+        testId: 2,
+        difficulty: 'easy',
+        question: "Which of the following is a relational (SQL) database?",
+        type: 'mcq',
+        options: ['MongoDB', 'Redis', 'PostgreSQL', 'Cassandra'],
+        answer: 'PostgreSQL',
+        explanation: 'PostgreSQL is a popular open-source relational database. The others are examples of NoSQL databases.'
+    },
+    {
+        id: 432,
+        testId: 2,
+        difficulty: 'easy',
+        question: "How does a frontend application get data from the backend?",
+        type: 'subjective',
+        answer: "A frontend application gets data from the backend by making an API call, which is typically an HTTP request to a specific URL (endpoint) on the server. The frontend might use the browser's built-in `fetch` API or a library like Axios to make the request. The backend then processes the request and sends the data back, usually in JSON format.",
+        explanation: 'This communication via API is the core of how full-stack applications work.'
+    },
+    {
+        id: 433,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is the purpose of `npm`?",
+        type: 'subjective',
+        answer: "npm (Node Package Manager) is the default package manager for Node.js. It is used to install, manage, and share reusable code packages (dependencies) for a project. A `package.json` file in the project root lists the dependencies, allowing any developer to install the exact same set of tools.",
+        explanation: 'npm is a fundamental tool for managing project dependencies in the JavaScript ecosystem.'
+    },
+    {
+        id: 434,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is JSON?",
+        type: 'subjective',
+        answer: "JSON (JavaScript Object Notation) is a lightweight, text-based format for data interchange. It is easy for humans to read and for machines to parse. In full-stack development, it is the most common format for sending data between the backend API and the frontend application.",
+        explanation: 'JSON uses key-value pairs, similar to JavaScript objects.'
+    },
+    {
+        id: 435,
+        testId: 2,
+        difficulty: 'easy',
+        question: "What is 'localhost'?",
+        type: 'subjective',
+        answer: "Localhost is a hostname that refers to the current computer being used. When you are developing an application on your machine, both the frontend and backend servers often run on localhost. The browser can then access the application by navigating to a URL like `http://localhost:3000`.",
+        explanation: 'It allows developers to test their applications locally without needing an internet connection.'
+    },
+     // Test 3: 15 Questions (9 MCQ, 6 Subjective) - Medium
+    {
+        id: 436,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is a REST API?",
+        type: 'mcq',
+        options: ['A database', 'An architectural style for designing networked applications that uses standard HTTP methods', 'A frontend framework', 'A server deployment method'],
+        answer: 'An architectural style for designing networked applications that uses standard HTTP methods',
+        explanation: 'REST (Representational State Transfer) is the most common architectural style for building APIs that allow the frontend and backend to communicate.'
+    },
+    {
+        id: 437,
+        testId: 3,
+        difficulty: 'medium',
+        question: "In a MERN stack application, what does the 'E' stand for?",
+        type: 'mcq',
+        options: ['ECMAScript', 'Elasticsearch', 'Express.js', 'EJS'],
+        answer: 'Express.js',
+        explanation: 'MERN stands for MongoDB, Express.js, React, and Node.js. Express.js is the backend web application framework.'
+    },
+    {
+        id: 438,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is an ORM (Object-Relational Mapping)?",
+        type: 'mcq',
+        options: ['A UI component library', 'A technique for converting data between a relational database and an object-oriented programming language', 'A performance monitoring tool', 'A type of API'],
+        answer: 'A technique for converting data between a relational database and an object-oriented programming language',
+        explanation: 'ORMs like Prisma or Sequelize allow developers to work with their database using familiar object-oriented syntax instead of writing raw SQL.'
+    },
+    {
+        id: 439,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the purpose of an environment variable (`.env`) file?",
+        type: 'mcq',
+        options: ['To store the application\'s HTML code', 'To store sensitive configuration data like API keys and database URLs outside of the source code', 'To define CSS styles', 'To list project dependencies'],
+        answer: 'To store sensitive configuration data like API keys and database URLs outside of the source code',
+        explanation: 'This practice is crucial for security and for managing different configurations for development and production.'
+    },
+    {
+        id: 440,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is CORS (Cross-Origin Resource Sharing)?",
+        type: 'mcq',
+        options: ['A type of encryption', 'A browser security feature that restricts cross-origin HTTP requests, which a server must explicitly allow via HTTP headers', 'A database technology', 'A JavaScript framework'],
+        answer: 'A browser security feature that restricts cross-origin HTTP requests, which a server must explicitly allow via HTTP headers',
+        explanation: 'CORS is a common issue full-stack developers must handle to allow their frontend and backend (on different origins) to communicate.'
+    },
+    {
+        id: 441,
+        testId: 3,
+        difficulty: 'medium',
+        question: "Which of the following is NOT a benefit of Server-Side Rendering (SSR)?",
+        type: 'mcq',
+        options: ['Improved SEO', 'Faster initial page load (perceived performance)', 'Reduced server load', 'Better experience on slow devices'],
+        answer: 'Reduced server load',
+        explanation: 'SSR actually increases server load, as the server has to render the HTML for each request instead of just sending static files.'
+    },
+    {
+        id: 442,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the purpose of 'middleware' in a backend framework like Express.js?",
+        type: 'mcq',
+        options: ['To manage the database', 'Functions that execute during the request-response cycle to perform tasks like authentication, logging, or parsing request bodies', 'A UI component', 'A type of server'],
+        answer: 'Functions that execute during the request-response cycle to perform tasks like authentication, logging, or parsing request bodies',
+        explanation: 'Middleware is a core concept in many backend frameworks for handling cross-cutting concerns.'
+    },
+    {
+        id: 443,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What does 'database normalization' mean?",
+        type: 'mcq',
+        options: ['Making the database normal', 'The process of organizing columns and tables in a relational database to minimize data redundancy', 'Deleting old data from a database', 'A backup procedure for a database'],
+        answer: 'The process of organizing columns and tables in a relational database to minimize data redundancy',
+        explanation: 'Normalization helps prevent data anomalies and makes the database more efficient.'
+    },
+    {
+        id: 444,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is a JWT (JSON Web Token)?",
+        type: 'mcq',
+        options: ['A type of database', 'A compact, URL-safe means of representing claims to be transferred between two parties', 'A session management tool', 'A server framework'],
+        answer: 'A compact, URL-safe means of representing claims to be transferred between two parties',
+        explanation: 'JWTs are commonly used for stateless authentication and authorization in APIs.'
+    },
+    {
+        id: 445,
+        testId: 3,
+        difficulty: 'medium',
+        question: "Explain the difference between SQL and NoSQL databases.",
+        type: 'subjective',
+        answer: "SQL databases are relational, storing data in structured tables with predefined schemas and using SQL for queries. They are good for complex queries and ensuring data integrity (ACID compliance). NoSQL databases are non-relational, have dynamic schemas, and store data in various formats like documents, key-value pairs, or graphs. They generally scale horizontally more easily and are often used for large-scale, unstructured data.",
+        explanation: 'The choice depends on the specific needs of the application regarding structure, scalability, and consistency.'
+    },
+    {
+        id: 446,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is a 'Promise' in JavaScript and why is it useful?",
+        type: 'subjective',
+        answer: "A Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. It is useful because it provides a cleaner way to handle asynchronous code than traditional callbacks, avoiding 'callback hell.' Promises can be chained together and have dedicated methods for handling success (`.then()`) and failure (`.catch()`).",
+        explanation: 'Promises, along with async/await, are fundamental to modern asynchronous JavaScript.'
+    },
+    {
+        id: 447,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the role of a 'package.json' file?",
+        type: 'subjective',
+        answer: "The `package.json` file is the manifest for a Node.js project. It serves several purposes: it lists the project's dependencies (both for production and development), defines scripts for common tasks (like starting the server or running tests), provides metadata about the project (like its name and version), and ensures that builds are reproducible by locking dependency versions.",
+        explanation: 'It is the central configuration file for any JavaScript/Node.js project.'
+    },
+    {
+        id: 448,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is 'authentication' versus 'authorization'?",
+        type: 'subjective',
+        answer: "Authentication is the process of verifying a user's identity (proving they are who they say they are), typically by checking a username and password. Authorization is the process of determining what an authenticated user is allowed to do (their permissions). Authentication always comes before authorization.",
+        explanation: 'A helpful analogy: authentication is showing your ID to enter a building; authorization is checking which rooms your keycard can open.'
+    },
+    {
+        id: 449,
+        testId: 3,
+        difficulty: 'medium',
+        question: "Explain what a 'container' (like Docker) is and the problem it solves.",
+        type: 'subjective',
+        answer: "A container is a lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, and libraries. It solves the classic 'it works on my machine' problem by creating a consistent and reproducible environment for an application, ensuring it runs the same way regardless of where it is deployed (development, testing, or production).",
+        explanation: 'Containers have become a standard for deploying modern applications.'
+    },
+    {
+        id: 450,
+        testId: 3,
+        difficulty: 'medium',
+        question: "What is the purpose of hashing and salting passwords?",
+        type: 'subjective',
+        answer: "Hashing is a one-way process that transforms a password into an irreversible, fixed-length string. This ensures the original password is never stored. Salting involves adding a unique, random string to each user's password before hashing it. This is crucial because it ensures that even if two users have the same password, their stored hashes will be different, which defeats attacks using pre-computed 'rainbow tables'.",
+        explanation: 'This two-step process is a fundamental security practice for storing user credentials.'
+    },
+     // Test 4: 20 Questions (12 MCQ, 8 Subjective) - Medium
+    {
+        id: 451,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the primary role of an 'API Gateway'?",
+        type: 'mcq',
+        options: ['To store API data', 'A single entry point for all clients that handles concerns like routing, authentication, and rate limiting', 'A database for APIs', 'A monitoring tool for APIs'],
+        answer: 'A single entry point for all clients that handles concerns like routing, authentication, and rate limiting',
+        explanation: 'An API Gateway simplifies the client-side code and encapsulates the internal microservice architecture.'
+    },
+    {
+        id: 452,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which of these is NOT a valid HTTP status code category?",
+        type: 'mcq',
+        options: ['2xx (Success)', '3xx (Redirection)', '4xx (Client Error)', '6xx (Custom Error)'],
+        answer: '6xx (Custom Error)',
+        explanation: 'The standard HTTP status code categories are 1xx, 2xx, 3xx, 4xx, and 5xx.'
+    },
+    {
+        id: 453,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of 'caching'?",
+        type: 'mcq',
+        options: ['To secure data', 'To store a copy of data in a temporary, fast-access location to speed up subsequent requests', 'To log server activity', 'To validate user input'],
+        answer: 'To store a copy of data in a temporary, fast-access location to speed up subsequent requests',
+        explanation: 'Caching can happen at multiple levels: in the browser, at a CDN, or on the backend (e.g., with Redis).'
+    },
+    {
+        id: 454,
+        testId: 4,
+        difficulty: 'medium',
+        question: "In the context of APIs, what does 'stateless' mean?",
+        type: 'mcq',
+        options: ['The server has no memory', 'Each request from a client to the server must contain all the information needed to understand and process the request', 'The server cannot store any data', 'The API does not have a state management library'],
+        answer: 'Each request from a client to the server must contain all the information needed to understand and process the request',
+        explanation: 'Statelessness is a key principle of REST architecture, which simplifies server design and improves scalability.'
+    },
+    {
+        id: 455,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of the `async` and `await` keywords in JavaScript?",
+        type: 'mcq',
+        options: ['To make code run faster', 'To provide a more synchronous-looking syntax for handling asynchronous Promise-based code', 'To declare asynchronous variables', 'To create a new thread'],
+        answer: 'To provide a more synchronous-looking syntax for handling asynchronous Promise-based code',
+        explanation: 'They are syntactic sugar over Promises, making asynchronous code easier to write and read.'
+    },
+    {
+        id: 456,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'Dockerfile' used for?",
+        type: 'mcq',
+        options: ['To configure a database', 'To write application code', 'A text document that contains all the commands a user could call on the command line to assemble a Docker container image', 'To manage user permissions'],
+        answer: 'A text document that contains all the commands a user could call on the command line to assemble a Docker container image',
+        explanation: 'A Dockerfile is the recipe for building a portable, self-contained application environment.'
+    },
+    {
+        id: 457,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which of the following is a key-value store database?",
+        type: 'mcq',
+        options: ['PostgreSQL', 'MySQL', 'Redis', 'MongoDB'],
+        answer: 'Redis',
+        explanation: 'Redis is an in-memory data structure store, used as a database, cache, and message broker. It is a prime example of a key-value store.'
+    },
+    {
+        id: 458,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the `event loop` in Node.js?",
+        type: 'mcq',
+        options: ['It listens for frontend UI events', 'A mechanism that allows Node.js to perform non-blocking I/O operations despite being single-threaded', 'A security feature', 'A tool for managing event logs'],
+        answer: 'A mechanism that allows Node.js to perform non-blocking I/O operations despite being single-threaded',
+        explanation: 'The event loop is the core of Node.js\'s asynchronous, non-blocking architecture.'
+    },
+    {
+        id: 459,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a 'linter' like ESLint?",
+        type: 'mcq',
+        options: ['To compile code', 'To run tests', 'To statically analyze code to find problems, bugs, and stylistic errors', 'To deploy an application'],
+        answer: 'To statically analyze code to find problems, bugs, and stylistic errors',
+        explanation: 'Linters help enforce code quality and consistency across a project.'
+    },
+    {
+        id: 460,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Which of the following is NOT a principle of REST?",
+        type: 'mcq',
+        options: ['Stateless', 'Client-Server architecture', 'Stateful', 'Cacheable'],
+        answer: 'Stateful',
+        explanation: 'Statelessness is a core constraint of REST. The server should not store any client context between requests.'
+    },
+    {
+        id: 461,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is CORS (Cross-Origin Resource Sharing)?",
+        type: 'mcq',
+        options: ['A type of encryption', 'A security mechanism that uses HTTP headers to allow a server to indicate any origins other than its own from which a browser should permit loading resources', 'A database technology', 'A JavaScript framework'],
+        answer: 'A security mechanism that uses HTTP headers to allow a server to indicate any origins other than its own from which a browser should permit loading resources',
+        explanation: 'CORS is necessary to allow frontend applications on one domain to make API requests to a backend on another domain.'
+    },
+    {
+        id: 462,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'Promise' in JavaScript?",
+        type: 'mcq',
+        options: ['A guarantee that a function will execute', 'An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value', 'A type of variable', 'A security feature'],
+        answer: 'An object representing the eventual completion (or failure) of an asynchronous operation and its resulting value',
+        explanation: 'Promises are a fundamental part of modern asynchronous JavaScript.'
+    },
+    {
+        id: 463,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the 'N+1' query problem and how can you solve it?",
+        type: 'subjective',
+        answer: "The N+1 query problem is a performance issue where an application makes one initial query to retrieve a list of items, and then makes 'N' additional queries to retrieve related data for each of those items. It can be solved by 'eager loading,' where the related data is fetched in a single, more complex query (e.g., using a SQL JOIN) along with the initial items.",
+        explanation: 'This is a common performance bottleneck in applications that use an ORM.'
+    },
+    {
+        id: 464,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a reverse proxy?",
+        type: 'subjective',
+        answer: "A reverse proxy is a server that sits in front of one or more web servers, intercepting requests from clients. It is used for several purposes, including load balancing traffic across multiple backend servers, providing SSL termination (offloading encryption), caching static content, and enhancing security by hiding the identity of the backend servers.",
+        explanation: 'NGINX and Apache are common examples of software used as reverse proxies.'
+    },
+    {
+        id: 465,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is dependency injection?",
+        type: 'subjective',
+        answer: "Dependency Injection (DI) is a design pattern in which a component's dependencies (the other objects it needs to work) are provided to it from an external source rather than it creating them itself. This 'inverts' the control of dependency management, leading to more loosely coupled, modular, and easily testable code.",
+        explanation: 'Frameworks like NestJS and Spring make heavy use of DI.'
+    },
+    {
+        id: 466,
+        testId: 4,
+        difficulty: 'medium',
+        question: "Explain what a 'cookie' is and how it is used for session management.",
+        type: 'subjective',
+        answer: "A cookie is a small piece of data that a server sends to a user's web browser. The browser may store it and send it back with subsequent requests to the same server. For session management, after a user logs in, the server creates a unique session ID, sends it to the client as a cookie, and the client includes this cookie in future requests to identify itself as authenticated.",
+        explanation: 'Cookies are a fundamental mechanism for maintaining state in the stateless HTTP protocol.'
+    },
+    {
+        id: 467,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is a 'container' (like Docker) and what problem does it solve?",
+        type: 'subjective',
+        answer: "A container is a lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, libraries, and settings. It solves the 'it works on my machine' problem by creating a consistent and reproducible environment for an application, ensuring it runs the same way regardless of where it is deployed.",
+        explanation: 'Containers virtualize the operating system, making them more efficient than traditional virtual machines.'
+    },
+    {
+        id: 468,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the difference between a `let` and `const` in JavaScript?",
+        type: 'subjective',
+        answer: "Both `let` and `const` are block-scoped variable declarations. The main difference is that a variable declared with `let` can be reassigned a new value, while a variable declared with `const` cannot be reassigned after its initial declaration. Note that for objects and arrays declared with `const`, their properties or elements can still be modified.",
+        explanation: '`const` should be preferred for variables that will not be reassigned, as it makes the code easier to reason about.'
+    },
+    {
+        id: 469,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What is the purpose of a `.gitignore` file?",
+        type: 'subjective',
+        answer: "A `.gitignore` file specifies intentionally untracked files that Git should ignore. This is used to prevent files that are generated by the build process (like `node_modules` or compiled code) or files that contain sensitive information (like `.env` files) from being accidentally committed to the version control repository.",
+        explanation: 'It helps keep the repository clean and secure.'
+    },
+    {
+        id: 470,
+        testId: 4,
+        difficulty: 'medium',
+        question: "What are some common security vulnerabilities in a web application backend?",
+        type: 'subjective',
+        answer: "Common vulnerabilities include SQL Injection (where an attacker can manipulate database queries), Cross-Site Scripting (XSS, injecting malicious scripts), Cross-Site Request Forgery (CSRF, forcing a user to execute unwanted actions), insecure authentication/session management, and insecure direct object references (accessing unauthorized data by manipulating IDs).",
+        explanation: 'A strong understanding of common vulnerabilities is essential for any backend developer.'
+    },
+     // Test 5: 25 Questions (15 MCQ, 10 Subjective) - Medium
+    {
+        id: 471,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'schema' in the context of a database?",
+        type: 'mcq',
+        options: ['A type of query', 'The blueprint or structure of the database, defining its tables, columns, data types, and relationships', 'A backup of the database', 'A user permission level'],
+        answer: 'The blueprint or structure of the database, defining its tables, columns, data types, and relationships',
+        explanation: 'The schema enforces the structure and integrity of the data.'
+    },
+    {
+        id: 472,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What does it mean for an API to be 'idempotent'?",
+        type: 'mcq',
+        options: ['The API is secure', 'Making the same request multiple times has the same effect as making it once', 'The API is very fast', 'The API can only be called once'],
+        answer: 'Making the same request multiple times has the same effect as making it once',
+        explanation: 'HTTP methods like GET, PUT, and DELETE are idempotent. This is important for building reliable systems that may retry requests.'
+    },
+    {
+        id: 473,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following is a primary benefit of using a message queue (e.g., RabbitMQ, Kafka)?",
+        type: 'mcq',
+        options: ['To make database queries faster', 'To decouple services and handle asynchronous communication between them', 'To store user session data', 'To serve static files'],
+        answer: 'To decouple services and handle asynchronous communication between them',
+        explanation: 'Message queues allow different parts of a system to communicate without being directly connected, improving scalability and resilience.'
+    },
+    {
+        id: 474,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of the `finally` block in a `try...catch...finally` statement?",
+        type: 'mcq',
+        options: ['It executes only if an error occurs', 'It executes only if no error occurs', 'It always executes after the `try` and `catch` blocks, regardless of whether an error occurred', 'It is an alias for the `catch` block'],
+        answer: 'It always executes after the `try` and `catch` blocks, regardless of whether an error occurred',
+        explanation: 'The `finally` block is useful for cleanup code, like closing a file or database connection.'
+    },
+    {
+        id: 475,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'callback function' in asynchronous programming?",
+        type: 'mcq',
+        options: ['A function that calls another function', 'A function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action', 'A function that always returns a value', 'A function that blocks the main thread'],
+        answer: 'A function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action',
+        explanation: 'Callbacks are a fundamental pattern for handling asynchronous operations in JavaScript, though Promises and async/await are now more common.'
+    },
+    {
+        id: 476,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'WebHook'?",
+        type: 'mcq',
+        options: ['A frontend JavaScript library', 'An automated message sent from apps when something happens. It has a message (payload) which is sent to a unique URL.', 'A type of fishing lure', 'A security vulnerability'],
+        answer: 'An automated message sent from apps when something happens. It has a message (payload) which is sent to a unique URL.',
+        explanation: 'WebHooks are a way for one system to notify another system about an event, instead of the other system having to continuously poll for changes.'
+    },
+    {
+        id: 477,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following best describes 'microservices architecture'?",
+        type: 'mcq',
+        options: ['Building a single, large application', 'An architectural style that structures an application as a collection of small, independent, and loosely coupled services', 'A frontend design pattern', 'A database schema design'],
+        answer: 'An architectural style that structures an application as a collection of small, independent, and loosely coupled services',
+        explanation: 'Microservices allow for independent deployment, scaling, and technology choices for different parts of an application.'
+    },
+    {
+        id: 478,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is 'ACID' in the context of databases?",
+        type: 'mcq',
+        options: ['A type of chemical', 'A set of properties (Atomicity, Consistency, Isolation, Durability) that guarantee database transactions are processed reliably', 'A query language', 'A security standard'],
+        answer: 'A set of properties (Atomicity, Consistency, Isolation, Durability) that guarantee database transactions are processed reliably',
+        explanation: 'ACID compliance is a key feature of most relational databases.'
+    },
+    {
+        id: 479,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of `git clone`?",
+        type: 'mcq',
+        options: ['To create a new branch', 'To create a local copy of a remote repository', 'To merge two branches', 'To delete a repository'],
+        answer: 'To create a local copy of a remote repository',
+        explanation: '`git clone` is the standard way to start working on a project that already exists on a remote server like GitHub.'
+    },
+    {
+        id: 480,
+        testId: 5,
+        difficulty: 'medium',
+        question: "In SQL, what is the difference between `DELETE` and `TRUNCATE`?",
+        type: 'mcq',
+        options: ['There is no difference', '`DELETE` removes all rows from a table, while `TRUNCATE` removes the table itself', '`DELETE` is a row-level operation that can be rolled back, while `TRUNCATE` is a faster, non-logged operation that removes all rows', '`TRUNCATE` can be used with a `WHERE` clause, but `DELETE` cannot'],
+        answer: '`DELETE` is a row-level operation that can be rolled back, while `TRUNCATE` is a faster, non-logged operation that removes all rows',
+        explanation: '`TRUNCATE` is much faster for deleting all rows from a large table as it doesn\'t log each row deletion.'
+    },
+    {
+        id: 481,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the `Content-Type` header in an HTTP response used for?",
+        type: 'mcq',
+        options: ['To specify the length of the response body', 'To indicate the media type of the resource (e.g., `application/json` or `text/html`)', 'To control caching', 'To set a cookie'],
+        answer: 'To indicate the media type of the resource (e.g., `application/json` or `text/html`)',
+        explanation: 'This header tells the client how to parse and interpret the response body.'
+    },
+    {
+        id: 482,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is 'scalability'?",
+        type: 'mcq',
+        options: ['The security of a system', 'The ability of a system to handle a growing amount of work by adding resources', 'The speed of a system', 'The user-friendliness of a system'],
+        answer: 'The ability of a system to handle a growing amount of work by adding resources',
+        explanation: 'Backend systems are often designed with scalability in mind, either vertically (adding more power to a single server) or horizontally (adding more servers).'
+    },
+    {
+        id: 483,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is an 'endpoint' in an API?",
+        type: 'mcq',
+        options: ['The start of the API', 'A specific URL where an API can be accessed to perform an operation', 'The database connection', 'A security key'],
+        answer: 'A specific URL where an API can be accessed to perform an operation',
+        explanation: 'For example, `/api/users/123` is an endpoint for retrieving a specific user.'
+    },
+    {
+        id: 484,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Which of the following is a common use case for WebSockets?",
+        type: 'mcq',
+        options: ['Serving a static website', 'Building a real-time chat application', 'Storing user preferences', 'Processing batch jobs'],
+        answer: 'Building a real-time chat application',
+        explanation: 'WebSockets provide a persistent, bidirectional communication channel, which is ideal for real-time applications.'
+    },
+    {
+        id: 485,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What does the HTTP status code `500 Internal Server Error` mean?",
+        type: 'mcq',
+        options: ['The request was successful', 'The client made an invalid request', 'The server encountered an unexpected condition that prevented it from fulfilling the request', 'The requested resource was not found'],
+        answer: 'The server encountered an unexpected condition that prevented it from fulfilling the request',
+        explanation: 'This is a generic error message indicating a problem on the server-side.'
+    },
+    {
+        id: 486,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'load balancer' and why is it used?",
+        type: 'subjective',
+        answer: "A load balancer is a device or software that distributes network or application traffic across multiple servers. It is used to improve the availability and scalability of an application by ensuring that no single server is overwhelmed with too many requests. If one server fails, the load balancer can redirect traffic to the remaining healthy servers.",
+        explanation: 'Load balancing is a fundamental technique for building highly available systems.'
+    },
+    {
+        id: 487,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the difference between SQL and NoSQL databases?",
+        type: 'subjective',
+        answer: "SQL databases are relational, storing data in structured tables with predefined schemas and using SQL for queries. They are good for complex queries and ensuring data integrity. NoSQL databases are non-relational and can have dynamic schemas, storing data as documents, key-value pairs, or graphs. They generally scale horizontally more easily and are often used for large-scale, unstructured data.",
+        explanation: 'The choice depends on the specific needs of the application regarding structure, scalability, and consistency.'
+    },
+    {
+        id: 488,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of 'API rate limiting'?",
+        type: 'subjective',
+        answer: "API rate limiting is a technique used to control the number of requests a client can make to an API within a certain time frame. Its purposes are to prevent abuse or misuse (both intentional and accidental), ensure fair usage for all clients, protect the backend services from being overwhelmed, and manage operational costs.",
+        explanation: 'It is a crucial feature for any public-facing API.'
+    },
+    {
+        id: 489,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Explain what a 'Connection Pool' is for a database.",
+        type: 'subjective',
+        answer: "A connection pool is a cache of database connections maintained by the server so that the connections can be reused for future requests. Opening and closing a database connection is an expensive operation. A connection pool improves performance by avoiding this overhead, reusing existing connections instead of creating new ones for each request.",
+        explanation: 'Connection pooling is a standard practice for improving the performance of database-driven applications.'
+    },
+    {
+        id: 490,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the difference between a `let` and a `const` in JavaScript?",
+        type: 'subjective',
+        answer: "Both `let` and `const` are block-scoped variable declarations. The main difference is that a variable declared with `let` can be reassigned a new value, while a variable declared with `const` cannot be reassigned after its initial declaration. Note that for objects and arrays declared with `const`, their properties or elements can still be modified.",
+        explanation: '`const` should be preferred for variables that will not be reassigned, as it makes the code easier to reason about.'
+    },
+    {
+        id: 491,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of a `.gitignore` file?",
+        type: 'subjective',
+        answer: "A `.gitignore` file specifies intentionally untracked files that Git should ignore. This is used to prevent files that are generated by the build process (like `node_modules` or compiled code) or files that contain sensitive information (like `.env` files) from being accidentally committed to the version control repository.",
+        explanation: 'It helps keep the repository clean and secure.'
+    },
+    {
+        id: 492,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What are some common security vulnerabilities in a web application backend?",
+        type: 'subjective',
+        answer: "Common vulnerabilities include SQL Injection (where an attacker can manipulate database queries), Cross-Site Scripting (XSS, injecting malicious scripts), Cross-Site Request Forgery (CSRF, forcing a user to execute unwanted actions), insecure authentication/session management, and insecure direct object references (accessing unauthorized data by manipulating IDs).",
+        explanation: 'A strong understanding of common vulnerabilities is essential for any backend developer.'
+    },
+    {
+        id: 493,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is a 'monolithic' architecture?",
+        type: 'subjective',
+        answer: "A monolithic architecture is a traditional model where an application is built as a single, unified unit. The entire application—including the user interface, business logic, and data access layer—is deployed as one large codebase. While simpler to develop and deploy initially, monoliths can become difficult to scale, maintain, and update as they grow in complexity.",
+        explanation: 'The microservices architecture is an alternative to the monolithic approach.'
+    },
+    {
+        id: 494,
+        testId: 5,
+        difficulty: 'medium',
+        question: "What is the purpose of `bcrypt` when hashing passwords?",
+        type: 'subjective',
+        answer: "`bcrypt` is a password hashing function designed to be slow and computationally intensive. This slowness is a feature, as it makes brute-force attacks (trying many passwords) very time-consuming and expensive for an attacker. It also includes a salt automatically to protect against rainbow table attacks.",
+        explanation: 'Modern, slow hashing algorithms like bcrypt or Argon2 are the standard for password security.'
+    },
+    {
+        id: 495,
+        testId: 5,
+        difficulty: 'medium',
+        question: "Explain what 'sharding' is in a database context.",
+        type: 'subjective',
+        answer: "Sharding is a type of database partitioning, also known as horizontal partitioning. It involves splitting a large database into smaller, faster, more manageable parts called shards. Each shard is a separate database, and the data is distributed across these shards. This is a common technique for scaling out databases to handle massive amounts of data and traffic.",
+        explanation: 'Sharding allows a database to scale horizontally by adding more servers.'
+    },
+      // Test 6: 30 Questions (18 MCQ, 12 Subjective) - Hard
+    {
+        id: 496,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'race condition' in concurrent programming?",
+        type: 'mcq',
+        options: ['A performance bug in racing games', 'An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events', 'A network latency issue', 'A type of CPU error'],
+        answer: 'An error condition that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events',
+        explanation: 'Race conditions are a common and difficult problem in concurrent systems, often leading to corrupted data. They are typically mitigated using locks or atomic operations.'
+    },
+    {
+        id: 497,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the primary purpose of a 'service mesh' like Istio or Linkerd?",
+        type: 'mcq',
+        options: ['To manage database migrations', 'To provide a dedicated infrastructure layer for managing service-to-service communication, handling concerns like traffic management, security, and observability', 'To build user interfaces', 'To automate CI/CD pipelines'],
+        answer: 'To provide a dedicated infrastructure layer for managing service-to-service communication, handling concerns like traffic management, security, and observability',
+        explanation: 'A service mesh abstracts the complexity of network communication away from the application code by using sidecar proxies.'
+    },
+    {
+        id: 498,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'gRPC'?",
+        type: 'mcq',
+        options: ['A GraphQL client library', 'A REST API framework', 'A high-performance, open-source universal RPC framework that uses Protocol Buffers and HTTP/2', 'A database protocol'],
+        answer: 'A high-performance, open-source universal RPC framework that uses Protocol Buffers and HTTP/2',
+        explanation: 'gRPC is highly efficient and well-suited for low-latency communication between microservices.'
+    },
+    {
+        id: 499,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'eventual consistency'?",
+        type: 'mcq',
+        options: ['A model where the system is always consistent', 'A consistency model where, if no new updates are made, all replicas of a piece of data will eventually converge to the same value', 'A model where data becomes inconsistent over time', 'A database transaction property'],
+        answer: 'A consistency model where, if no new updates are made, all replicas of a piece of data will eventually converge to the same value',
+        explanation: 'This model is often chosen in distributed systems that prioritize high availability and partition tolerance over strong, immediate consistency.'
+    },
+    {
+        id: 500,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the difference between a `process` and a `thread`?",
+        type: 'mcq',
+        options: ['They are the same thing', 'A process has its own isolated memory space, while multiple threads can exist within a single process and share its memory space', 'A thread is a heavyweight operation, while a process is lightweight', 'Processes are for frontend, threads are for backend'],
+        answer: 'A process has its own isolated memory space, while multiple threads can exist within a single process and share its memory space',
+        explanation: 'This is a fundamental concept in operating systems and concurrent programming.'
+    },
+    {
+        id: 501,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'idempotency' in API design?",
+        type: 'mcq',
+        options: ['The API is secure', 'The property of an operation where making the same request multiple times has the same effect as making it once', 'The API is very fast', 'The API can only be called once'],
+        answer: 'The property of an operation where making the same request multiple times has the same effect as making it once',
+        explanation: 'Idempotency is crucial for building reliable systems where requests might be retried due to network failures.'
+    },
+    {
+        id: 502,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What problem does a 'circuit breaker' pattern solve?",
+        type: 'mcq',
+        options: ['It secures the application from electrical surges', 'It prevents an application from repeatedly trying to execute an operation that is likely to fail, allowing it to fail fast and prevent system-wide cascading failures', 'It helps with debugging', 'It encrypts network traffic'],
+        answer: 'It prevents an application from repeatedly trying to execute an operation that is likely to fail, allowing it to fail fast and prevent system-wide cascading failures',
+        explanation: 'The circuit breaker trips after a certain number of failures and will only allow requests through again after a timeout.'
+    },
+    {
+        id: 503,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a 'distributed hash table' (DHT)?",
+        type: 'mcq',
+        options: ['A centralized database using hashing', 'A data structure used only in C++', 'A decentralized system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes', 'A hashing algorithm for passwords'],
+        answer: 'A decentralized system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes',
+        explanation: 'DHTs are a core component of many peer-to-peer systems, like BitTorrent.'
+    },
+    {
+        id: 504,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the main benefit of HTTP/2 over HTTP/1.1?",
+        type: 'mcq',
+        options: ['It is more secure by default', 'It uses a different syntax for requests', 'Multiplexing, which allows multiple requests and responses to be sent in parallel over a single TCP connection', 'It only works with JSON'],
+        answer: 'Multiplexing, which allows multiple requests and responses to be sent in parallel over a single TCP connection',
+        explanation: 'This eliminates the head-of-line blocking problem and significantly improves performance.'
+    },
+    {
+        id: 505,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the purpose of 'database migration' scripts?",
+        type: 'mcq',
+        options: ['To move a database to a different server', 'To manage and version control the evolution of the database schema over time', 'To back up the database', 'To optimize query performance'],
+        answer: 'To manage and version control the evolution of the database schema over time',
+        explanation: 'Migration scripts allow for automated, repeatable, and reversible changes to the database structure.'
+    },
+    {
+        id: 506,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'CQRS' (Command Query Responsibility Segregation)?",
+        type: 'mcq',
+        options: ['A security pattern', 'An architectural pattern that separates the models for updating data (Commands) from the models for reading data (Queries)', 'A database technology', 'A testing methodology'],
+        answer: 'An architectural pattern that separates the models for updating data (Commands) from the models for reading data (Queries)',
+        explanation: 'CQRS allows for independent optimization of the read and write sides of an application.'
+    },
+    {
+        id: 507,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is 'OAuth 2.0' primarily used for?",
+        type: 'mcq',
+        options: ['Authentication (verifying who a user is)', 'Authorization (granting a third-party application limited access to a user\'s resources)', 'Encryption', 'Session management'],
+        answer: 'Authorization (granting a third-party application limited access to a user\'s resources)',
+        explanation: 'OAuth 2.0 is about delegating access, not about authenticating the user directly.'
+    },
+    {
+        id: 508,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the purpose of the `useLayoutEffect` hook in React and how does it differ from `useEffect`?",
+        type: 'mcq',
+        options: ["It runs before the component renders", "It fires synchronously after all DOM mutations, but before the browser has painted", "It's an alias for `useEffect`", "It only runs on the server"],
+        answer: "It fires synchronously after all DOM mutations, but before the browser has painted",
+        explanation: "This makes it suitable for reading layout from the DOM and synchronously re-rendering to avoid visual flickers. `useEffect` runs asynchronously after the paint."
+    },
+    {
+        id: 509,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is a `WeakMap` in JavaScript?",
+        type: 'mcq',
+        options: ["A Map that cannot be iterated", "A Map that only holds weak references to its keys, allowing them to be garbage collected", "A less performant version of Map", "An alias for an Object"],
+        answer: "A Map that only holds weak references to its keys, allowing them to be garbage collected",
+        explanation: "This prevents memory leaks when the only reference to an object is the WeakMap key."
+    },
+    {
+        id: 510,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is webpack's Module Federation?",
+        type: 'mcq',
+        options: ['A way to manage different versions of the same module', 'A method for loading modules from a CDN', 'A feature that allows a JavaScript application to dynamically load code from another, separately built application', 'A security policy for modules'],
+        answer: 'A feature that allows a JavaScript application to dynamically load code from another, separately built application',
+        explanation: "It is a key technology for enabling micro-frontend architectures."
+    },
+    {
+        id: 511,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Why is `requestAnimationFrame` better for animations than `setTimeout`?",
+        type: 'mcq',
+        options: ['It runs code after a specified delay with higher priority', 'It synchronizes with the browser\'s repaint cycle for smoother animations', 'It is a newer version of `setInterval`', 'It is used exclusively for network requests'],
+        answer: 'It synchronizes with the browser\'s repaint cycle for smoother animations',
+        explanation: "This prevents layout thrashing and results in more efficient, smoother animations."
+    },
+    {
+        id: 512,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is the main difference between PUT and PATCH HTTP methods?",
+        type: 'mcq',
+        options: ['`PUT` is for creating, `PATCH` is for updating', '`PUT` replaces the entire resource, while `PATCH` applies a partial update', '`PATCH` is more secure than `PUT`', 'There is no difference'],
+        answer: '`PUT` replaces the entire resource, while `PATCH` applies a partial update',
+        explanation: "`PUT` is idempotent, meaning multiple identical requests have the same effect as one. `PATCH` is not necessarily idempotent."
+    },
+    {
+        id: 513,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What is CSS Containment?",
+        type: 'mcq',
+        options: ["A property to contain elements within the viewport", "A property (`contain`) that allows you to isolate a part of the page for performance optimization", "A security feature to contain scripts", "A way to group CSS variables"],
+        answer: "A property (`contain`) that allows you to isolate a part of the page for performance optimization",
+        explanation: "It tells the browser that an element's subtree is independent, allowing for rendering optimizations as changes inside won't affect the outside."
+    },
+    {
+        id: 514,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the JavaScript event loop.",
+        type: 'subjective',
+        answer: "The event loop is a mechanism that allows JavaScript's single thread to handle asynchronous operations. It consists of a call stack, a message queue (or callback queue), and Web APIs. When an async operation completes (e.g., a `setTimeout`), its callback is placed in the queue. The event loop continuously checks if the call stack is empty. If it is, it takes the first message from the queue and pushes its callback onto the stack to be executed.",
+        explanation: "This model allows for non-blocking I/O in a single-threaded environment."
+    },
+    {
+        id: 515,
+        testId: 6,
+        difficulty: 'hard',
+        question: "How do you avoid 'prop drilling' in React?",
+        type: 'subjective',
+        answer: "Prop drilling can be avoided by using state management solutions. For global or widely shared state, a library like Redux or Zustand is common. For state shared between a few nested components, the built-in React Context API is an excellent choice. It allows you to 'provide' a value at a high level and consume it at any lower level without passing it through intermediate components.",
+        explanation: "Context API is the idiomatic React solution for this problem."
+    },
+    {
+        id: 516,
+        testId: 6,
+        difficulty: 'hard',
+        question: "How does a 'distributed lock manager' (e.g., using Zookeeper or Redis) work?",
+        type: 'subjective',
+        answer: "A distributed lock manager is used to coordinate access to a shared resource across multiple services. Using a system like Redis, a service can attempt to acquire a lock by setting a key with a unique value and a time-to-live (TTL). The operation must be atomic (e.g., using `SET key value NX PX ttl` in Redis). If the key is set successfully, the service has the lock. Other services will fail to set the key and must wait. The TTL ensures that the lock is automatically released if the service holding it crashes.",
+        explanation: "This is a common pattern for ensuring mutual exclusion in a distributed environment."
+    },
+    {
+        id: 517,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain what ARIA attributes are and why they are important.",
+        type: 'subjective',
+        answer: "ARIA (Accessible Rich Internet Applications) is a set of attributes you can add to HTML elements to improve their accessibility. They provide additional semantics for assistive technologies like screen readers, especially for dynamic content and complex UI controls that native HTML doesn't cover. For example, `role='alert'` or `aria-expanded='true'`.",
+        explanation: "Proper ARIA usage is essential for creating accessible web applications."
+    },
+    {
+        id: 518,
+        testId: 6,
+        difficulty: 'hard',
+        question: "How does React's reconciliation algorithm work?",
+        type: 'subjective',
+        answer: "Reconciliation is the process through which React updates the DOM. When a component's state or props change, React creates a new virtual DOM tree. It then compares ('diffs') this new tree with the previous one using a heuristic algorithm. Based on this comparison, it computes the most efficient, minimal set of changes needed to update the real DOM and applies them in a batch.",
+        explanation: "The key assumption is that different component types produce different trees and that developers can hint at stable elements using the `key` prop."
+    },
+    {
+        id: 519,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Describe the purpose of a service worker in Progressive Web Apps (PWAs) and their advantages.",
+        type: 'subjective',
+        answer: "Service workers are scripts that your browser runs in the background, separate from a web page, enabling features that don't need a web page or user interaction. Key features include offline capabilities (caching assets), background sync, and push notifications. They act as a proxy between the web app, the browser, and the network. Advantages: reliability, engaging user experience, and improved performance.",
+        explanation: "They are the backbone of PWAs, providing app-like functionalities on the web."
+    },
+    {
+        id: 520,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the concept of hoisting in JavaScript and provide an example.",
+        type: 'subjective',
+        answer: "Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope before code execution. `var` declarations are hoisted and initialized with `undefined`. `let` and `const` are hoisted but not initialized, which creates a 'Temporal Dead Zone' where they cannot be accessed before their declaration. This is why you can call a function declared with `function` before its definition, but not a function assigned to a `let` variable.",
+        explanation: "Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope before code execution"
+    },
+    {
+        id: 521,
+        testId: 6,
+        difficulty: 'hard',
+        question: "In terms of SEO, why would SSR be favored to CSR?",
+        type: 'subjective',
+        answer: "Web crawlers cannot execute Javascript like normal Browsers, and they rely on HTML for indexing. CSR delivers blank HTML, and then relies on javascript to fill it with content. SSR is an improved SEO, because, SSR makes the initial content crawlable, meaning crawlers can find key links and content before the page is loaded, enabling search engines to index them. It improves crawlability and indexability.",
+        explanation: "In terms of SEO, why would SSR be favored to CSR?"
+    },
+    {
+        id: 522,
+        testId: 6,
+        difficulty: 'hard',
+        question: "What does it mean if an API is stateless?",
+        type: 'subjective',
+        answer: "In a stateless API, the server doesn't store any client session data between requests. Each request from a client to the server must contain all the information the server needs to understand and process it. This simplifies server design, improves reliability, scalability, and consistency, as every request is treated as independent. In other words, the client must pass session state to the server with each request",
+        explanation: "Explain the concept of stateless API",
+    },
+    {
+        id: 523,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the concept of Inversion of Control",
+        type: 'subjective',
+        answer: 'A design principle where the control of a system is inverted to a framework or container. Instead of a library user calling a function, the framework or container calls the library. In the context of the framework, framework or container call functions of the injected class as needed to respond to events.',
+        explanation: "What is the purpose of the Dependency Injection Pattern?"
+    },
+    {
+        id: 524,
+        testId: 6,
+        difficulty: 'hard',
+        question: "In terms of a database/backend, describe Normalisation",
+        type: 'subjective',
+        answer: 'The procedure of organizing data in a database. It involves creating tables and defining relationships between tables according to rules designed both to protect the data and to make the database more flexible by removing the repetitiveness and redundancy and inconsistent dependency',
+        explanation: "In terms of a database/backend, describe Normalisation",
+    },
+    {
+        id: 525,
+        testId: 6,
+        difficulty: 'hard',
+        question: "Explain the use of JWT in authentication",
+        type: 'subjective',
+        answer: "JSON Web Token is a standard for securely transferring data between a server and a client as a JSON object. The benefit of using JWTs for authentication is that they are stateless. There is no database query. When a user sends a JWT to the server, the server checks the signature, extracts claims, and then returns the appropriate resource or denies the request.",
+        explanation: "Explain the use of JWT in authentication",
+    }
+];
+for (const key in questions) {
+  if (Object.prototype.hasOwnProperty.call(questions, key)) {
+    if (key !== 'frontend' && key !== 'backend' && key !== 'full-stack') {
+        questions[key] = [];
+    }
+  }
+}
 
     
