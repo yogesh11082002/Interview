@@ -49,7 +49,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'easy',
         question: "What is the purpose of the `alt` attribute on an `<img>` tag?",
         type: 'subjective',
-        answer: "The `alt` attribute provides alternative text for an image if it cannot be displayed. It's crucial for accessibility, allowing screen readers to describe the image to visually impaired users, and is also used by search engines for SEO.",
+        answer: "The `alt` attribute provides alternative text for an image if it cannot be displayed. It\'s crucial for accessibility, allowing screen readers to describe the image to visually impaired users, and is also used by search engines for SEO.",
         explanation: "Good `alt` text is important for SEO and accessibility."
     },
     {
@@ -59,7 +59,7 @@ export const questions: Record<string, Question[]> = {
         question: "What is the Box Model in CSS?",
         type: 'subjective',
         answer: "The CSS box model is a box that wraps around every HTML element. It consists of: content, padding, border, and margin. It defines how elements are sized and spaced on a web page.",
-        explanation: "It's a foundational concept for layout and spacing on the web."
+        explanation: "It\'s a foundational concept for layout and spacing on the web."
     },
     // Test 2: 10 Questions (6 MCQ, 4 Subjective) - Easy
     {
@@ -400,7 +400,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'medium',
         question: "What is the purpose of the `key` prop in React lists?",
         type: 'mcq',
-        options: ["It's a unique identifier for the component in the DOM", "It helps React identify which items have changed, are added, or are removed", "It is used for styling", "It is passed as a prop to the component"],
+        options: ["It\'s a unique identifier for the component in the DOM", "It helps React identify which items have changed, are added, or are removed", "It is used for styling", "It is passed as a prop to the component"],
         answer: "It helps React identify which items have changed, are added, or are removed",
         explanation: "Keys give elements a stable identity, helping React to optimize rendering by reusing elements."
     },
@@ -523,8 +523,8 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'medium',
         question: "In CSS, what is the difference between `em` and `rem` units?",
         type: 'mcq',
-        options: ["`em` is relative to the parent's font-size, `rem` is relative to the root's font-size", "`rem` is relative to the parent's font-size, `em` is relative to the root's font-size", "They are the same", " `em` is for width, `rem` is for height"],
-        answer: "`em` is relative to the parent's font-size, `rem` is relative to the root's font-size",
+        options: ["`em` is relative to the parent\'s font-size, `rem` is relative to the root\'s font-size", "`rem` is relative to the parent\'s font-size, `em` is relative to the root\'s font-size", "They are the same", " `em` is for width, `rem` is for height"],
+        answer: "`em` is relative to the parent\'s font-size, `rem` is relative to the root\'s font-size",
         explanation: "`rem` is generally easier to manage for creating scalable layouts."
     },
     {
@@ -2201,12 +2201,12 @@ export const questions: Record<string, Question[]> = {
         type: 'mcq',
         options: [
             'A security vulnerability',
-            'A performance issue where an application makes one initial query to retrieve a list of items, and then makes 'n' additional queries to retrieve related data for each item',
+            'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries to retrieve related data for each item',
             'A mathematical paradox',
             'An error that occurs when `n` is equal to -1'
         ],
         answer: 'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries to retrieve related data for each item',
-        explanation: 'This is a common performance bottleneck that can usually be solved by 'eager loading' the related data in the initial query.'
+        explanation: 'This is a common performance bottleneck that can usually be solved by \'eager loading\' the related data in the initial query.'
     },
     {
         id: 203,
@@ -5300,308 +5300,308 @@ export const questions: Record<string, Question[]> = {
       "explanation": "They are a notoriously difficult problem in distributed systems."
     },
      // Test 9: 45 Questions (27 MCQ, 18 Subjective) - Expert
-    {
-        "id": 456,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the 'Actor Model' of concurrency?",
-        "type": "mcq",
-        "options": [
-            "A design pattern for UI components",
-            "A mathematical model of concurrent computation where 'actors' are the universal primitives, communicating through asynchronous messages",
-            "A specific implementation of multithreading in Java",
-            "A client-server networking model"
+     {
+        id: 181,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the 'Actor Model' of concurrency?",
+        type: 'mcq',
+        options: [
+            'A design pattern for UI components',
+            'A mathematical model of concurrent computation where actors are the universal primitives, communicating through asynchronous messages',
+            'A specific implementation of multithreading in Java',
+            'A client-server networking model'
         ],
-        "answer": "A mathematical model of concurrent computation where 'actors' are the universal primitives, communicating through asynchronous messages",
-        "explanation": "The Actor Model avoids shared state and locks, making it easier to build highly concurrent and fault-tolerant systems. Erlang and Akka are famous examples."
+        answer: 'A mathematical model of concurrent computation where actors are the universal primitives, communicating through asynchronous messages',
+        explanation: 'The Actor Model avoids shared state and locks, making it easier to build highly concurrent and fault-tolerant systems. Erlang and Akka are famous examples.'
     },
     {
-        "id": 457,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What problem does a 'service mesh' like Istio or Linkerd solve?",
-        "type": "mcq",
-        "options": [
-            "It helps with database migrations",
-            "It provides a dedicated infrastructure layer to manage service-to-service communication, handling concerns like traffic management, security, and observability",
-            "It is a tool for frontend state management",
-            "It automates CI/CD pipelines"
+        id: 182,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What problem does a 'service mesh' like Istio or Linkerd solve?",
+        type: 'mcq',
+        options: [
+            'It helps with database migrations',
+            'It provides a dedicated infrastructure layer to manage service-to-service communication, handling concerns like traffic management, security, and observability',
+            'It is a tool for frontend state management',
+            'It automates CI/CD pipelines'
         ],
-        "answer": "It provides a dedicated infrastructure layer to manage service-to-service communication, handling concerns like traffic management, security, and observability",
-        "explanation": "A service mesh abstracts the complexity of network communication away from the application code itself."
+        answer: 'It provides a dedicated infrastructure layer to manage service-to-service communication, handling concerns like traffic management, security, and observability',
+        explanation: 'A service mesh abstracts the complexity of network communication away from the application code itself.'
     },
     {
-        "id": 458,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the primary function of a 'Bloom Filter'?",
-        "type": "mcq",
-        "options": [
-            "To sort data efficiently",
-            "To encrypt data with perfect security",
-            "To be a space-efficient, probabilistic data structure used to test whether an element is a member of a set, with a possibility of false positives",
-            "To guarantee the uniqueness of elements in a set"
+        id: 183,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the primary function of a 'Bloom Filter'?",
+        type: 'mcq',
+        options: [
+            'To sort data efficiently',
+            'To encrypt data with perfect security',
+            'To be a space-efficient, probabilistic data structure used to test whether an element is a member of a set, with a possibility of false positives',
+            'To guarantee the uniqueness of elements in a set'
         ],
-        "answer": "To be a space-efficient, probabilistic data structure used to test whether an element is a member of a set, with a possibility of false positives",
-        "explanation": "It's used when a small chance of a false positive is acceptable in exchange for significant memory savings, e.g., checking for already-seen items in a web crawler."
+        answer: 'To be a space-efficient, probabilistic data structure used to test whether an element is a member of a set, with a possibility of false positives',
+        explanation: 'It\'s used when a small chance of a false positive is acceptable in exchange for significant memory savings, e.g., checking for already-seen items in a web crawler.'
     },
     {
-        "id": 459,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is 'mTLS' (Mutual TLS)?",
-        "type": "mcq",
-        "options": [
-            "A version of TLS with multiple layers of encryption",
-            "A TLS handshake where only the client authenticates the server",
-            "A process where both the client and server present certificates to authenticate each other",
-            "A tool for managing TLS certificates"
+        id: 184,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is 'mTLS' (Mutual TLS)?",
+        type: 'mcq',
+        options: [
+            'A version of TLS with multiple layers of encryption',
+            'A TLS handshake where only the client authenticates the server',
+            'A process where both the client and server present certificates to authenticate each other',
+            'A tool for managing TLS certificates'
         ],
-        "answer": "A process where both the client and server present certificates to authenticate each other",
-        "explanation": "mTLS is crucial for zero-trust networks and securing service-to-service communication."
+        answer: 'A process where both the client and server present certificates to authenticate each other',
+        explanation: 'mTLS is crucial for zero-trust networks and securing service-to-service communication.'
     },
     {
-        "id": 460,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "Which of the following best describes 'eventual consistency'?",
-        "type": "mcq",
-        "options": [
-            "The system is always consistent",
-            "A consistency model where, given no new updates, all replicas of a piece of data will eventually converge to the same value",
-            "The system will eventually become inconsistent",
-            "A model where data is only consistent during a specific event"
+        id: 185,
+        testId: 9,
+        difficulty: 'expert',
+        question: "Which of the following best describes 'eventual consistency'?",
+        type: 'mcq',
+        options: [
+            'The system is always consistent',
+            'A consistency model where, given no new updates, all replicas of a piece of data will eventually converge to the same value',
+            'The system will eventually become inconsistent',
+            'A model where data is only consistent during a specific event'
         ],
-        "answer": "A consistency model where, given no new updates, all replicas of a piece of data will eventually converge to the same value",
-        "explanation": "This model is often chosen in distributed systems that prioritize high availability and partition tolerance over strong consistency."
+        answer: 'A consistency model where, given no new updates, all replicas of a piece of data will eventually converge to the same value',
+        explanation: 'This model is often chosen in distributed systems that prioritize high availability and partition tolerance over strong consistency.'
     },
     {
-        "id": 461,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is a 'distributed hash table' (DHT)?",
-        "type": "mcq",
-        "options": [
-            "A centralized database that uses hashing for keys",
-            "A data structure used only in C++",
-            "A decentralized distributed system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes",
-            "A hashing algorithm for passwords"
+        id: 186,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is a 'distributed hash table' (DHT)?",
+        type: 'mcq',
+        options: [
+            'A centralized database that uses hashing for keys',
+            'A data structure used only in C++',
+            'A decentralized distributed system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes',
+            'A hashing algorithm for passwords'
         ],
-        "answer": "A decentralized distributed system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes",
-        "explanation": "DHTs are a core component of many peer-to-peer systems, like BitTorrent."
+        answer: 'A decentralized distributed system that provides a lookup service similar to a hash table, distributing key-value pairs across a network of nodes',
+        explanation: 'DHTs are a core component of many peer-to-peer systems, like BitTorrent.'
     },
     {
-        "id": 462,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the 'Strangler Fig' pattern used for?",
-        "type": "mcq",
-        "options": [
-            "To debug memory leaks",
-            "To incrementally migrate a legacy monolithic application to a microservices architecture",
-            "To optimize database queries",
-            "To design a user interface"
+        id: 187,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the 'Strangler Fig' pattern used for?",
+        type: 'mcq',
+        options: [
+            'To debug memory leaks',
+            'To incrementally migrate a legacy monolithic application to a microservices architecture',
+            'To optimize database queries',
+            'To design a user interface'
         ],
-        "answer": "To incrementally migrate a legacy monolithic application to a microservices architecture",
-        "explanation": "It involves gradually replacing pieces of the monolith with new services, routing traffic to them until the monolith is 'strangled' and can be retired."
+        answer: 'To incrementally migrate a legacy monolithic application to a microservices architecture',
+        explanation: 'It involves gradually replacing pieces of the monolith with new services, routing traffic to them until the monolith is \'strangled\' and can be retired.'
     },
     {
-        "id": 463,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What does the 'L' in the SOLID principles stand for?",
-        "type": "mcq",
-        "options": [
-            "Layered Architecture Principle",
-            "Low Coupling Principle",
-            "Liskov Substitution Principle",
-            "Loose Typing Principle"
+        id: 188,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What does the 'L' in the SOLID principles stand for?",
+        type: 'mcq',
+        options: [
+            'Layered Architecture Principle',
+            'Low Coupling Principle',
+            'Liskov Substitution Principle',
+            'Loose Typing Principle'
         ],
-        "answer": "Liskov Substitution Principle",
-        "explanation": "This principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program."
+        answer: 'Liskov Substitution Principle',
+        explanation: 'This principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.'
     },
     {
-        "id": 464,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is a 'golden signal' for monitoring systems, according to Google's SRE book?",
-        "type": "mcq",
-        "options": [
-            "CPU Usage",
-            "Latency",
-            "Profitability",
-            "Number of Deployments"
+        id: 189,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is a 'golden signal' for monitoring systems, according to Google's SRE book?",
+        type: 'mcq',
+        options: [
+            'CPU Usage',
+            'Latency',
+            'Profitability',
+            'Number of Deployments'
         ],
-        "answer": "Latency",
-        "explanation": "The four golden signals are Latency, Traffic, Errors, and Saturation. These provide a high-level overview of a service's health."
+        answer: 'Latency',
+        explanation: 'The four golden signals are Latency, Traffic, Errors, and Saturation. These provide a high-level overview of a service\'s health.'
     },
     {
-        "id": 465,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "In CSS, what is the 'BFC' (Block Formatting Context)?",
-        "type": "mcq",
-        "options": [
-            "A block-level font container",
-            "A part of a visual CSS rendering of a web page in which block-level boxes are laid out. It is an area that contains floats.",
-            "A CSS variable",
-            "A naming convention"
+        id: 190,
+        testId: 9,
+        difficulty: 'expert',
+        question: "In CSS, what is the 'BFC' (Block Formatting Context)?",
+        type: 'mcq',
+        options: [
+            'A block-level font container',
+            'A part of a visual CSS rendering of a web page in which block-level boxes are laid out. It is an area that contains floats.',
+            'A CSS variable',
+            'A naming convention'
         ],
-        "answer": "A part of a visual CSS rendering of a web page in which block-level boxes are laid out. It is an area that contains floats.",
-        "explanation": "Creating a new BFC (e.g., with `display: flow-root`) is a way to solve layout issues like collapsing margins or containing floating elements."
+        answer: 'A part of a visual CSS rendering of a web page in which block-level boxes are laid out. It is an area that contains floats.',
+        explanation: 'Creating a new BFC (e.g., with `display: flow-root`) is a way to solve layout issues like collapsing margins or containing floating elements.'
     },
     {
-        "id": 466,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the primary difference between `git merge` and `git rebase`?",
-        "type": "mcq",
-        "options": [
-            "They do the same thing",
-            "`git merge` creates a new merge commit, preserving branch history, while `git rebase` rewrites commit history to create a linear sequence",
-            "`git rebase` is safer than `git merge`",
-            "`git merge` is for local branches, `git rebase` is for remote branches"
+        id: 191,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the primary difference between `git merge` and `git rebase`?",
+        type: 'mcq',
+        options: [
+            'They do the same thing',
+            '`git merge` creates a new merge commit, preserving branch history, while `git rebase` rewrites commit history to create a linear sequence',
+            '`git rebase` is safer than `git merge`',
+            '`git merge` is for local branches, `git rebase` is for remote branches'
         ],
-        "answer": "`git merge` creates a new merge commit, preserving branch history, while `git rebase` rewrites commit history to create a linear sequence",
-        "explanation": "Rebase results in a cleaner, linear history, but should not be used on public branches that others are working on."
+        answer: '`git merge` creates a new merge commit, preserving branch history, while `git rebase` rewrites commit history to create a linear sequence',
+        explanation: 'Rebase results in a cleaner, linear history, but should not be used on public branches that others are working on.'
     },
     {
-        "id": 467,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is 'QUIC' and what is its role in HTTP/3?",
-        "type": "mcq",
-        "options": [
-            "A compression algorithm",
-            "A new transport layer network protocol that serves as the foundation for HTTP/3, reducing latency and solving head-of-line blocking",
-            "A security protocol",
-            "A JavaScript framework"
+        id: 192,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is 'QUIC' and what is its role in HTTP/3?",
+        type: 'mcq',
+        options: [
+            'A compression algorithm',
+            'A new transport layer network protocol that serves as the foundation for HTTP/3, reducing latency and solving head-of-line blocking',
+            'A security protocol',
+            'A JavaScript framework'
         ],
-        "answer": "A new transport layer network protocol that serves as the foundation for HTTP/3, reducing latency and solving head-of-line blocking",
-        "explanation": "QUIC is built on top of UDP and is designed to make HTTP traffic faster and more reliable, especially on lossy networks."
+        answer: 'A new transport layer network protocol that serves as the foundation for HTTP/3, reducing latency and solving head-of-line blocking',
+        explanation: 'QUIC is built on top of UDP and is designed to make HTTP traffic faster and more reliable, especially on lossy networks.'
     },
     {
-        "id": 468,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is a 'CRDT' (Conflict-free Replicated Data Type)?",
-        "type": "mcq",
-        "options": [
-            "A type of database",
-            "A data structure that can be replicated across multiple computers in a network, where the replicas can be updated independently and concurrently without coordination, and where it is always mathematically possible to resolve any inconsistencies that result",
-            "An encryption algorithm",
-            "A sorting algorithm"
+        id: 193,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is a 'CRDT' (Conflict-free Replicated Data Type)?",
+        type: 'mcq',
+        options: [
+            'A type of database',
+            'A data structure that can be replicated across multiple computers in a network, where the replicas can be updated independently and concurrently without coordination, and where it is always mathematically possible to resolve any inconsistencies that result',
+            'An encryption algorithm',
+            'A sorting algorithm'
         ],
-        "answer": "A data structure that can be replicated across multiple computers in a network, where the replicas can be updated independently and concurrently without coordination, and where it is always mathematically possible to resolve any inconsistencies that result",
-        "explanation": "CRDTs are crucial for building collaborative, real-time applications like Google Docs."
+        answer: 'A data structure that can be replicated across multiple computers in a network, where the replicas can be updated independently and concurrently without coordination, and where it is always mathematically possible to resolve any inconsistencies that result',
+        explanation: 'CRDTs are crucial for building collaborative, real-time applications like Google Docs.'
     },
     {
-        "id": 469,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the purpose of 'tree shaking' in a modern JavaScript bundler?",
-        "type": "mcq",
-        "options": [
-            "To visualize the component tree",
-            "To eliminate dead (unused) code from the final bundle by analyzing static `import` and `export` statements",
-            "To reformat the code according to style guidelines",
-            "To check for security vulnerabilities"
+        id: 194,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the purpose of 'tree shaking' in a modern JavaScript bundler?",
+        type: 'mcq',
+        options: [
+            'To visualize the component tree',
+            'To eliminate dead (unused) code from the final bundle by analyzing static `import` and `export` statements',
+            'To reformat the code according to style guidelines',
+            'To check for security vulnerabilities'
         ],
-        "answer": "To eliminate dead (unused) code from the final bundle by analyzing static `import` and `export` statements",
-        "explanation": "Tree shaking is a critical optimization for reducing the size of JavaScript bundles and improving application load times."
+        answer: 'To eliminate dead (unused) code from the final bundle by analyzing static `import` and `export` statements',
+        explanation: 'Tree shaking is a critical optimization for reducing the size of JavaScript bundles and improving application load times.'
     },
     {
-        "id": 470,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is 'tailwind CSS' and how does it differ from traditional CSS frameworks?",
-        "type": "mcq",
-        "options": [
-            "A component-based framework like Bootstrap",
-            "A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup",
-            "A CSS preprocessor like Sass",
-            "A JavaScript library for styling"
+        id: 195,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is 'tailwind CSS' and how does it differ from traditional CSS frameworks?",
+        type: 'mcq',
+        options: [
+            'A component-based framework like Bootstrap',
+            'A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup',
+            'A CSS preprocessor like Sass',
+            'A JavaScript library for styling'
         ],
-        "answer": "A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup",
-        "explanation": "Instead of pre-styled components like `.btn`, you compose designs with utilities like `bg-blue-500`, `px-4`, and `rounded`."
+        answer: 'A utility-first CSS framework that provides low-level utility classes to build designs directly in your markup',
+        explanation: 'Instead of pre-styled components like `.btn`, you compose designs with utilities like `bg-blue-500`, `px-4`, and `rounded`.'
     },
     {
-        "id": 471,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is 'Server-Sent Events' (SSE)?",
-        "type": "mcq",
-        "options": [
-            "A bidirectional communication protocol",
-            "A technology where a browser receives automatic updates from a server via a standard HTTP connection (unidirectional)",
-            "An alias for WebSockets",
-            "A database event system"
+        id: 196,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is 'Server-Sent Events' (SSE)?",
+        type: 'mcq',
+        options: [
+            'A bidirectional communication protocol',
+            'A technology where a browser receives automatic updates from a server via a standard HTTP connection (unidirectional)',
+            'An alias for WebSockets',
+            'A database event system'
         ],
-        "answer": "A technology where a browser receives automatic updates from a server via a standard HTTP connection (unidirectional)",
-        "explanation": "SSE is simpler than WebSockets and is ideal for scenarios where the client only needs to receive data from the server, like a live news feed."
+        answer: 'A technology where a browser receives automatic updates from a server via a standard HTTP connection (unidirectional)',
+        explanation: 'SSE is simpler than WebSockets and is ideal for scenarios where the client only needs to receive data from the server, like a live news feed.'
     },
     {
-        "id": 472,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is the `Same-Origin Policy` (SOP)?",
-        "type": "mcq",
-        "options": [
-            "A policy that ensures all servers are in the same data center",
-            "A critical web browser security mechanism that restricts how a document or script from one origin can interact with a resource from another origin",
-            "A CSS styling rule",
-            "A rule for naming variables"
+        id: 197,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is the `Same-Origin Policy` (SOP)?",
+        type: 'mcq',
+        options: [
+            'A policy that ensures all servers are in the same data center',
+            'A critical web browser security mechanism that restricts how a document or script from one origin can interact with a resource from another origin',
+            'A CSS styling rule',
+            'A rule for naming variables'
         ],
-        "answer": "A critical web browser security mechanism that restricts how a document or script from one origin can interact with a resource from another origin",
-        "explanation": "SOP is a cornerstone of web security, preventing malicious sites from reading sensitive data from other sites you may be logged into."
+        answer: 'A critical web browser security mechanism that restricts how a document or script from one origin can interact with a resource from another origin',
+        explanation: 'SOP is a cornerstone of web security, preventing malicious sites from reading sensitive data from other sites you may be logged into.'
     },
     {
-        "id": 473,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What does it mean for an operation to be 'atomic'?",
-        "type": "mcq",
-        "options": [
-            "The operation is very small",
-            "The operation is part of an atomic bomb",
-            "The operation is an indivisible and irreducible series of operations such that either all occur or none occur",
-            "The operation is related to nuclear physics"
+        id: 198,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What does it mean for an operation to be 'atomic'?",
+        type: 'mcq',
+        options: [
+            'The operation is very small',
+            'The operation is part of an atomic bomb',
+            'The operation is an indivisible and irreducible series of operations such that either all occur or none occur',
+            'The operation is related to nuclear physics'
         ],
-        "answer": "The operation is an indivisible and irreducible series of operations such that either all occur or none occur",
-        "explanation": "Atomicity is the 'A' in ACID, a key property of database transactions."
+        answer: 'The operation is an indivisible and irreducible series of operations such that either all occur or none occur',
+        explanation: 'Atomicity is the "A" in ACID, a key property of database transactions.'
     },
     {
-        "id": 474,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is a 'lambda' function in languages like Python or Java?",
-        "type": "mcq",
-        "options": [
-            "A long, detailed function",
-            "A small, anonymous function defined with the `lambda` keyword",
-            "A function that runs on AWS Lambda",
-            "A function used for mathematical calculations only"
+        id: 199,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is a 'lambda' function in languages like Python or Java?",
+        type: 'mcq',
+        options: [
+            'A long, detailed function',
+            'A small, anonymous function defined with the `lambda` keyword',
+            'A function that runs on AWS Lambda',
+            'A function used for mathematical calculations only'
         ],
-        "answer": "A small, anonymous function defined with the `lambda` keyword",
-        "explanation": "Lambda functions are useful for short, simple operations, especially when passed as arguments to higher-order functions."
+        answer: 'A small, anonymous function defined with the `lambda` keyword',
+        explanation: 'Lambda functions are useful for short, simple operations, especially when passed as arguments to higher-order functions.'
     },
     {
-        "id": 475,
-        "testId": 9,
-        "difficulty": "expert",
-        "question": "What is a 'load balancer' and what are common load balancing algorithms?",
-        "type": "mcq",
-        "options": [
-            "A tool to balance the weight of servers",
-            "A device that distributes network or application traffic across multiple servers. Common algorithms include Round Robin, Least Connections, and IP Hash.",
-            "A database feature",
-            "A frontend caching mechanism"
+        id: 200,
+        testId: 9,
+        difficulty: 'expert',
+        question: "What is a 'load balancer' and what are common load balancing algorithms?",
+        type: 'mcq',
+        options: [
+            'A tool to balance the weight of servers',
+            'A device that distributes network or application traffic across multiple servers. Common algorithms include Round Robin, Least Connections, and IP Hash.',
+            'A database feature',
+            'A frontend caching mechanism'
         ],
-        "answer": "A device that distributes network or application traffic across multiple servers. Common algorithms include Round Robin, Least Connections, and IP Hash.",
-        "explanation": "Load balancers are essential for achieving high availability and scalability."
+        answer: 'A device that distributes network or application traffic across multiple servers. Common algorithms include Round Robin, Least Connections, and IP Hash.',
+        explanation: 'Load balancers are essential for achieving high availability and scalability.'
     },
     {
-        id: 476,
+        id: 201,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'sharding' in a database context?",
@@ -5616,22 +5616,22 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Sharding is a common technique for scaling out databases to handle massive amounts of data and traffic.'
     },
     {
-        id: 477,
+        id: 202,
         testId: 9,
         difficulty: 'expert',
         question: "What is the 'n+1' query problem?",
         type: 'mcq',
         options: [
             'A security vulnerability',
-            'A performance issue where an application makes one initial query to retrieve a list of items, and then makes 'n' additional queries to retrieve related data for each item',
+            'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries to retrieve related data for each item',
             'A mathematical paradox',
             'An error that occurs when `n` is equal to -1'
         ],
         answer: 'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries to retrieve related data for each item',
-        explanation: 'This is a common performance bottleneck that can usually be solved by 'eager loading' the related data in the initial query.'
+        explanation: 'This is a common performance bottleneck that can usually be solved by \'eager loading\' the related data in the initial query.'
     },
     {
-        id: 478,
+        id: 203,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'OAuth 2.0'?",
@@ -5646,7 +5646,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'OAuth 2.0 is the industry standard for delegated authorization.'
     },
     {
-        id: 479,
+        id: 204,
         testId: 9,
         difficulty: 'expert',
         question: "What is the difference between 'authentication' and 'authorization'?",
@@ -5661,7 +5661,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'You authenticate to get into the building, but you are authorized to enter only certain rooms.'
     },
     {
-        id: 480,
+        id: 205,
         testId: 9,
         difficulty: 'expert',
         question: "What is a 'race condition'?",
@@ -5676,7 +5676,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Race conditions are a common and difficult problem in concurrent programming, often leading to corrupted data.'
     },
     {
-        id: 481,
+        id: 206,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'two-phase commit' (2PC)?",
@@ -5691,7 +5691,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'While it guarantees atomicity, 2PC can be slow and is not fault-tolerant if the coordinator fails.'
     },
     {
-        id: 482,
+        id: 207,
         testId: 9,
         difficulty: 'expert',
         question: "What is a 'vector clock'?",
@@ -5706,7 +5706,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Vector clocks are a mechanism for detecting causality violations and resolving conflicts in eventually consistent systems.'
     },
     {
-        id: 483,
+        id: 208,
         testId: 9,
         difficulty: 'expert',
         question: "Explain the difference between optimistic and pessimistic locking in databases.",
@@ -5715,7 +5715,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Pessimistic locking is 'ask for permission,' while optimistic locking is 'ask for forgiveness.'"
     },
     {
-        id: 484,
+        id: 209,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'Chaos Engineering' and what is its purpose?",
@@ -5724,7 +5724,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "The goal is to find failures before they find you. Netflix's 'Chaos Monkey' is a famous example."
     },
     {
-        id: 485,
+        id: 210,
         testId: 9,
         difficulty: 'expert',
         question: "Describe the 'Saga' pattern for distributed transactions.",
@@ -5733,7 +5733,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It's an event-driven approach to achieving atomicity in a distributed environment."
     },
     {
-        id: 486,
+        id: 211,
         testId: 9,
         difficulty: 'expert',
         question: "What is a 'Log-Structured Merge-Tree' (LSM-Tree)?",
@@ -5742,7 +5742,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "This design favors fast write performance at the expense of more complex read operations."
     },
     {
-        id: 487,
+        id: 212,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'Domain-Driven Design' (DDD) and what is a 'ubiquitous language'?",
@@ -5751,7 +5751,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "DDD helps to manage complexity in large, enterprise systems."
     },
     {
-        id: 488,
+        id: 213,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'end-to-end encryption' (E2EE)?",
@@ -5760,7 +5760,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Popular messaging apps like Signal and WhatsApp use E2EE."
     },
     {
-        id: 489,
+        id: 214,
         testId: 9,
         difficulty: 'expert',
         question: "Explain 'Consistent Hashing' and its primary benefit.",
@@ -5769,7 +5769,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It's essential for distributed caches and databases like DynamoDB and Cassandra."
     },
     {
-        id: 490,
+        id: 215,
         testId: 9,
         difficulty: 'expert',
         question: "What is a 'thundering herd' problem and how can it be mitigated?",
@@ -5778,7 +5778,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "This is a classic problem in high-concurrency systems."
     },
     {
-        id: 491,
+        id: 216,
         testId: 9,
         difficulty: 'expert',
         question: "What is the 'publish-subscribe' (pub/sub) messaging pattern?",
@@ -5787,7 +5787,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Systems like Apache Kafka, RabbitMQ, and Google Cloud Pub/Sub are built on this pattern."
     },
     {
-        id: 492,
+        id: 217,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'Test-Driven Development' (TDD)?",
@@ -5796,7 +5796,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "The motto is 'Red, Green, Refactor'."
     },
     {
-        id: 493,
+        id: 218,
         testId: 9,
         difficulty: 'expert',
         question: "What are 'serverless' functions and what are their trade-offs?",
@@ -5805,7 +5805,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Serverless is ideal for event-driven, short-lived tasks."
     },
     {
-        id: 494,
+        id: 219,
         testId: 9,
         difficulty: 'expert',
         question: "How does 'blue-green deployment' work?",
@@ -5814,7 +5814,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It requires having double the infrastructure, which can be a cost consideration."
     },
     {
-        id: 495,
+        id: 220,
         testId: 9,
         difficulty: 'expert',
         question: "Explain the difference between leader-based and leaderless database replication.",
@@ -5823,7 +5823,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Leader-based is simpler (e.g., PostgreSQL). Leaderless is more available (e.g., Cassandra)."
     },
     {
-        id: 496,
+        id: 221,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'backpressure' in reactive streaming systems?",
@@ -5832,7 +5832,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It's a crucial feature for building resilient, asynchronous data pipelines."
     },
     {
-        id: 497,
+        id: 222,
         testId: 9,
         difficulty: 'expert',
         question: "What is the 'Raft' consensus algorithm?",
@@ -5841,7 +5841,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Raft is used in many modern distributed systems, including etcd and Consul."
     },
     {
-        id: 498,
+        id: 223,
         testId: 9,
         difficulty: 'expert',
         question: "What is 'CQRS' (Command Query Responsibility Segregation)?",
@@ -5850,7 +5850,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "CQRS is often used with Event Sourcing to build highly scalable and flexible systems."
     },
     {
-        id: 499,
+        id: 224,
         testId: 9,
         difficulty: 'expert',
         question: "Explain what a 'service mesh' is and why it's useful.",
@@ -5859,7 +5859,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Istio and Linkerd are popular service mesh implementations."
     },
     {
-        id: 500,
+        id: 225,
         testId: 9,
         difficulty: 'expert',
         question: "How do JavaScript `async/await` and Promises relate to the event loop?",
@@ -5869,7 +5869,7 @@ export const questions: Record<string, Question[]> = {
     },
      // Test 10: 50 Questions (30 MCQ, 20 Subjective) - Expert
      {
-        id: 501,
+        id: 226,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'CRDT' (Conflict-free Replicated Data Type)?",
@@ -5884,7 +5884,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'CRDTs are crucial for building collaborative, real-time applications like Google Docs.'
     },
     {
-        id: 502,
+        id: 227,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'tail latency' and why is it important?",
@@ -5899,7 +5899,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Focusing on average latency can hide significant problems that affect a meaningful number of users.'
     },
     {
-        id: 503,
+        id: 228,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'idempotency' in the context of API design?",
@@ -5914,7 +5914,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'HTTP methods like GET, PUT, and DELETE are idempotent. This is crucial for building reliable systems where requests might be retried.'
     },
     {
-        id: 504,
+        id: 229,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'gRPC'?",
@@ -5929,7 +5929,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'gRPC is highly efficient and well-suited for communication between microservices.'
     },
     {
-        id: 505,
+        id: 230,
         testId: 10,
         difficulty: 'expert',
         question: "In the context of CSS, what does `will-change` property do?",
@@ -5944,7 +5944,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Using `will-change` can improve animation performance by promoting the element to its own GPU layer, but it should be used sparingly.'
     },
     {
-        id: 506,
+        id: 231,
         testId: 10,
         difficulty: 'expert',
         question: "What is the primary benefit of 'HTTP/2 multiplexing'?",
@@ -5959,7 +5959,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This is a major performance improvement over HTTP/1.1, which could only handle one request at a time per connection.'
     },
     {
-        id: 507,
+        id: 232,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'Kubernetes Operator'?",
@@ -5974,7 +5974,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Operators encode human operational knowledge for managing stateful applications (like databases) on Kubernetes.'
     },
     {
-        id: 508,
+        id: 233,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'semantic versioning' (SemVer)?",
@@ -5989,7 +5989,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'SemVer provides a standard way to communicate the nature of changes in a new release.'
     },
     {
-        id: 509,
+        id: 234,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'PaaS' (Platform as a Service)?",
@@ -6004,7 +6004,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'PaaS abstracts away the operating system, servers, and networking. Heroku is a classic example.'
     },
     {
-        id: 510,
+        id: 235,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'WebRTC'?",
@@ -6019,7 +6019,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'WebRTC is the technology that powers applications like Google Meet and Discord.'
     },
     {
-        id: 511,
+        id: 236,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'garbage collection' in languages like Java or JavaScript?",
@@ -6034,7 +6034,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This frees the developer from manual memory management, but can sometimes introduce unpredictable pauses.'
     },
     {
-        id: 512,
+        id: 237,
         testId: 10,
         difficulty: 'expert',
         question: "What does the 'ACID' acronym stand for in database transactions?",
@@ -6049,7 +6049,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'These four properties guarantee that database transactions are processed reliably.'
     },
     {
-        id: 513,
+        id: 238,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'API versioning'?",
@@ -6064,7 +6064,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This is often done by including a version number in the URL (e.g., `/v2/users`) or in a request header.'
     },
     {
-        id: 514,
+        id: 239,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'Jamstack' architecture?",
@@ -6079,7 +6079,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Jamstack sites are often pre-rendered as static files and served from a CDN, making them very fast and secure.'
     },
     {
-        id: 515,
+        id: 240,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Stateful' vs 'Stateless' architecture?",
@@ -6094,7 +6094,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Stateless architectures (a key principle of REST) are easier to scale horizontally, as any server can handle any request.'
     },
     {
-        id: 516,
+        id: 241,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'Singleton' design pattern?",
@@ -6109,7 +6109,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This is useful when exactly one object is needed to coordinate actions across a system, though it can be considered an anti-pattern as it introduces global state.'
     },
     {
-        id: 517,
+        id: 242,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'dependency injection'?",
@@ -6124,7 +6124,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This inverts the control, leading to more loosely coupled, modular, and testable code.'
     },
     {
-        id: 518,
+        id: 243,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'polymorphism'?",
@@ -6139,7 +6139,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'It allows for writing more generic and flexible code. Method overriding is a common way to achieve polymorphism.'
     },
     {
-        id: 519,
+        id: 244,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'mutex'?",
@@ -6154,7 +6154,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Mutexes are a fundamental tool for preventing race conditions in multithreaded programming.'
     },
     {
-        id: 520,
+        id: 245,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Big O notation' used for?",
@@ -6169,7 +6169,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'It provides a high-level understanding of an algorithm\'s efficiency, such as O(n) for linear time or O(log n) for logarithmic time.'
     },
     {
-        id: 521,
+        id: 246,
         testId: 10,
         difficulty: 'expert',
         question: "What is the `this` keyword in JavaScript?",
@@ -6184,7 +6184,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'In a method, it\'s the object. In a simple function call, it can be the global object or `undefined` in strict mode. Arrow functions lexically bind `this`.'
     },
     {
-        id: 522,
+        id: 247,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'JWT' (JSON Web Token)?",
@@ -6199,7 +6199,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'A JWT is digitally signed, allowing the receiver to verify its authenticity.'
     },
     {
-        id: 523,
+        id: 248,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'Web Worker'?",
@@ -6214,7 +6214,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Web Workers are essential for maintaining a responsive user interface during heavy computations.'
     },
     {
-        id: 524,
+        id: 249,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Webpack'?",
@@ -6229,7 +6229,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Webpack is a fundamental tool in the modern frontend development toolchain, enabling features like code splitting, loaders, and plugins.'
     },
     {
-        id: 525,
+        id: 250,
         testId: 10,
         difficulty: 'expert',
         question: "What is the `useMemo` hook in React?",
@@ -6244,7 +6244,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'It is used to prevent expensive calculations from being re-executed on every render.'
     },
     {
-        id: 526,
+        id: 251,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Babel' in the context of JavaScript?",
@@ -6499,6 +6499,11 @@ export const questions: Record<string, Question[]> = {
         explanation: "Containers are like apartments in a building (sharing plumbing), while VMs are like separate houses on a street (each with its own plumbing)."
     }
   ],
+  'full-stack': [],
+  'next-js': [],
+  java: [],
+  python: [],
+  mern: [],
   'c-plus-plus': [
     // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
     {
@@ -8169,7 +8174,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'hard',
         question: "What is 'type erasure' and give an example from the standard library.",
         type: 'subjective',
-        answer: "Type erasure is a technique where you hide the specific type details of an object and expose it through a uniform, generic interface. This allows you to store objects of different concrete types in a collection. A prime example from the standard library is `std::function`. A `std::function<void()>` object can store any callable entity (a raw function pointer, a lambda, a functor) that takes no arguments and returns void, 'erasing' the details of its specific type.",
+        answer: "Type erasure is a technique where you hide the specific type details of an object and expose it through a uniform, generic interface. This allows you to store objects of different concrete types in a collection. A prime example from the standard library is `std::function`. A `std::function<void()>` object can store any callable entity (a raw function pointer, a lambda, a functor) that takes no arguments and returns void, 'erasing' the details of its specific type and providing a single `operator()` interface.",
         explanation: "`std::any` and `std::shared_ptr` with a custom deleter are other examples."
     },
     {
@@ -8205,7 +8210,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'hard',
         question: "What is CRTP (Curiously Recurring Template Pattern)?",
         type: 'subjective',
-        answer: "CRTP is a C++ idiom where a class `X` derives from a base class template that is instantiated with `X` itself (e.g., `class X : public Base<X>`). This pattern can be used to achieve static (compile-time) polymorphism. The base class template can `static_cast` its `this` pointer to a pointer of the derived type (`X*`) to call methods on the derived class, avoiding the overhead of virtual function calls.",
+        answer: "CRTP is a C++ idiom where a class `X` derives from a base class template that is instantiated with `X` itself (e.g., `class X : public Base<X>`). This pattern can be used to achieve static (compile-time) polymorphism. The base class template can `static_cast` its `this` pointer to the derived type (`X*`) to call methods defined in the derived class, avoiding the overhead of virtual function calls.",
         explanation: "It's an advanced technique for compile-time code generation and optimization."
     },
     {
@@ -8610,7 +8615,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: "What are forwarding references (universal references) and how do they enable perfect forwarding?",
         type: 'subjective',
-        answer: "A forwarding reference is an rvalue reference (`T&&`) declared for a template type parameter `T` where `T` is deduced. In this specific context, special reference collapsing rules apply, allowing the parameter to bind to both lvalues and rvalues. Perfect forwarding is the technique of passing these arguments to another function while preserving their original value category (lvalue or rvalue). This is achieved by using `std::forward<T>` to cast the reference back to its original category.",
+        answer: "A forwarding reference is an rvalue reference (`T&&`) declared for a template type parameter `T` where `T` is deduced. In this specific context, special reference collapsing rules apply, allowing the parameter to bind to both lvalues and rvalues. Perfect forwarding is the technique of passing these arguments to another function while preserving their original value category (lvalue or rvalue). This is achieved by using `std::forward<T>` to cast the reference back to its original category, ensuring that move semantics are preserved if the original argument was a temporary.",
         explanation: "This is crucial for writing generic factory functions or wrappers that don't interfere with move semantics."
     },
     {
@@ -8780,7 +8785,7 @@ export const questions: Record<string, Question[]> = {
             'A deprecated C++ feature'
         ],
         answer: 'An rvalue reference (`T&&`) in a templated context where `T` is deduced, allowing it to bind to both lvalues and rvalues',
-        explanation: 'Also known as 'universal references', they are the key mechanism behind perfect forwarding.'
+        explanation: 'Also known as \'universal references\', they are the key mechanism behind perfect forwarding.'
     },
     {
         id: 1010,
@@ -8866,8 +8871,8 @@ export const questions: Record<string, Question[]> = {
         options: [
             'A simple coding style',
             'A technique to hide a class\'s private members by holding a pointer to it, reducing compile-time dependencies',
-            'A UI design pattern',
-            'A memory management strategy'
+            'A performance optimization',
+            'A debugging technique'
         ],
         answer: 'A technique to hide a class\'s private members by holding a pointer to it, reducing compile-time dependencies',
         explanation: 'PIMPL (Pointer to Implementation) improves build times in large projects by separating the interface from the implementation.'
@@ -8927,7 +8932,7 @@ export const questions: Record<string, Question[]> = {
             'A template for variables',
             'A template that can take a variable number of template arguments',
             'A template with a lot of variations',
-            'A buggy template'
+            'A deprecated template feature'
         ],
         answer: 'A template that can take a variable number of template arguments',
         explanation: 'Introduced in C++11, they are used to write functions like `printf` or `make_tuple` that can accept any number of arguments.'
@@ -8955,7 +8960,7 @@ export const questions: Record<string, Question[]> = {
         type: 'mcq',
         options: [
             'A network routing protocol',
-            'A compile-time polymorphism technique that uses empty 'tag' structs to select a specific function overload based on type properties',
+            'A compile-time polymorphism technique that uses empty \'tag\' structs to select a specific function overload based on type properties',
             'A UI event handling system',
             'A file system feature'
         ],
@@ -9287,7 +9292,7 @@ export const questions: Record<string, Question[]> = {
         question: "What is CRTP (Curiously Recurring Template Pattern)?",
         type: 'subjective',
         answer: "CRTP is a C++ idiom where a class `X` derives from a base class template that is instantiated with `X` itself (e.g., `class X : public Base<X>`). This pattern can be used to achieve static (compile-time) polymorphism. The base class template can `static_cast` its `this` pointer to the derived type (`X*`) to call methods defined in the derived class, avoiding the overhead of virtual function calls.",
-        explanation: "It's an advanced technique for compile-time code generation and optimization."
+        explanation: "It's an advanced technique for implementing compile-time generic programming patterns."
     },
     // Test 10: 50 Questions (30 MCQ, 20 Subjective)
     {
@@ -9916,296 +9921,11 @@ export const questions: Record<string, Question[]> = {
         explanation: "It's a necessary part of manual memory management when using placement new."
     }
   ],
-  devops: [
-    {
-      "id": 1101,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is the primary goal of DevOps?",
-      "type": "mcq",
-      "options": [
-        "To write code faster",
-        "To shorten the systems development life cycle and provide continuous delivery with high software quality",
-        "To manage server hardware",
-        "To only focus on testing"
-      ],
-      "answer": "To shorten the systems development life cycle and provide continuous delivery with high software quality",
-      "explanation": "DevOps is a culture and set of practices that combines software development (Dev) and IT operations (Ops) to improve collaboration and productivity."
-    },
-    {
-      "id": 1102,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What does 'CI' in CI/CD stand for?",
-      "type": "mcq",
-      "options": ["Continuous Integration", "Code Integration", "Continuous Input", "Code Input"],
-      "answer": "Continuous Integration",
-      "explanation": "Continuous Integration is the practice of frequently merging all developers' working copies to a shared mainline several times a day."
-    },
-    {
-      "id": 1103,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "Which of the following is a popular CI/CD tool?",
-      "type": "mcq",
-      "options": ["Docker", "Kubernetes", "Jenkins", "Ansible"],
-      "answer": "Jenkins",
-      "explanation": "Jenkins is a widely used open-source automation server for building, testing, and deploying software."
-    },
-    {
-      "id": 1104,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is Infrastructure as Code (IaC)?",
-      "type": "subjective",
-      "answer": "Infrastructure as Code is the practice of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools. Tools like Terraform, Ansible, or AWS CloudFormation are used to define infrastructure in code.",
-      "explanation": "IaC allows infrastructure to be versioned, tested, and automated, just like application code."
-    },
-    {
-      "id": 1105,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is a container (e.g., Docker container)?",
-      "type": "subjective",
-      "answer": "A container is a lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, system libraries, and settings. It isolates the application from its environment, ensuring that it works uniformly regardless of where it is deployed.",
-      "explanation": "Containers are a foundational technology in modern DevOps and cloud-native applications."
-    }
-  ],
-  'data-science': [
-    {
-      "id": 1106,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is the difference between supervised and unsupervised learning?",
-      "type": "mcq",
-      "options": [
-        "Supervised learning uses labeled data, while unsupervised learning uses unlabeled data",
-        "Unsupervised learning is faster than supervised learning",
-        "Supervised learning is for regression, unsupervised is for classification",
-        "There is no difference"
-      ],
-      "answer": "Supervised learning uses labeled data, while unsupervised learning uses unlabeled data",
-      "explanation": "In supervised learning, the algorithm learns from data that already has the correct answers (labels). In unsupervised learning, the algorithm tries to find patterns in data without any pre-existing labels."
-    },
-    {
-      "id": 1107,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "Which of the following is a classification algorithm?",
-      "type": "mcq",
-      "options": ["Linear Regression", "K-Means Clustering", "Logistic Regression", "Principal Component Analysis"],
-      "answer": "Logistic Regression",
-      "explanation": "Logistic Regression is used to predict a categorical outcome (e.g., yes/no, true/false). Linear Regression is for continuous values, and K-Means and PCA are unsupervised algorithms."
-    },
-    {
-      "id": 1108,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What does 'Pandas' refer to in the context of data science?",
-      "type": "mcq",
-      "options": [
-        "A type of machine learning model",
-        "A Python library for data manipulation and analysis",
-        "A data visualization tool",
-        "A statistical test"
-      ],
-      "answer": "A Python library for data manipulation and analysis",
-      "explanation": "Pandas provides data structures like the DataFrame, which are essential for cleaning, transforming, and analyzing data in Python."
-    },
-    {
-      "id": 1109,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is 'overfitting' in machine learning?",
-      "type": "subjective",
-      "answer": "Overfitting occurs when a machine learning model learns the training data too well, including its noise and random fluctuations. As a result, the model performs poorly on new, unseen data because it has failed to generalize. It has high variance and low bias.",
-      "explanation": "Overfitting is like memorizing the answers to a test instead of learning the concepts."
-    },
-    {
-      "id": 1110,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What are the 'mean', 'median', and 'mode'?",
-      "type": "subjective",
-      "answer": "They are three measures of central tendency. The 'mean' is the average of all numbers in a dataset. The 'median' is the middle value in a sorted dataset. The 'mode' is the value that appears most frequently in a dataset.",
-      "explanation": "These are fundamental statistical concepts for summarizing data."
-    }
-  ],
-  'ai-ml': [
-    {
-      "id": 1111,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is Artificial Intelligence (AI)?",
-      "type": "mcq",
-      "options": [
-        "A specific algorithm",
-        "The simulation of human intelligence in machines",
-        "A type of computer hardware",
-        "A database"
-      ],
-      "answer": "The simulation of human intelligence in machines",
-      "explanation": "AI is a broad field of computer science concerned with building smart machines capable of performing tasks that typically require human intelligence."
-    },
-    {
-      "id": 1112,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is the relationship between AI, Machine Learning (ML), and Deep Learning (DL)?",
-      "type": "mcq",
-      "options": [
-        "They are all separate, unrelated fields",
-        "AI is a subset of ML, which is a subset of DL",
-        "DL is a subset of ML, which is a subset of AI",
-        "ML and DL are the same thing"
-      ],
-      "answer": "DL is a subset of ML, which is a subset of AI",
-      "explanation": "AI is the broadest field. Machine Learning is a subfield of AI that uses data to learn. Deep Learning is a subfield of ML that uses neural networks with many layers."
-    },
-    {
-      "id": 1113,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is a 'neural network'?",
-      "type": "mcq",
-      "options": [
-        "A computer network",
-        "A biological brain",
-        "A computing system inspired by the structure of the human brain, composed of interconnected nodes or 'neurons'",
-        "A type of data structure"
-      ],
-      "answer": "A computing system inspired by the structure of the human brain, composed of interconnected nodes or 'neurons'",
-      "explanation": "Neural networks are the foundational technology behind deep learning."
-    },
-    {
-      "id": 1114,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is 'training data' in machine learning?",
-      "type": "subjective",
-      "answer": "Training data is the dataset used to train a machine learning model. The model learns to find patterns, make predictions, or make decisions by analyzing this data. For supervised learning, the training data includes both the input features and the correct output labels.",
-      "explanation": "The quality and quantity of training data are crucial for a model's performance."
-    },
-    {
-      "id": 1115,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is the difference between classification and regression in supervised learning?",
-      "type": "subjective",
-      "answer": "Classification is used to predict a discrete, categorical output (e.g., 'cat' or 'dog', 'spam' or 'not spam'). Regression is used to predict a continuous, numerical output (e.g., the price of a house, the temperature tomorrow).",
-      "explanation": "Classification predicts a label, while regression predicts a quantity."
-    }
-  ],
-  'cloud-computing': [
-    {
-      "id": 1116,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is Cloud Computing?",
-      "type": "mcq",
-      "options": [
-        "Storing files on your computer",
-        "The on-demand delivery of IT resources over the Internet with pay-as-you-go pricing",
-        "A type of network cable",
-        "A personal computer"
-      ],
-      "answer": "The on-demand delivery of IT resources over the Internet with pay-as-you-go pricing",
-      "explanation": "Instead of buying and owning your own data centers, you can access services like computing power and storage from a cloud provider like AWS, Google Cloud, or Azure."
-    },
-    {
-      "id": 1117,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What does 'IaaS' stand for?",
-      "type": "mcq",
-      "options": ["Infrastructure as a Service", "Internet as a Service", "Integration as a Service", "Infrastructure as a Standard"],
-      "answer": "Infrastructure as a Service",
-      "explanation": "IaaS is a cloud computing model where a provider hosts the fundamental infrastructure components, such as virtual machines, storage, and networking."
-    },
-    {
-      "id": 1118,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "Which of the following is a major benefit of cloud computing?",
-      "type": "mcq",
-      "options": ["High upfront cost", "Slow deployment", "Elasticity and Scalability", "Limited global reach"],
-      "answer": "Elasticity and Scalability",
-      "explanation": "The cloud allows you to scale your resources up or down easily to meet changing demands, and you only pay for what you use."
-    },
-    {
-      "id": 1119,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What are the three main service models of cloud computing?",
-      "type": "subjective",
-      "answer": "The three main service models are Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). IaaS provides basic computing resources, PaaS provides a platform for developers to build applications, and SaaS provides complete software applications over the internet.",
-      "explanation": "Each model represents a different level of abstraction and management by the cloud provider."
-    },
-    {
-      "id": 1120,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is a 'region' in a cloud provider like AWS or Google Cloud?",
-      "type": "subjective",
-      "answer": "A region is a specific geographical location where a cloud provider hosts its data centers. For example, 'us-east-1' or 'europe-west-2'. Deploying resources in different regions can reduce latency for users in those areas and provide disaster recovery.",
-      "explanation": "Each region is isolated from the others."
-    }
-  ],
-  'mobile-development': [
-    {
-      "id": 1121,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What are the two primary mobile operating systems today?",
-      "type": "mcq",
-      "options": ["iOS and Android", "Windows Phone and BlackBerry OS", "iOS and Symbian", "Android and Windows Phone"],
-      "answer": "iOS and Android",
-      "explanation": "iOS (by Apple) and Android (by Google) dominate the mobile OS market."
-    },
-    {
-      "id": 1122,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is 'native' mobile development?",
-      "type": "mcq",
-      "options": [
-        "Building web apps that look like mobile apps",
-        "Building apps using the official programming language and tools for a specific platform (e.g., Swift/Kotlin)",
-        "Building apps that work on both iOS and Android with one codebase",
-        "Building apps that don't require an internet connection"
-      ],
-      "answer": "Building apps using the official programming language and tools for a specific platform (e.g., Swift/Kotlin)",
-      "explanation": "Native development generally offers the best performance and access to platform-specific features."
-    },
-    {
-      "id": 1123,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "Which programming language is officially supported by Google for native Android development?",
-      "type": "mcq",
-      "options": ["Java", "Swift", "Kotlin", "C#"],
-      "answer": "Kotlin",
-      "explanation": "While Java is still used, Kotlin is now Google's recommended language for Android development."
-    },
-    {
-      "id": 1124,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is Xcode?",
-      "type": "subjective",
-      "answer": "Xcode is the integrated development environment (IDE) provided by Apple for developing software for macOS, iOS, iPadOS, watchOS, and tvOS. It includes a suite of tools for writing, compiling, debugging, and testing applications, primarily in Swift or Objective-C.",
-      "explanation": "It is the primary tool for any iOS developer."
-    },
-    {
-      "id": 1125,
-      "testId": 1,
-      "difficulty": "easy",
-      "question": "What is a 'cross-platform' development framework?",
-      "type": "subjective",
-      "answer": "A cross-platform framework, like React Native or Flutter, allows developers to write code once and deploy it on multiple platforms (e.g., iOS and Android). This can save time and resources compared to building separate native apps for each platform.",
-      "explanation": "The trade-off can sometimes be performance or limited access to some native features."
-    }
-  ],
+  devops: [],
+  'data-science': [],
+  'ai-ml': [],
+  'cloud-computing': [],
+  'mobile-development': [],
   cybersecurity: [
     // Test 1: 5 Questions (3 MCQ, 2 Subjective) - Easy
     {
@@ -10273,3 +9993,4 @@ export const questions: Record<string, Question[]> = {
     }
   ]
 };
+
