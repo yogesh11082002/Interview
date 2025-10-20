@@ -400,7 +400,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'medium',
         question: "What is the purpose of the `key` prop in React lists?",
         type: 'mcq',
-        options: ["It\'s a unique identifier for the component in the DOM", "It helps React identify which items have changed, are added, or are removed", "It is used for styling", "It is passed as a prop to the component"],
+        options: ["It's a unique identifier for the component in the DOM", "It helps React identify which items have changed, are added, or are removed", "It is used for styling", "It is passed as a prop to the component"],
         answer: "It helps React identify which items have changed, are added, or are removed",
         explanation: "Keys give elements a stable identity, helping React to optimize rendering by reusing elements."
     },
@@ -523,8 +523,8 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'medium',
         question: "In CSS, what is the difference between `em` and `rem` units?",
         type: 'mcq',
-        options: ["`em` is relative to the parent\'s font-size, `rem` is relative to the root\'s font-size", "`rem` is relative to the parent\'s font-size, `em` is relative to the root\'s font-size", "They are the same", " `em` is for width, `rem` is for height"],
-        answer: "`em` is relative to the parent\'s font-size, `rem` is relative to the root\'s font-size",
+        options: ["`em` is relative to the parent's font-size, `rem` is relative to the root's font-size", "`rem` is relative to the parent's font-size, `em` is relative to the root's font-size", "They are the same", " `em` is for width, `rem` is for height"],
+        answer: "`em` is relative to the parent's font-size, `rem` is relative to the root's font-size",
         explanation: "`rem` is generally easier to manage for creating scalable layouts."
     },
     {
@@ -1214,7 +1214,7 @@ export const questions: Record<string, Question[]> = {
         type: 'mcq',
         options: ["A JavaScript compiler", "A JavaScript testing framework", "A static analysis tool for identifying and fixing problems in JavaScript code", "A state management library"],
         answer: "A static analysis tool for identifying and fixing problems in JavaScript code",
-        explanation: "It helps enforce code quality and consistency."
+        explanation: "It helps enforce code quality and style consistency."
     },
     {
         id: 125,
@@ -3077,6 +3077,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Containers are like apartments in a building (sharing plumbing), while VMs are like separate houses on a street (each with its own plumbing)."
     }
   ],
+  backend: [],
   'full-stack': [],
   'next-js': [],
   java: [],
@@ -3090,3 +3091,5 @@ export const questions: Record<string, Question[]> = {
   'mobile-development': [],
   cybersecurity: []
 };
+
+    
