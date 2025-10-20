@@ -845,7 +845,7 @@ export const questions: Record<string, Question[]> = {
         question: "Why is `requestAnimationFrame` better for animations than `setTimeout`?",
         type: 'mcq',
         options: ['It runs code after a specified delay with higher priority', 'It synchronizes with the browser\'s repaint cycle for smoother animations', 'It is a newer version of `setInterval`', 'It is used exclusively for network requests'],
-        answer: 'It synchronizes with the browser\'s repaint cycle for smoother animations',
+        answer: 'It synchronizes with the browser\\\'s repaint cycle for smoother animations',
         explanation: "This prevents layout thrashing and results in more efficient, smoother animations."
     },
     {
@@ -1905,8 +1905,8 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: "What is the 'n+1' query problem?",
         type: 'mcq',
-        options: ['A security vulnerability', 'A performance issue where one query retrieves a list, and then 'n' additional queries are made for related data', 'A mathematical paradox', 'An off-by-one error'],
-        answer: 'A performance issue where one query retrieves a list, and then \'n\' additional queries are made for related data',
+        options: ['A security vulnerability', "A performance issue where one query retrieves a list, and then 'n' additional queries are made for related data", 'A mathematical paradox', 'An off-by-one error'],
+        answer: "A performance issue where one query retrieves a list, and then 'n' additional queries are made for related data",
         explanation: 'This is a common performance bottleneck solved by \'eager loading\' the related data.'
     },
     {
@@ -2172,18 +2172,9 @@ export const questions: Record<string, Question[]> = {
         answer: "A service mesh is a dedicated infrastructure layer for managing service-to-service communication. It works by injecting a 'sidecar' proxy next to each service. This proxy intercepts all network traffic, handling concerns like service discovery, load balancing, security (mTLS), and observability. This abstracts complex networking logic from the application code.",
         explanation: "Istio and Linkerd are popular service mesh implementations."
     },
-    {
-        id: 225,
-        testId: 9,
-        difficulty: 'expert',
-        question: "How do JavaScript `async/await` and Promises relate to the event loop?",
-        type: 'subjective',
-        answer: "They are high-level abstractions for managing async operations powered by the event loop. When you `await` a Promise, the async function is paused. When the Promise settles, a task is placed in the microtask queue. The event loop prioritizes this queue, so as soon as the call stack is clear, the async function's execution is resumed.",
-        explanation: "They provide a synchronous-looking syntax for code that is fundamentally asynchronous and non-blocking."
-    },
     // Test 10: 50 Questions (30 MCQ, 20 Subjective)
     {
-        id: 226,
+        id: 225,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'tail latency' and why is it important in distributed systems?",
@@ -2193,7 +2184,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'In microservices, a user-facing operation can be slowed by the slowest of its many dependencies. Average latency can hide significant problems.'
     },
     {
-        id: 227,
+        id: 226,
         testId: 10,
         difficulty: 'expert',
         question: "What is the primary role of a 'Canary Release'?",
@@ -2203,17 +2194,17 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This strategy minimizes the risk and impact of deploying a faulty new version by limiting its initial exposure.'
     },
     {
-        id: 228,
+        id: 227,
         testId: 10,
         difficulty: 'expert',
-        question: "What is 'idempotency' in the context of API design?",
+        question: "What is idempotency in the context of API design?",
         type: 'mcq',
         options: ['Ensuring an API is secure', 'The property of an operation where making the same request multiple times has the same effect as making it once', 'A performance optimization technique', 'A way to version APIs'],
         answer: 'The property of an operation where making the same request multiple times has the same effect as making it once',
         explanation: 'HTTP methods like GET, PUT, and DELETE are idempotent, which is crucial for building reliable systems with retries.'
     },
     {
-        id: 229,
+        id: 228,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'gRPC'?",
@@ -2223,7 +2214,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'gRPC is highly efficient and well-suited for communication between microservices.'
     },
     {
-        id: 230,
+        id: 229,
         testId: 10,
         difficulty: 'expert',
         question: "In the context of CSS, what does the `will-change` property do?",
@@ -2233,7 +2224,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Using `will-change` can improve animation performance by promoting the element to its own GPU layer.'
     },
     {
-        id: 231,
+        id: 230,
         testId: 10,
         difficulty: 'expert',
         question: "What is the primary benefit of 'HTTP/2 multiplexing'?",
@@ -2243,7 +2234,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Multiplexing is a key feature of HTTP/2 that significantly improves web performance.'
     },
     {
-        id: 232,
+        id: 231,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'Kubernetes Operator'?",
@@ -2253,7 +2244,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Operators encode human operational knowledge into software to automate the lifecycle of complex stateful applications.'
     },
     {
-        id: 233,
+        id: 232,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'currying' in functional programming?",
@@ -2263,7 +2254,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Currying allows for easier function composition and the creation of specialized, reusable functions.'
     },
     {
-        id: 234,
+        id: 233,
         testId: 10,
         difficulty: 'expert',
         question: "Which of the following best describes 'GraphQL'?",
@@ -2273,17 +2264,17 @@ export const questions: Record<string, Question[]> = {
         explanation: 'GraphQL helps solve the problems of over-fetching and under-fetching common with traditional REST APIs.'
     },
     {
-        id: 235,
+        id: 234,
         testId: 10,
         difficulty: 'expert',
         question: "What does the `box-shadow` CSS property do?",
         type: 'mcq',
         options: ['It changes the shape of an element', 'It adds shadow effects around an element\'s frame', 'It adds a shadow to the text inside an element', 'It controls the element\'s stacking order'],
-        answer: 'It adds shadow effects around an element\'s frame',
+        answer: 'It adds shadow effects around an element\\\'s frame',
         explanation: '`box-shadow` is used to create depth and dimension in a layout, accepting values for offset, blur, spread, and color.'
     },
     {
-        id: 236,
+        id: 235,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'memoization'?",
@@ -2293,7 +2284,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'React\'s `useMemo` and `useCallback` hooks are forms of memoization.'
     },
     {
-        id: 237,
+        id: 236,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Server-Sent Events' (SSE)?",
@@ -2303,7 +2294,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'SSE is simpler than WebSockets and is ideal for scenarios where the client only needs to receive data from the server.'
     },
     {
-        id: 238,
+        id: 237,
         testId: 10,
         difficulty: 'expert',
         question: "In CSS, what is the 'BFC' (Block Formatting Context)?",
@@ -2313,7 +2304,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Creating a new BFC (e.g., with `display: flow-root`) is a way to solve layout issues like collapsing margins or containing floats.'
     },
     {
-        id: 239,
+        id: 238,
         testId: 10,
         difficulty: 'expert',
         question: "Which of these is a primary goal of the 'SOLID' principles?",
@@ -2323,7 +2314,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'SOLID principles guide developers in creating robust and scalable object-oriented designs.'
     },
     {
-        id: 240,
+        id: 239,
         testId: 10,
         difficulty: 'expert',
         question: "What is the primary difference between `git merge` and `git rebase`?",
@@ -2333,7 +2324,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Rebasing results in a cleaner, linear history, but should not be used on public branches that others are working on.'
     },
     {
-        id: 241,
+        id: 240,
         testId: 10,
         difficulty: 'expert',
         question: "What does the 'L' in the SOLID principles stand for?",
@@ -2343,7 +2334,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.'
     },
     {
-        id: 242,
+        id: 241,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'sharding' in a database context?",
@@ -2353,7 +2344,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Sharding is a common technique for scaling out databases to handle massive amounts of data and traffic.'
     },
     {
-        id: 243,
+        id: 242,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'mTLS' (Mutual TLS)?",
@@ -2363,7 +2354,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'mTLS is crucial for zero-trust networks and securing service-to-service communication.'
     },
     {
-        id: 244,
+        id: 243,
         testId: 10,
         difficulty: 'expert',
         question: "In React, what problem does `React.memo` solve?",
@@ -2373,17 +2364,17 @@ export const questions: Record<string, Question[]> = {
         explanation: 'It is a higher-order component that performs a shallow comparison of props to optimize performance.'
     },
     {
-        id: 245,
+        id: 244,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'n+1' query problem?",
         type: 'mcq',
-        options: ['A security vulnerability', 'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries for related data', 'A mathematical paradox', 'An error that occurs when `n` is equal to -1'],
-        answer: 'A performance issue where an application makes one initial query to retrieve a list of items, and then makes \'n\' additional queries for related data',
+        options: ['A security vulnerability', "A performance issue where an application makes one initial query to retrieve a list of items, and then makes 'n' additional queries to retrieve related data for each item", 'A mathematical paradox', 'An error that occurs when `n` is equal to -1'],
+        answer: "A performance issue where an application makes one initial query to retrieve a list of items, and then makes 'n' additional queries to retrieve related data for each item",
         explanation: 'This is a common performance bottleneck that can usually be solved by \'eager loading\' the related data in the initial query.'
     },
     {
-        id: 246,
+        id: 245,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'two-phase commit' (2PC)?",
@@ -2393,7 +2384,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'While it guarantees atomicity, 2PC can be slow and is not fault-tolerant if the coordinator fails.'
     },
     {
-        id: 247,
+        id: 246,
         testId: 10,
         difficulty: 'expert',
         question: "What is the purpose of HTTP Strict Transport Security (HSTS)?",
@@ -2403,7 +2394,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This helps prevent man-in-the-middle attacks, such as protocol downgrade attacks and cookie hijacking.'
     },
     {
-        id: 248,
+        id: 247,
         testId: 10,
         difficulty: 'expert',
         question: "What problem does a 'service mesh' like Istio or Linkerd solve?",
@@ -2413,7 +2404,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'A service mesh abstracts the complexity of network communication (security, traffic management, observability) away from the application code itself.'
     },
     {
-        id: 249,
+        id: 248,
         testId: 10,
         difficulty: 'expert',
         question: "What is a 'vector clock'?",
@@ -2423,17 +2414,17 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Vector clocks are a mechanism for detecting causality violations and resolving conflicts in eventually consistent systems.'
     },
     {
-        id: 250,
+        id: 249,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'OAuth 2.0'?",
         type: 'mcq',
         options: ['An authentication protocol', 'An authorization framework that enables a third-party application to obtain limited access to a user\'s resources without exposing their credentials', 'A type of encryption', 'A session management library'],
-        answer: 'An authorization framework that enables a third-party application to obtain limited access to a user\'s resources without exposing their credentials',
+        answer: 'An authorization framework that enables a third-party application to obtain limited access to a user\\\'s resources without exposing their credentials',
         explanation: 'OAuth 2.0 is the industry standard for delegated authorization.'
     },
     {
-        id: 251,
+        id: 250,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'Test-Driven Development' (TDD)?",
@@ -2443,7 +2434,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'TDD helps ensure high test coverage and leads to more robust, modular code.'
     },
     {
-        id: 252,
+        id: 251,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'backpressure' in reactive streaming systems?",
@@ -2453,7 +2444,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This prevents buffer overflows when the rate of production exceeds the rate of consumption.'
     },
     {
-        id: 253,
+        id: 252,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'Raft' consensus algorithm?",
@@ -2463,7 +2454,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'Raft works by electing a leader which manages log replication to follower nodes, ensuring strong consistency.'
     },
     {
-        id: 254,
+        id: 253,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'CQRS' (Command Query Responsibility Segregation)?",
@@ -2473,7 +2464,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'CQRS allows for independent optimization of the read and write sides of an application.'
     },
     {
-        id: 255,
+        id: 254,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'Liskov Substitution Principle'?",
@@ -2483,106 +2474,7 @@ export const questions: Record<string, Question[]> = {
         explanation: 'This is the "L" in the SOLID principles of object-oriented design.'
     },
     {
-        id: 256,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain the difference between optimistic and pessimistic locking in databases.",
-        type: 'subjective',
-        answer: "Pessimistic locking assumes conflicts are frequent and locks a resource before a transaction begins working with it. Optimistic locking assumes conflicts are rare. It does not lock resources, but before committing, it checks if the data has been modified. If a conflict is found, the transaction is rolled back.",
-        explanation: "Pessimistic locking is 'ask for permission,' while optimistic locking is 'ask for forgiveness.'"
-    },
-    {
-        id: 257,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'Chaos Engineering' and what is its purpose?",
-        type: 'subjective',
-        answer: "Chaos Engineering is the discipline of experimenting on a distributed system to build confidence in its capability to withstand turbulent conditions. It involves deliberately injecting controlled failures (like terminating servers or adding latency) to identify weaknesses and improve system resilience before they cause real outages.",
-        explanation: "The goal is to find failures before they find you. Netflix's 'Chaos Monkey' is a famous example."
-    },
-    {
-        id: 258,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Describe the 'Saga' pattern for distributed transactions.",
-        type: 'subjective',
-        answer: "The Saga pattern manages data consistency across microservices without using traditional distributed transactions. A saga is a sequence of local transactions where each one updates a single service and publishes an event to trigger the next. If a local transaction fails, the saga executes compensating transactions to undo the changes.",
-        explanation: "It's an event-driven approach to achieving transactional semantics in a distributed environment."
-    },
-    {
-        id: 259,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is a 'Log-Structured Merge-Tree' (LSM-Tree)?",
-        type: 'subjective',
-        answer: "An LSM-Tree is a data structure optimized for write-heavy workloads. It appends writes to an in-memory table (memtable). When full, the memtable is flushed to disk as a sorted, immutable file (SSTable). SSTables are periodically merged (compacted) in the background. This avoids slow, random disk writes.",
-        explanation: "This design favors fast write performance at the expense of more complex read operations."
-    },
-    {
-        id: 260,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'Domain-Driven Design' (DDD) and what is a 'ubiquitous language'?",
-        type: 'subjective',
-        answer: "DDD is an approach to software development that centers on creating a rich model of the core business domain. A key concept is the 'ubiquitous language,' a shared language developed by the team to talk about the domain, which is used in all communication and in the code itself.",
-        explanation: "DDD helps to manage complexity in large, enterprise systems."
-    },
-    {
-        id: 261,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'end-to-end encryption' (E2EE)?",
-        type: 'subjective',
-        answer: "E2EE is a communication system where only the communicating users can read the messages. It prevents potential eavesdroppers, including the service provider, from accessing the cryptographic keys needed to decrypt the conversation. The server facilitates the connection but cannot read the content.",
-        explanation: "Messaging apps like Signal and WhatsApp use E2EE."
-    },
-    {
-        id: 262,
-        testId: 10,
-        difficulty: 'expert',
-        question: "Explain 'Consistent Hashing' and its primary benefit.",
-        type: 'subjective',
-        answer: "Consistent hashing is a hashing technique where, when a hash table is resized (e.g., a server is added or removed), only a small number of keys need to be remapped. This prevents a massive, system-wide reshuffling of data, making the system much more scalable and stable.",
-        explanation: "It's essential for distributed caches and databases like DynamoDB."
-    },
-    {
-        id: 263,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is a 'thundering herd' problem and how can it be mitigated?",
-        type: 'subjective',
-        answer: "This occurs when a large number of processes or threads waiting for the same event are awakened, but only one can handle it. This causes a massive spike in contention and context switching, degrading performance. It can be mitigated by having only one process wait and then wake up the others.",
-        explanation: "This is a classic problem in high-concurrency systems."
-    },
-    {
-        id: 264,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is the 'publish-subscribe' (pub/sub) messaging pattern?",
-        type: 'subjective',
-        answer: "Pub/sub is a messaging pattern where senders (publishers) do not send messages directly to specific receivers (subscribers). Instead, they publish messages to topics. Subscribers express interest in topics and receive messages published to them. This decouples the publisher and subscriber.",
-        explanation: "Systems like Kafka and RabbitMQ are built on this pattern."
-    },
-    {
-        id: 265,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What is 'Test-Driven Development' (TDD)?",
-        type: 'subjective',
-        answer: "TDD is a development process following a short cycle: 1) Write a failing automated test (Red). 2) Write the minimum code to pass the test (Green). 3) Refactor the code to improve design while ensuring tests still pass (Refactor). This ensures high test coverage and robust code.",
-        explanation: "The motto is 'Red, Green, Refactor'."
-    },
-    {
-        id: 266,
-        testId: 10,
-        difficulty: 'expert',
-        question: "What are 'serverless' functions and what are their trade-offs?",
-        type: 'subjective',
-        answer: "Serverless functions (e.g., AWS Lambda) are a cloud model where you write and deploy code without managing any server infrastructure. Benefits are auto-scaling and pay-per-use. Trade-offs include potential vendor lock-in, statelessness, and 'cold start' latency.",
-        explanation: "Serverless is ideal for event-driven, short-lived tasks."
-    },
-    {
-        id: 267,
+        id: 255,
         testId: 10,
         difficulty: 'expert',
         question: "How does 'blue-green deployment' work?",
@@ -2591,7 +2483,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It requires having double the infrastructure, which can be a cost consideration."
     },
     {
-        id: 268,
+        id: 256,
         testId: 10,
         difficulty: 'expert',
         question: "Explain the difference between leader-based and leaderless database replication.",
@@ -2600,7 +2492,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Leader-based is simpler (e.g., PostgreSQL). Leaderless is more available (e.g., Cassandra)."
     },
     {
-        id: 269,
+        id: 257,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'backpressure' in reactive streaming systems?",
@@ -2609,7 +2501,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "It's a crucial feature for building resilient, asynchronous data pipelines."
     },
     {
-        id: 270,
+        id: 258,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'Raft' consensus algorithm?",
@@ -2618,7 +2510,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Raft is designed to be more understandable than Paxos and is used in systems like etcd and Consul."
     },
     {
-        id: 271,
+        id: 259,
         testId: 10,
         difficulty: 'expert',
         question: "What is 'CQRS' (Command Query Responsibility Segregation)?",
@@ -2627,7 +2519,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "CQRS is often used with Event Sourcing to build highly scalable systems."
     },
     {
-        id: 272,
+        id: 260,
         testId: 10,
         difficulty: 'expert',
         question: "Explain what a 'service mesh' is and why it's useful.",
@@ -2636,7 +2528,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "Istio and Linkerd are popular service mesh implementations."
     },
     {
-        id: 273,
+        id: 261,
         testId: 10,
         difficulty: 'expert',
         question: "How do JavaScript `async/await` and Promises relate to the event loop?",
@@ -2645,7 +2537,7 @@ export const questions: Record<string, Question[]> = {
         explanation: "They provide a synchronous-looking syntax for code that is fundamentally asynchronous and non-blocking."
     },
     {
-        id: 274,
+        id: 262,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'Liskov Substitution Principle' and why is it important?",
@@ -2654,13 +2546,112 @@ export const questions: Record<string, Question[]> = {
         explanation: "This is the 'L' in the SOLID principles of object-oriented design."
     },
     {
-        id: 275,
+        id: 263,
         testId: 10,
         difficulty: 'expert',
         question: "What is the 'Dependency Inversion Principle'?",
         type: 'subjective',
         answer: "The Dependency Inversion Principle states that high-level modules should not depend on low-level modules; both should depend on abstractions. Also, abstractions should not depend on details; details should depend on abstractions. This decouples modules and makes the system more flexible and easier to change.",
         explanation: "This is the 'D' in the SOLID principles and is key to building loosely coupled systems."
+    },
+    {
+        id: 264,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is 'Infrastructure as Code' (IaC)?",
+        type: 'subjective',
+        answer: "IaC is the practice of managing and provisioning infrastructure (networks, virtual machines, etc.) through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools. This allows for versioning, reuse, and automated deployment of infrastructure.",
+        explanation: "Tools like Terraform and CloudFormation are popular for implementing IaC."
+    },
+    {
+        id: 265,
+        testId: 10,
+        difficulty: 'expert',
+        question: "Explain the concept of 'concurrency' versus 'parallelism'.",
+        type: 'subjective',
+        answer: "Concurrency is about dealing with multiple tasks at once by switching between them. Parallelism is about doing multiple tasks at the same time, which requires multiple CPU cores. An application can be concurrent without being parallel, but not vice-versa.",
+        explanation: "Think of a chef (processor): concurrency is chopping vegetables while also watching a sauce. Parallelism is two chefs working on two different dishes."
+    },
+    {
+        id: 266,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is a `prototype` in JavaScript and how does it relate to inheritance?",
+        type: 'subjective',
+        answer: "Every JavaScript object has a link to another object called its prototype. This forms a prototype chain. When you try to access a property, if it's not on the object, the engine looks at the prototype, then the prototype's prototype, and so on. This is how JavaScript implements inheritance.",
+        explanation: "This is the mechanism that allows objects to inherit properties and methods from other objects."
+    },
+    {
+        id: 267,
+        testId: 10,
+        difficulty: 'expert',
+        question: "How would you design a rate limiter for an API?",
+        type: 'subjective',
+        answer: "A common approach is the token bucket algorithm. Each user has a bucket with a certain capacity of tokens, and tokens are added at a fixed rate. Each API request consumes a token. If the bucket is empty, the request is rejected. This can be implemented using an in-memory store like Redis.",
+        explanation: "Rate limiting is crucial for API security, stability, and preventing abuse."
+    },
+    {
+        id: 268,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is the CAP theorem in distributed systems?",
+        type: 'subjective',
+        answer: "The CAP theorem states that a distributed data store cannot simultaneously provide more than two out of three guarantees: Consistency, Availability, and Partition Tolerance. Since network partitions are a given, the real trade-off is between consistency and availability (CP vs AP systems).",
+        explanation: "This is a fundamental principle in the design of any distributed system."
+    },
+    {
+        id: 269,
+        testId: 10,
+        difficulty: 'expert',
+        question: "How does HTTPS work? Explain the TLS handshake.",
+        type: 'subjective',
+        answer: "HTTPS encrypts HTTP traffic using TLS. The TLS handshake involves: 1) Client sends a 'hello' with supported ciphers. 2) Server responds with its SSL certificate. 3) Client verifies the certificate. 4) Client generates a session key, encrypts it with the server's public key, and sends it. All subsequent communication is encrypted with this shared session key.",
+        explanation: "This process establishes a secure, encrypted channel between the client and server."
+    },
+    {
+        id: 270,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is the difference between a process and a thread?",
+        type: 'subjective',
+        answer: "A process is an instance of a program with its own isolated memory space. A thread is the smallest unit of execution within a process. A single process can have multiple threads, which share the same memory space. Inter-thread communication is fast, but requires synchronization.",
+        explanation: "This is a fundamental concept in operating systems and concurrent programming."
+    },
+    {
+        id: 271,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is 'observability' and what are its three pillars?",
+        type: 'subjective',
+        answer: "Observability is the ability to measure a system's internal state by examining its external outputs. The three pillars are: 1) Logs (detailed, timestamped records of events), 2) Metrics (aggregated numerical data over time), and 3) Traces (a representation of a single request as it flows through a distributed system).",
+        explanation: "Observability is crucial for debugging and understanding the performance of modern, complex systems."
+    },
+    {
+        id: 272,
+        testId: 10,
+        difficulty: 'expert',
+        question: "What is 'Infrastructure as Code' (IaC) and what are its benefits?",
+        type: 'subjective',
+        answer: "IaC is the practice of managing and provisioning infrastructure through machine-readable definition files, rather than manual configuration. Tools like Terraform are used. Benefits include version control, automated testing, and creating repeatable environments, which reduces configuration drift and human error.",
+        explanation: "IaC brings the discipline of software development to infrastructure management."
+    },
+    {
+        id: 273,
+        testId: 10,
+        difficulty: 'expert',
+        question: "How does `git` work on a conceptual level?",
+        type: 'subjective',
+        answer: "Git is a distributed version control system that thinks of its data as a series of snapshots of a miniature filesystem. Every time you commit, Git takes a picture of what all your files look like at that moment and stores a reference to that snapshot. It uses a directed acyclic graph (DAG) of commit objects to track the history of these snapshots.",
+        explanation: "This snapshot-based architecture is what makes Git fast and powerful."
+    },
+    {
+        id: 274,
+        testId: 10,
+        difficulty: 'expert',
+        question: "Explain the concept of 'idempotency' in API design.",
+        type: 'subjective',
+        answer: "An idempotent operation is one that has the same effect whether it is performed once or multiple times. In APIs, this means making the same request multiple times produces the same result as a single request. HTTP methods like GET, PUT, and DELETE are idempotent. This is crucial for building reliable systems where requests might be retried due to network issues.",
+        explanation: "POST is typically not idempotent, as calling it multiple times will create multiple resources."
     }
   ],
   backend: [],
@@ -2677,5 +2668,3 @@ export const questions: Record<string, Question[]> = {
   'mobile-development': [],
   cybersecurity: [],
 };
-
-    
