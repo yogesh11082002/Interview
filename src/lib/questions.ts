@@ -2650,7 +2650,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: "Explain 'Consistent Hashing' and its benefits for distributed systems.",
         type: 'subjective',
-        answer: "Consistent hashing is a special kind of hashing where, when a hash table is resized (e.g., a server is added or removed from a cluster), only a very small number of keys need to be remapped on average. Instead of a standard modulo operation, keys are mapped to a circular hash space. This minimizes data reshuffling and makes the system much more stable and scalable, which is essential for distributed caches, load balancers, and databases like DynamoDB and Cassandra.",
+        answer: "Consistent hashing is a special kind of hashing where, when a hash table is resized (e.g., a server is added or removed from a cluster), only a very small number of keys need to be remapped on average. Instead of a standard modulo operation, keys are mapped to a circular hash space, and each server is responsible for a range on that circle. This minimizes data reshuffling and makes the system much more stable and scalable, which is essential for distributed caches, load balancers, and databases like DynamoDB and Cassandra.",
         explanation: "It's a key algorithm for building scalable, distributed systems."
     }
   ],
@@ -3985,7 +3985,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'hard',
         question: 'What is "two-phase commit" (2PC)?',
         type: 'subjective',
-        answer: '2PC is a distributed algorithm that coordinates all the processes that participate in a distributed atomic transaction on whether to commit or abort (roll back) the transaction. It involves a "prepare" phase where all participants agree to commit, and a "commit" phase where they all apply the change. It guarantees atomicity but can be slow and is not resilient to coordinator failure.',
+        answer: '2PC is a distributed algorithm that coordinates all the processes that participate in a distributed atomic transaction on whether to commit or abort. It involves a "prepare" phase where all participants agree to commit, and a "commit" phase where they all apply the change. It guarantees atomicity but can be slow and is not resilient to coordinator failure.',
         explanation: 'It is a classic but often criticized algorithm for distributed transactions.'
     },
     {
@@ -4388,7 +4388,7 @@ export const questions: Record<string, Question[]> = {
         difficulty: 'expert',
         question: 'What is a "race condition"?',
         type: 'subjective',
-        answer: 'A race condition is an error that occurs when the behavior of a system depends on the unpredictable sequence or timing of other events. It commonly happens in concurrent systems when multiple threads or processes access shared data, and the final result depends on the order in which they are processed. It can be prevented using synchronization mechanisms like locks or mutexes.',
+        answer: 'A race condition is an error that occurs when the behavior of a system depends on the unpredictable sequence of concurrent events. It happens when multiple threads or processes access shared data, and the final result depends on the order in which they are processed. It can be prevented with synchronization mechanisms like locks.',
         explanation: 'These are notoriously difficult bugs to find and reproduce.'
     },
     // Test 9: 45 Questions (27 MCQ, 18 Subjective)
@@ -5306,7 +5306,154 @@ export const questions: Record<string, Question[]> = {
         explanation: 'It is a classic but often criticized algorithm for distributed transactions.'
     }
   ],
-  'full-stack': [],
+  'full-stack': [
+    // Test 1: 5 Questions (3 MCQ, 2 Subjective)
+    {
+        id: 550,
+        testId: 1,
+        difficulty: 'easy',
+        question: 'What does "full-stack" development mean?',
+        type: 'mcq',
+        options: ['Developing only the frontend', 'Developing only the backend', 'Developing both the frontend (client-side) and backend (server-side) of an application', 'A specific programming language'],
+        answer: 'Developing both the frontend (client-side) and backend (server-side) of an application',
+        explanation: 'A full-stack developer has skills to work on the entire technology stack, from the user interface to the database.'
+    },
+    {
+        id: 551,
+        testId: 1,
+        difficulty: 'easy',
+        question: 'Which of these is a common stack for full-stack development?',
+        type: 'mcq',
+        options: ['HTML, CSS, Photoshop', 'MERN (MongoDB, Express, React, Node.js)', 'Python and TensorFlow', 'Swift and Xcode'],
+        answer: 'MERN (MongoDB, Express, React, Node.js)',
+        explanation: 'MERN is a popular JavaScript-based stack covering the frontend, backend, and database.'
+    },
+    {
+        id: 552,
+        testId: 1,
+        difficulty: 'easy',
+        question: 'In a full-stack application, how does the frontend typically communicate with the backend?',
+        type: 'mcq',
+        options: ['Through direct memory access', 'By reading the server\'s file system', 'By making HTTP requests to an API', 'Through CSS properties'],
+        answer: 'By making HTTP requests to an API',
+        explanation: 'The frontend (client) makes API calls (e.g., GET, POST) to backend endpoints to fetch or send data.'
+    },
+    {
+        id: 553,
+        testId: 1,
+        difficulty: 'easy',
+        question: 'What is a REST API?',
+        type: 'subjective',
+        answer: 'A REST API (Representational State Transfer Application Programming Interface) is an architectural style for designing networked applications. It uses standard HTTP methods (like GET, POST, PUT, DELETE) to perform operations on resources, which are identified by URLs.',
+        explanation: 'It is the most common way for frontends and backends to communicate in modern web applications.'
+    },
+    {
+        id: 554,
+        testId: 1,
+        difficulty: 'easy',
+        question: 'What is the role of a database in a full-stack application?',
+        type: 'subjective',
+        answer: 'The database is responsible for persistently storing, organizing, and retrieving the application\'s data. The backend server queries the database to get data to send to the frontend, or to store new data received from the frontend.',
+        explanation: 'Without a database, an application cannot permanently store information like user accounts or posts.'
+    },
+    // Test 2: 10 Questions
+    {
+        id: 555,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'In the MERN stack, what is the role of Node.js?',
+        type: 'mcq',
+        options: ['The frontend framework', 'The database', 'The backend runtime environment', 'The styling language'],
+        answer: 'The backend runtime environment',
+        explanation: 'Node.js allows JavaScript to be run on the server, and Express.js is a framework built on top of it to create the backend API.'
+    },
+    {
+        id: 556,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'What is the purpose of the `fetch` API in frontend JavaScript?',
+        type: 'mcq',
+        options: ['To style components', 'To make HTTP requests to a backend API', 'To manage application state', 'To define HTML structure'],
+        answer: 'To make HTTP requests to a backend API',
+        explanation: 'The `fetch` API is the modern, built-in way for frontend code to communicate with a server.'
+    },
+    {
+        id: 557,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'What does "deployment" mean in a full-stack context?',
+        type: 'mcq',
+        options: ['Designing the application', 'Writing the code', 'The process of making the application available for use on a server', 'Debugging the code'],
+        answer: 'The process of making the application available for use on a server',
+        explanation: 'Deployment involves getting the frontend and backend code onto a hosting platform where users can access it.'
+    },
+    {
+        id: 558,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'Which part of a web application is responsible for user authentication?',
+        type: 'mcq',
+        options: ['Frontend', 'Backend', 'CSS', 'HTML'],
+        answer: 'Backend',
+        explanation: 'The backend is responsible for securely verifying user credentials (like username and password) against a database.'
+    },
+    {
+        id: 559,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'What format is most commonly used for data exchange in modern APIs?',
+        type: 'mcq',
+        options: ['XML', 'HTML', 'CSV', 'JSON'],
+        answer: 'JSON',
+        explanation: 'JSON (JavaScript Object Notation) is a lightweight, human-readable format that is easy for machines to parse and generate.'
+    },
+    {
+        id: 560,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'In the MERN stack, what is Express.js?',
+        type: 'mcq',
+        options: ['A database', 'A frontend library', 'A backend web application framework for Node.js', 'A testing tool'],
+        answer: 'A backend web application framework for Node.js',
+        explanation: 'Express provides a robust set of features for building web and mobile applications, including routing and middleware.'
+    },
+    {
+        id: 561,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'Briefly explain the client-server model.',
+        type: 'subjective',
+        answer: 'The client-server model is a distributed application structure that partitions tasks between providers of a resource or service, called servers, and service requesters, called clients. In a web application, the client is typically the user\'s browser, and the server is where the backend code and database reside.',
+        explanation: 'This is the fundamental architecture of the web.'
+    },
+    {
+        id: 562,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'What is the difference between the frontend and the backend?',
+        type: 'subjective',
+        answer: 'The frontend is the part of the application that the user interacts with directly (the client-side), typically in a web browser. The backend is the server-side part of the application that handles business logic, database interactions, and authentication.',
+        explanation: 'The frontend is what you see; the backend is what makes it work.'
+    },
+    {
+        id: 563,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'Why is it important to validate user input on the backend, even if it\'s already validated on the frontend?',
+        type: 'subjective',
+        answer: 'Frontend validation is a good user experience, but it can be easily bypassed by a malicious user. Backend validation is crucial for security and data integrity, as it is the final authority on what data is allowed into the system.',
+        explanation: 'Never trust data coming from the client.'
+    },
+    {
+        id: 564,
+        testId: 2,
+        difficulty: 'easy',
+        question: 'What is "CORS" (Cross-Origin Resource Sharing)?',
+        type: 'subjective',
+        answer: 'CORS is a browser security feature that restricts web pages from making requests to a different domain than the one that served the page. A backend server must be configured with specific CORS headers to allow a frontend from a different origin to access its API.',
+        explanation: 'This is a common issue full-stack developers encounter when the frontend and backend are hosted on different domains.'
+    }
+  ],
   'next-js': [],
   java: [],
   python: [],
